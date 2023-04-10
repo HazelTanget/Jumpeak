@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Jumpeak
+
+  Created by Денис Большачков on 10.04.2023.
+  
+*/
+
+"helloText" = "Привет!\nЭто Jumpeak — место, где дейтятся студенты и работодатели";
+"doYouUseApp" = "Уже пользовались приложением?";
+"enter" = "Войти";
+"createAccount" = "Создать аккаунт";
