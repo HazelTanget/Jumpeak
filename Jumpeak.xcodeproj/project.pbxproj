@@ -21,11 +21,20 @@
 		9EDD03DA29E40E6800076E0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03D929E40E6700076E0B /* GoogleService-Info.plist */; };
 		9EDD03DC29E40E8F00076E0B /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03DB29E40E8F00076E0B /* XCAssets+Generated.swift */; };
 		9EDD03DF29E40F0A00076E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03E129E40F0A00076E0B /* Localizable.strings */; };
-		9EDD03E529E40FEC00076E0B /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03E429E40FEC00076E0B /* Text+Extension.swift */; };
-		9EDD03E729E410FA00076E0B /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03E629E410FA00076E0B /* LocalizedKeys.swift */; };
+		9EDD03E529E40FEC00076E0B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03E429E40FEC00076E0B /* View+Extension.swift */; };
 		9EDD03E929E411CB00076E0B /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03E829E411CB00076E0B /* Strings+Generated.swift */; };
 		9EDD03EC29E4192900076E0B /* AccentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03EB29E4192900076E0B /* AccentButton.swift */; };
 		9EDD03EF29E41C5F00076E0B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03EE29E41C5F00076E0B /* LoginView.swift */; };
+		9EDD03F129E424B200076E0B /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03F029E424B200076E0B /* Image+Extensions.swift */; };
+		9EDD03F329E4251400076E0B /* BackBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03F229E4251400076E0B /* BackBarButton.swift */; };
+		9EDD03F529E426CB00076E0B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03F429E426CB00076E0B /* CustomTextField.swift */; };
+		9EDD03F729E432BF00076E0B /* UIApplication+Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03F629E432BF00076E0B /* UIApplication+Extenstions.swift */; };
+		9EDD03F929E438BD00076E0B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03F829E438BD00076E0B /* LoginViewModel.swift */; };
+		9EDD03FB29E440B900076E0B /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03FA29E440B900076E0B /* LoginCredentials.swift */; };
+		9EDD03FD29E4411700076E0B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03FC29E4411700076E0B /* AuthService.swift */; };
+		9EDD03FF29E4413800076E0B /* FirebaseCustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */; };
+		9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040229E4440700076E0B /* ServiceAssembly.swift */; };
+		9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,11 +56,20 @@
 		9EDD03DB29E40E8F00076E0B /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		9EDD03E029E40F0A00076E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EDD03E229E40F3000076E0B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9EDD03E429E40FEC00076E0B /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
-		9EDD03E629E410FA00076E0B /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
+		9EDD03E429E40FEC00076E0B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		9EDD03E829E411CB00076E0B /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		9EDD03EB29E4192900076E0B /* AccentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentButton.swift; sourceTree = "<group>"; };
 		9EDD03EE29E41C5F00076E0B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9EDD03F029E424B200076E0B /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
+		9EDD03F229E4251400076E0B /* BackBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButton.swift; sourceTree = "<group>"; };
+		9EDD03F429E426CB00076E0B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		9EDD03F629E432BF00076E0B /* UIApplication+Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extenstions.swift"; sourceTree = "<group>"; };
+		9EDD03F829E438BD00076E0B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9EDD03FA29E440B900076E0B /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		9EDD03FC29E4411700076E0B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCustomError.swift; sourceTree = "<group>"; };
+		9EDD040229E4440700076E0B /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +140,6 @@
 				9EDD03B629E4085C00076E0B /* Assets.xcassets */,
 				9EDD03C129E408D600076E0B /* Colors.xcassets */,
 				9EDD03E129E40F0A00076E0B /* Localizable.strings */,
-				9EDD03E629E410FA00076E0B /* LocalizedKeys.swift */,
 			);
 			path = Recources;
 			sourceTree = "<group>";
@@ -138,6 +155,7 @@
 		9EDD03C429E4097600076E0B /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9EDD040129E443FE00076E0B /* Assembly */,
 				9EDD03CE29E40B8700076E0B /* Model */,
 				9EDD03CB29E40B6E00076E0B /* Services */,
 			);
@@ -147,10 +165,11 @@
 		9EDD03C529E4097E00076E0B /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				9EDD03ED29E41C4E00076E0B /* Login */,
+				9EDD040029E4426100076E0B /* Assembly */,
 				9EDD03EA29E4191D00076E0B /* Common */,
 				9EDD03E329E40FDC00076E0B /* Extensions */,
 				9EDD03D529E40C6B00076E0B /* Start */,
+				9EDD03ED29E41C4E00076E0B /* Login */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -159,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9EDD03CC29E40B7D00076E0B /* SessionService.swift */,
+				9EDD03FC29E4411700076E0B /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -169,6 +189,8 @@
 				9EDD03CF29E40B9E00076E0B /* SessionState.swift */,
 				9EDD03D129E40BC500076E0B /* FirebaseCollection.swift */,
 				9EDD03D329E40BE300076E0B /* User.swift */,
+				9EDD03FA29E440B900076E0B /* LoginCredentials.swift */,
+				9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,7 +215,9 @@
 		9EDD03E329E40FDC00076E0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9EDD03E429E40FEC00076E0B /* Text+Extension.swift */,
+				9EDD03E429E40FEC00076E0B /* View+Extension.swift */,
+				9EDD03F029E424B200076E0B /* Image+Extensions.swift */,
+				9EDD03F629E432BF00076E0B /* UIApplication+Extenstions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				9EDD03EB29E4192900076E0B /* AccentButton.swift */,
+				9EDD03F229E4251400076E0B /* BackBarButton.swift */,
+				9EDD03F429E426CB00076E0B /* CustomTextField.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -210,8 +236,25 @@
 			isa = PBXGroup;
 			children = (
 				9EDD03EE29E41C5F00076E0B /* LoginView.swift */,
+				9EDD03F829E438BD00076E0B /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		9EDD040029E4426100076E0B /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		9EDD040129E443FE00076E0B /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				9EDD040229E4440700076E0B /* ServiceAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,19 +394,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EDD03FB29E440B900076E0B /* LoginCredentials.swift in Sources */,
 				9EDD03D229E40BC500076E0B /* FirebaseCollection.swift in Sources */,
 				9EDD03CD29E40B7D00076E0B /* SessionService.swift in Sources */,
+				9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */,
+				9EDD03F329E4251400076E0B /* BackBarButton.swift in Sources */,
 				9EDD03D429E40BE300076E0B /* User.swift in Sources */,
 				9EDD03EC29E4192900076E0B /* AccentButton.swift in Sources */,
+				9EDD03FD29E4411700076E0B /* AuthService.swift in Sources */,
 				9EDD03DC29E40E8F00076E0B /* XCAssets+Generated.swift in Sources */,
-				9EDD03E529E40FEC00076E0B /* Text+Extension.swift in Sources */,
+				9EDD03E529E40FEC00076E0B /* View+Extension.swift in Sources */,
+				9EDD03F129E424B200076E0B /* Image+Extensions.swift in Sources */,
 				9EDD03C729E40ACD00076E0B /* ApplicationAssembly.swift in Sources */,
 				9EDD03D029E40B9E00076E0B /* SessionState.swift in Sources */,
+				9EDD03F929E438BD00076E0B /* LoginViewModel.swift in Sources */,
 				9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */,
+				9EDD03FF29E4413800076E0B /* FirebaseCustomError.swift in Sources */,
+				9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */,
+				9EDD03F729E432BF00076E0B /* UIApplication+Extenstions.swift in Sources */,
 				9EDD03D729E40CCB00076E0B /* StartView.swift in Sources */,
 				9EDD03EF29E41C5F00076E0B /* LoginView.swift in Sources */,
-				9EDD03E729E410FA00076E0B /* LocalizedKeys.swift in Sources */,
 				9EDD03E929E411CB00076E0B /* Strings+Generated.swift in Sources */,
+				9EDD03F529E426CB00076E0B /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

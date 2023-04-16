@@ -10,10 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
+  /// Не получается зайти?
+  public static let cantGetIn = Strings.tr("Localizable", "cantGetIn", fallback: "Не получается зайти?")
   /// Создать аккаунт
   public static let createAccount = Strings.tr("Localizable", "createAccount", fallback: "Создать аккаунт")
   /// Уже пользовались приложением?
   public static let doYouUseApp = Strings.tr("Localizable", "doYouUseApp", fallback: "Уже пользовались приложением?")
+  /// Элеткронная почта
+  public static let email = Strings.tr("Localizable", "email", fallback: "Элеткронная почта")
   /// Войти
   public static let enter = Strings.tr("Localizable", "enter", fallback: "Войти")
   /// Localizable.strings
@@ -21,6 +25,8 @@ public enum Strings {
   /// 
   ///   Created by Денис Большачков on 10.04.2023.
   public static let helloText = Strings.tr("Localizable", "helloText", fallback: "Привет!\nЭто Jumpeak — место, где дейтятся студенты и работодатели")
+  /// Пароль
+  public static let password = Strings.tr("Localizable", "password", fallback: "Пароль")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

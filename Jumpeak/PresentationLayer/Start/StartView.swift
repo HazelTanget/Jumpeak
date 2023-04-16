@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StartView: View {
+    @State private var selection: Int?
+    
     var body: some View {
         NavigationStack {
             VStack (alignment: .leading) {
@@ -23,16 +25,20 @@ struct StartView: View {
                 Spacer()
                 
                 HStack {
-                    AccentButton(text: Strings.enter,
-                                 foregroundColor: Asset.Colors.thirdFontColor.swiftUIColor,
-                                 backgroundColor: Asset.Colors.background.swiftUIColor.opacity(0.2)) {
-                        
-                    }
+                    NavigationLink (destination: LoginView().navigationBarBackButtonHidden(true), tag: 1, selection: $selection, label: {
+                        AccentButton(text: Strings.enter,
+                                     foregroundColor: Asset.Colors.thirdFontColor.swiftUIColor,
+                                     backgroundColor: Asset.Colors.background.swiftUIColor.opacity(0.2)) {
+                            selection = 1
+                        }
+                    })
 
-                    AccentButton(text: Strings.createAccount,
-                                 backgroundColor: Asset.Colors.background.swiftUIColor) {
-                        
-                    }
+                    NavigationLink (destination: LoginView(), tag: 2, selection: $selection, label: {
+                        AccentButton(text: Strings.createAccount,
+                                     backgroundColor: Asset.Colors.background.swiftUIColor) {
+                            
+                        }
+                    })
                 }
                 .padding(.horizontal, 8)
                 .padding(.bottom, 51)

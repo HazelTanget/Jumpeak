@@ -22,14 +22,13 @@ final class ApplicationAssemby {
 
     private class var modulesAssembly: [Assembly] {
         [
-//            RegistrationAssembly()
+            ViewModelAssembly()
         ]
     }
     
     private class var otherAssembly: [Assembly] {
         [
-//            ServiceAssembly(),
-//            HelperAssembly()
+            ServiceAssembly()
         ]
     }
 }
