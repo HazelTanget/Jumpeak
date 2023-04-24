@@ -24,5 +24,17 @@
 "strong" = "Strong";
 "passwordDontMatch" = "Passwords do not match";
 
+
+//stepsViews
+"welcomeToJumpeak" = "Welcome to the Jumpeak";
+"createResume" = "First you need to create\nyour resume card, which will\nbe seen by employers";
+"brokenOnSteps" = "We’ve broken it down into\nsteps, you can do some of them a little bit\nlater, but you have to do\nall of them";
+"letsStart" = "Let's start!";
+"choseYourJob" = "Choose which field you want to work in?";
+"choseOneOrMore" = "Choose an field. One or more";
+"enterNameArea" = "Enter name field";
+
+
+
 //errors
 "userDoesntExsist" = "Похоже, этой почты нет в нашей базе";

@@ -10,6 +10,8 @@
 		0ED2BDDA8B6D69DB4FC19882 /* Pods_Jumpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */; };
 		9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886E729EECE640010CE62 /* UnregistredUsers.swift */; };
 		9E5886EB29EED1240010CE62 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886EA29EED1240010CE62 /* DefaultState.swift */; };
+		9E7325DF29F6D56300D5D002 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325DE29F6D56300D5D002 /* InfoView.swift */; };
+		9E7325E129F6DDA800D5D002 /* LayoutTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325E029F6DDA800D5D002 /* LayoutTags.swift */; };
 		9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03B229E4085B00076E0B /* JumpeakApp.swift */; };
 		9EDD03B729E4085C00076E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03B629E4085C00076E0B /* Assets.xcassets */; };
 		9EDD03C229E408D600076E0B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03C129E408D600076E0B /* Colors.xcassets */; };
@@ -53,6 +55,8 @@
 		884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5886E729EECE640010CE62 /* UnregistredUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregistredUsers.swift; sourceTree = "<group>"; };
 		9E5886EA29EED1240010CE62 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
+		9E7325DE29F6D56300D5D002 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		9E7325E029F6DDA800D5D002 /* LayoutTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTags.swift; sourceTree = "<group>"; };
 		9EDD03AF29E4085B00076E0B /* Jumpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD03B229E4085B00076E0B /* JumpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpeakApp.swift; sourceTree = "<group>"; };
 		9EDD03B629E4085C00076E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +133,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9E7325D729F6D50E00D5D002 /* StepsUser */ = {
+			isa = PBXGroup;
+			children = (
+				9E7325DB29F6D53500D5D002 /* Common */,
+			);
+			path = StepsUser;
+			sourceTree = "<group>";
+		};
+		9E7325DB29F6D53500D5D002 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9E7325DE29F6D56300D5D002 /* InfoView.swift */,
+				9E7325E029F6DDA800D5D002 /* LayoutTags.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		9EDD03A629E4085A00076E0B = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +214,7 @@
 		9EDD03C529E4097E00076E0B /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9E7325D729F6D50E00D5D002 /* StepsUser */,
 				9E5886E929EED11C0010CE62 /* Models */,
 				9EF5BCCD29EC85E500742B53 /* Registration */,
 				9EDD040029E4426100076E0B /* Assembly */,
@@ -457,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EDD03FB29E440B900076E0B /* LoginCredentials.swift in Sources */,
+				9E7325DF29F6D56300D5D002 /* InfoView.swift in Sources */,
 				9EF5BCDA29ED4CAE00742B53 /* PasswordStatusView.swift in Sources */,
 				9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */,
 				9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */,
@@ -471,6 +494,7 @@
 				9EDD03FD29E4411700076E0B /* AuthService.swift in Sources */,
 				9EDD03DC29E40E8F00076E0B /* XCAssets+Generated.swift in Sources */,
 				9EDD03E529E40FEC00076E0B /* View+Extension.swift in Sources */,
+				9E7325E129F6DDA800D5D002 /* LayoutTags.swift in Sources */,
 				9EF5BCD629EC944600742B53 /* CodeFieldsView.swift in Sources */,
 				9EF5BCD429EC8C5A00742B53 /* RegistrationStepView.swift in Sources */,
 				9EF5BCEB29EDE46800742B53 /* TextField+Extensions.swift in Sources */,
