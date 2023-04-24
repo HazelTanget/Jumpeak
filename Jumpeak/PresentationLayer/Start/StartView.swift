@@ -33,10 +33,11 @@ struct StartView: View {
                         }
                     })
 
-                    NavigationLink (destination: LoginView(), tag: 2, selection: $selection, label: {
+                    NavigationLink (destination: RegistrationMainView().navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
                         AccentButton(text: Strings.createAccount,
+                                     foregroundColor: Asset.Colors.mainFontColor.swiftUIColor,
                                      backgroundColor: Asset.Colors.background.swiftUIColor) {
-                            
+                            selection = 2
                         }
                     })
                 }

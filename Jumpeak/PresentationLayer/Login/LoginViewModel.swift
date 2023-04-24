@@ -7,12 +7,6 @@
 
 import Combine
 
-enum DefaultState {
-    case na
-    case failed(error: Error)
-    case successful
-}
-
 final class LoginViewModel: ObservableObject {
     var authService: FirebaseAuthService!
     @Published var state = DefaultState.na

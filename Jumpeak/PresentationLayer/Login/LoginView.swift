@@ -17,16 +17,8 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            ZStack {
-                Circle()
-                    .fill(Asset.Colors.inputColor.swiftUIColor)
-                
-                Text("👮")
-                    .font(.system(size: 40))
-            }
-            .frame(width: 168, height: 168)
-            .padding(.top, 40)
-            .ignoresSafeArea(.keyboard)
+            CircleEmojiView(emoji: "👮")
+                .padding(.top, 40)
 
             inputFields
             

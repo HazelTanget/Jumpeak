@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0ED2BDDA8B6D69DB4FC19882 /* Pods_Jumpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */; };
+		9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886E729EECE640010CE62 /* UnregistredUsers.swift */; };
+		9E5886EB29EED1240010CE62 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886EA29EED1240010CE62 /* DefaultState.swift */; };
 		9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03B229E4085B00076E0B /* JumpeakApp.swift */; };
 		9EDD03B729E4085C00076E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03B629E4085C00076E0B /* Assets.xcassets */; };
 		9EDD03C229E408D600076E0B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03C129E408D600076E0B /* Colors.xcassets */; };
@@ -35,12 +37,22 @@
 		9EDD03FF29E4413800076E0B /* FirebaseCustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */; };
 		9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040229E4440700076E0B /* ServiceAssembly.swift */; };
 		9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */; };
+		9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */; };
+		9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD129EC86E700742B53 /* CircleEmojiView.swift */; };
+		9EF5BCD429EC8C5A00742B53 /* RegistrationStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD329EC8C5A00742B53 /* RegistrationStepView.swift */; };
+		9EF5BCD629EC944600742B53 /* CodeFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD529EC944600742B53 /* CodeFieldsView.swift */; };
+		9EF5BCD829ED49A800742B53 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD729ED49A800742B53 /* ErrorView.swift */; };
+		9EF5BCDA29ED4CAE00742B53 /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */; };
+		9EF5BCEB29EDE46800742B53 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCEA29EDE46800742B53 /* TextField+Extensions.swift */; };
+		9EF5BCEE29EDE59E00742B53 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCED29EDE59E00742B53 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		58BBB7BCFD507D70010F53BD /* Pods-Jumpeak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpeak.debug.xcconfig"; path = "Target Support Files/Pods-Jumpeak/Pods-Jumpeak.debug.xcconfig"; sourceTree = "<group>"; };
 		7F73D3A10375EF09B9DDCED0 /* Pods-Jumpeak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpeak.release.xcconfig"; path = "Target Support Files/Pods-Jumpeak/Pods-Jumpeak.release.xcconfig"; sourceTree = "<group>"; };
 		884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E5886E729EECE640010CE62 /* UnregistredUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregistredUsers.swift; sourceTree = "<group>"; };
+		9E5886EA29EED1240010CE62 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
 		9EDD03AF29E4085B00076E0B /* Jumpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD03B229E4085B00076E0B /* JumpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpeakApp.swift; sourceTree = "<group>"; };
 		9EDD03B629E4085C00076E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +82,14 @@
 		9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCustomError.swift; sourceTree = "<group>"; };
 		9EDD040229E4440700076E0B /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
+		9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationMainView.swift; sourceTree = "<group>"; };
+		9EF5BCD129EC86E700742B53 /* CircleEmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleEmojiView.swift; sourceTree = "<group>"; };
+		9EF5BCD329EC8C5A00742B53 /* RegistrationStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStepView.swift; sourceTree = "<group>"; };
+		9EF5BCD529EC944600742B53 /* CodeFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeFieldsView.swift; sourceTree = "<group>"; };
+		9EF5BCD729ED49A800742B53 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
+		9EF5BCEA29EDE46800742B53 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
+		9EF5BCED29EDE59E00742B53 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,14 @@
 				7F73D3A10375EF09B9DDCED0 /* Pods-Jumpeak.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E5886E929EED11C0010CE62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E5886EA29EED1240010CE62 /* DefaultState.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9EDD03A629E4085A00076E0B = {
@@ -165,6 +193,8 @@
 		9EDD03C529E4097E00076E0B /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9E5886E929EED11C0010CE62 /* Models */,
+				9EF5BCCD29EC85E500742B53 /* Registration */,
 				9EDD040029E4426100076E0B /* Assembly */,
 				9EDD03EA29E4191D00076E0B /* Common */,
 				9EDD03E329E40FDC00076E0B /* Extensions */,
@@ -191,6 +221,7 @@
 				9EDD03D329E40BE300076E0B /* User.swift */,
 				9EDD03FA29E440B900076E0B /* LoginCredentials.swift */,
 				9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */,
+				9E5886E729EECE640010CE62 /* UnregistredUsers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +249,7 @@
 				9EDD03E429E40FEC00076E0B /* View+Extension.swift */,
 				9EDD03F029E424B200076E0B /* Image+Extensions.swift */,
 				9EDD03F629E432BF00076E0B /* UIApplication+Extenstions.swift */,
+				9EF5BCEA29EDE46800742B53 /* TextField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +260,9 @@
 				9EDD03EB29E4192900076E0B /* AccentButton.swift */,
 				9EDD03F229E4251400076E0B /* BackBarButton.swift */,
 				9EDD03F429E426CB00076E0B /* CustomTextField.swift */,
+				9EF5BCD129EC86E700742B53 /* CircleEmojiView.swift */,
+				9EF5BCD729ED49A800742B53 /* ErrorView.swift */,
+				9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -255,6 +290,33 @@
 				9EDD040229E4440700076E0B /* ServiceAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		9EF5BCCD29EC85E500742B53 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5BCEC29EDE58F00742B53 /* ViewModel */,
+				9EF5BCCE29EC85FE00742B53 /* View */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		9EF5BCCE29EC85FE00742B53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */,
+				9EF5BCD329EC8C5A00742B53 /* RegistrationStepView.swift */,
+				9EF5BCD529EC944600742B53 /* CodeFieldsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9EF5BCEC29EDE58F00742B53 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5BCED29EDE59E00742B53 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,16 +457,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EDD03FB29E440B900076E0B /* LoginCredentials.swift in Sources */,
+				9EF5BCDA29ED4CAE00742B53 /* PasswordStatusView.swift in Sources */,
+				9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */,
+				9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */,
+				9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */,
 				9EDD03D229E40BC500076E0B /* FirebaseCollection.swift in Sources */,
 				9EDD03CD29E40B7D00076E0B /* SessionService.swift in Sources */,
 				9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */,
 				9EDD03F329E4251400076E0B /* BackBarButton.swift in Sources */,
+				9EF5BCD829ED49A800742B53 /* ErrorView.swift in Sources */,
 				9EDD03D429E40BE300076E0B /* User.swift in Sources */,
 				9EDD03EC29E4192900076E0B /* AccentButton.swift in Sources */,
 				9EDD03FD29E4411700076E0B /* AuthService.swift in Sources */,
 				9EDD03DC29E40E8F00076E0B /* XCAssets+Generated.swift in Sources */,
 				9EDD03E529E40FEC00076E0B /* View+Extension.swift in Sources */,
+				9EF5BCD629EC944600742B53 /* CodeFieldsView.swift in Sources */,
+				9EF5BCD429EC8C5A00742B53 /* RegistrationStepView.swift in Sources */,
+				9EF5BCEB29EDE46800742B53 /* TextField+Extensions.swift in Sources */,
 				9EDD03F129E424B200076E0B /* Image+Extensions.swift in Sources */,
+				9E5886EB29EED1240010CE62 /* DefaultState.swift in Sources */,
 				9EDD03C729E40ACD00076E0B /* ApplicationAssembly.swift in Sources */,
 				9EDD03D029E40B9E00076E0B /* SessionState.swift in Sources */,
 				9EDD03F929E438BD00076E0B /* LoginViewModel.swift in Sources */,
@@ -412,6 +483,7 @@
 				9EDD03FF29E4413800076E0B /* FirebaseCustomError.swift in Sources */,
 				9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */,
 				9EDD03F729E432BF00076E0B /* UIApplication+Extenstions.swift in Sources */,
+				9EF5BCEE29EDE59E00742B53 /* RegistrationViewModel.swift in Sources */,
 				9EDD03D729E40CCB00076E0B /* StartView.swift in Sources */,
 				9EDD03EF29E41C5F00076E0B /* LoginView.swift in Sources */,
 				9EDD03E929E411CB00076E0B /* Strings+Generated.swift in Sources */,

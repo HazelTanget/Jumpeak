@@ -8,4 +8,5 @@
 enum SessionState {
     case loggedIn
     case loggedOut
+    case loading
 }

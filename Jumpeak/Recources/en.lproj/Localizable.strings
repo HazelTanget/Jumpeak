@@ -6,10 +6,23 @@
   
 */
 
-"helloText" = "Привет!\nЭто Jumpeak — место, где дейтятся студенты и работодатели";
-"doYouUseApp" = "Уже пользовались приложением?";
-"enter" = "Войти";
-"createAccount" = "Создать аккаунт";
-"email" = "Элеткронная почта";
-"password" = "Пароль";
-"cantGetIn" = "Не получается зайти?";
+"helloText" = "Hi!\nThis is Jumpeak - the place where meet students and employers";
+"doYouUseApp" = "Have you used the app yet?";
+"enter" = "Sign in";
+"createAccount" = "Create account";
+"email" = "Email";
+"password" = "Password";
+"cantGetIn" = "Can't get in?";
+"createAccount" = "Create account";
+"enterEmailWithPassCode" = "Enter your confirmation code in your mail";
+"next" = "Next";
+"confirmAccount" = "Confirm account";
+"enterCode" = "Enter your confirmation code, we’ve sent it to you";
+"createStrongPass" = "The final step is to create a strong password";
+"imaginePassword" = "Imagine password";
+"weak" = "Weak";
+"strong" = "Strong";
+"passwordDontMatch" = "Passwords do not match";
+
+//errors
+"userDoesntExsist" = "Похоже, этой почты нет в нашей базе";

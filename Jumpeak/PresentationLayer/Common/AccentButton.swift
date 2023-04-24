@@ -14,7 +14,7 @@ struct AccentButton: View {
     var backgroundColor: Color
     var action: () -> ()
 
-    init(text: String, foregroundColor: Color = Asset.Colors.mainFontColor.swiftUIColor, backgroundColor: Color = Asset.Colors.accentColor.swiftUIColor, action: @escaping () -> Void) {
+    init(text: String, foregroundColor: Color = Asset.Colors.thirdFontColor.swiftUIColor, backgroundColor: Color = Asset.Colors.accentColor.swiftUIColor, action: @escaping () -> Void) {
         self.text = text
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor

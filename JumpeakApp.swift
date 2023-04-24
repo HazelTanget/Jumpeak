@@ -21,11 +21,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct WasteFutureApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//    @StateObject var sessionService: SessionService = ApplicationAssemby.defaultContainer.resolve(SessionService.self)!
+    @StateObject var sessionService: SessionService = ApplicationAssemby.defaultContainer.resolve(SessionService.self)!
 
     var body: some Scene {
         WindowGroup {
-            StartView()
+            switch sessionService.state {
+            case .loggedIn:
+                VStack {
+                    Text("This is main view")
+                }
+            case .loggedOut:
+                StartView()
+            case .loading:
+                VStack {
+                    Text("Здесь будет загрузка")
+                }
+            }
         }
     }
 }

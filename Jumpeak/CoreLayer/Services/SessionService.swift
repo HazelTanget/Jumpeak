@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 final class SessionService: ObservableObject {
     @Published var state: SessionState = .loggedOut
-    @Published var userDetails: User?
+    @Published var userDetails: UnregistredUsers?
     
     @Published var userID: String?
     
@@ -31,19 +31,24 @@ private extension SessionService {
         handler = Auth
             .auth()
             .addStateDidChangeListener({ [weak self] res, user in
-                guard let self = self else { return }
-                self.handleRefresh(userId: user?.uid)
+                guard let userId = user?.uid else {
+                    self?.state = .loggedOut
+                    return
+                }
+                
+                self?.state = .loggedIn
+//                self.handleRefresh(userId: user?.uid)
             })
     }
     
     func handleRefresh(userId: String?) {
-        Firestore.firestore().collection(FirebaseCollection.users.rawValue)
+        Firestore.firestore().collection(FirebaseCollection.unregistedUsers.rawValue)
             .document(userId ?? "")
             .getDocument(completion: { [weak self] snapshot, error in
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
-                    let user = try? snapshot?.data(as: User.self)
+                    let user = try? snapshot?.data(as: UnregistredUsers.self)
                     
                     DispatchQueue.main.async {
                         self?.userID = userId

@@ -10,13 +10,15 @@ import SwiftUI
 struct CustomTextField: View {
     var placeholder: String
     var isSecure: Bool = true
+    @Binding var fieldState: TextFieldState
     @Binding var text: String
-    @State private var isActive = false
+    @FocusState private var isActive: Bool
     @State private var showPassword = false
     
-    init(placeholder: String, text: Binding<String>, isSecure: Bool = false) {
+    init(placeholder: String, fieldState: Binding<TextFieldState> = .constant(.na), text: Binding<String>, isSecure: Bool = false) {
         self.isSecure = isSecure
         self.placeholder = placeholder
+        _fieldState = fieldState
         _text = text
     }
     
@@ -28,14 +30,20 @@ struct CustomTextField: View {
                         if showPassword {
                             TextField(placeholder, text: $text) { self.isActive = $0 }
                                 .mFont()
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                                .focused($isActive)
                         } else  {
                             SecureField(placeholder, text: $text)
                                 .mFont()
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                                .focused($isActive)
                         }
                     } else {
                         HStack {
-                            TextField(placeholder, text: $text) { self.isActive = $0 }
+                            TextField(placeholder, text: $text)
                                 .mFont()
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                                .focused($isActive)
                         }
                     }
                 }
@@ -54,6 +62,18 @@ struct CustomTextField: View {
                             }
                     }
                 }
+                .overlay {
+                    switch self.fieldState {
+                    case .error:
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(lineWidth: 2)
+                            .fill(Asset.Colors.errorColor.swiftUIColor)
+                    case .na:
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(lineWidth: 2)
+                            .fill(isActive ? Asset.Colors.accentColor.swiftUIColor : .clear)
+                    }
+                }
             }
         }
     }
@@ -63,4 +83,10 @@ struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
         CustomTextField(placeholder: "fdsf", text: .constant(""), isSecure: true)
     }
+}
+
+
+enum TextFieldState {
+    case error
+    case na
 }

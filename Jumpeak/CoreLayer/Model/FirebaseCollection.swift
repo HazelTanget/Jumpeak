@@ -7,5 +7,6 @@
 
 
 enum FirebaseCollection: String {
+    case unregistedUsers = "UnregistedUsers"
     case users = "Users"
 }

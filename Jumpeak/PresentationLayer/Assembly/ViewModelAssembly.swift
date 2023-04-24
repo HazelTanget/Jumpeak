@@ -16,5 +16,13 @@ class ViewModelAssembly: Assembly {
             return viewModel
         }
         .inObjectScope(.transient)
+
+        container.register(RegistrationViewModel.self) { r in
+            let viewModel = RegistrationViewModel()
+            viewModel.service = r.resolve(FirebaseAuthService.self)
+            
+            return viewModel
+        }
+        .inObjectScope(.transient)
     }
 }
