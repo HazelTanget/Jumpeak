@@ -8,58 +8,44 @@
 import SwiftUI
 
 struct LayoutTags: View {
-    @State var tag: [Tag]
-
-    init(rawTags: [String]) {
-        var tags = rawTags.compactMap { tag -> Tag? in
-            return .init(name: tag)
-        }
-        tags.append(.init(name: "+"))
-        self._tag = State(wrappedValue: tags)
-    }
+    @Binding var tag: [Tag]
     
     var body: some View {
         VStack {
-            
             TagLayout(spacing: 8) {
-                ForEach(0..<tag.count) { index in
-                    if index == tag.count - 1 {
-                        Button {
-                            
-                        } label: {
-                            Text(tag[index].name)
-                                .mFont()
-                                .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
-                        }
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 16)
-                        .background(Asset.Colors.inputColor.swiftUIColor)
-                        .cornerRadius(8)
-
-                    } else {
-                        Toggle(isOn: $tag[index].isSelected) {
-                            Text(tag[index].name)
-                                .mFont()
-                                .foregroundColor(tag[index].isSelected ? Asset.Colors.thirdFontColor.swiftUIColor : Asset.Colors.mainFontColor.swiftUIColor)
-                                .padding(.vertical, 12)
-                                .padding(.horizontal, 16)
-                            
-                        }
-                        .toggleStyle(.button)
-                        .tint(Asset.Colors.accentColor.swiftUIColor)
-                        .background(tag[index].isSelected ? Asset.Colors.accentColor.swiftUIColor : Asset.Colors.inputColor.swiftUIColor)
-                        .cornerRadius(8)
+                ForEach($tag, id: \.id) { $item in
+//                    if index == $tag.count - 1 {
+//                        Button {
+//
+//                        } label: {
+//                            Text(tag[index].name)
+//                                .mFont()
+//                                .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
+//                        }
+//                        .padding(.vertical, 12)
+//                        .padding(.horizontal, 16)
+//                        .background(Asset.Colors.inputColor.swiftUIColor)
+//                        .cornerRadius(8)
+//
+//                    } else {
+                    Button {
+                        
+                    } label: {
+                        Text(item.name)
+                            .mFont()
+                            .foregroundColor(item.isSelected ? Asset.Colors.thirdFontColor.swiftUIColor : Asset.Colors.mainFontColor.swiftUIColor)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 16)
                     }
+                    .tint(Asset.Colors.accentColor.swiftUIColor)
+                    .background(item.isSelected ? Asset.Colors.accentColor.swiftUIColor : Asset.Colors.inputColor.swiftUIColor)
+                    .cornerRadius(8)
+
+//                    }
                 }
             }
 
         }
-    }
-}
-
-struct LayoutTags_Previews: PreviewProvider {
-    static var previews: some View {
-        LayoutTags(rawTags: ["IT", "Реклама", "Маркетинг", "PR", "Закупки"])
     }
 }
 

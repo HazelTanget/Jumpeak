@@ -18,5 +18,25 @@ class ServiceAssembly: Assembly {
             SessionService()
         }
         .inObjectScope(.container)
+        
+        container.register(HardSkillsService.self) { r in
+            HardSkillsServiceImpl()
+        }
+        .inObjectScope(.container)
+        
+        container.register(ProfessionsService.self) { r in
+            ProfessionsServiceImpl()
+        }
+        .inObjectScope(.container)
+        
+        container.register(SubjectService.self) { r in
+            SubjectServiceImpl()
+        }
+        .inObjectScope(.container)
+        
+        container.register(SoftSkillsService.self) { r in
+            SoftSkillsServiceImpl()
+        }
+        .inObjectScope(.container)
     }
 }

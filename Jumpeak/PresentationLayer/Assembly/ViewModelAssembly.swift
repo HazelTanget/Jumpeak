@@ -24,5 +24,13 @@ class ViewModelAssembly: Assembly {
             return viewModel
         }
         .inObjectScope(.transient)
+
+        container.register(FirstStepViewModel.self) { r in
+            let viewModel = FirstStepViewModel()
+            viewModel.hardSkillsService = r.resolve(HardSkillsService.self)
+
+            return viewModel
+        }
+        .inObjectScope(.transient)
     }
 }

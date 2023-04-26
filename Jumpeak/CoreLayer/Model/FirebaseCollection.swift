@@ -9,4 +9,8 @@
 enum FirebaseCollection: String {
     case unregistedUsers = "UnregistedUsers"
     case users = "Users"
+    case hardSkills = "HardSkills"
+    case professions = "Profession"
+    case subject = "Subject"
+    case softSkills = "SoftSkills"
 }

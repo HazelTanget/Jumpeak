@@ -27,6 +27,7 @@ internal enum Asset {
   internal enum Assets {
     internal static let accentColor = ColorAsset(name: "AccentColor")
     internal static let errorPasswordIc = ImageAsset(name: "error_password_ic")
+    internal static let searchIc = ImageAsset(name: "search_ic")
     internal static let successPasswordIc = ImageAsset(name: "success_password_ic")
     internal static let warningPasswordIc = ImageAsset(name: "warning_password_ic")
   }

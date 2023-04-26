@@ -12,6 +12,18 @@
 		9E5886EB29EED1240010CE62 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886EA29EED1240010CE62 /* DefaultState.swift */; };
 		9E7325DF29F6D56300D5D002 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325DE29F6D56300D5D002 /* InfoView.swift */; };
 		9E7325E129F6DDA800D5D002 /* LayoutTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325E029F6DDA800D5D002 /* LayoutTags.swift */; };
+		9E7325F229F822AE00D5D002 /* SkillsStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325F129F822AE00D5D002 /* SkillsStepView.swift */; };
+		9E7325F429F8291900D5D002 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325F329F8291900D5D002 /* SearchBarView.swift */; };
+		9E7325F629F829AD00D5D002 /* FirstStepMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325F529F829AD00D5D002 /* FirstStepMainView.swift */; };
+		9E7325F829F82BBE00D5D002 /* HardSkillsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325F729F82BBE00D5D002 /* HardSkillsService.swift */; };
+		9E7325FB29F82EF400D5D002 /* HardSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325FA29F82EF400D5D002 /* HardSkill.swift */; };
+		9E7325FE29F85FDA00D5D002 /* FirstStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */; };
+		9E8B71B029F9AAE100BA4CD0 /* ProffesionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */; };
+		9E8B71B229F9AB1200BA4CD0 /* Proffession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */; };
+		9E8B71B429F9AB8300BA4CD0 /* SubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */; };
+		9E8B71B629F9ABA400BA4CD0 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B529F9ABA400BA4CD0 /* Subject.swift */; };
+		9E8B71B829F9ABF900BA4CD0 /* SoftSkillsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B729F9ABF900BA4CD0 /* SoftSkillsService.swift */; };
+		9E8B71BA29F9AC0800BA4CD0 /* SoftSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B929F9AC0800BA4CD0 /* SoftSkill.swift */; };
 		9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03B229E4085B00076E0B /* JumpeakApp.swift */; };
 		9EDD03B729E4085C00076E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03B629E4085C00076E0B /* Assets.xcassets */; };
 		9EDD03C229E408D600076E0B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03C129E408D600076E0B /* Colors.xcassets */; };
@@ -57,6 +69,18 @@
 		9E5886EA29EED1240010CE62 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
 		9E7325DE29F6D56300D5D002 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		9E7325E029F6DDA800D5D002 /* LayoutTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTags.swift; sourceTree = "<group>"; };
+		9E7325F129F822AE00D5D002 /* SkillsStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsStepView.swift; sourceTree = "<group>"; };
+		9E7325F329F8291900D5D002 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		9E7325F529F829AD00D5D002 /* FirstStepMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepMainView.swift; sourceTree = "<group>"; };
+		9E7325F729F82BBE00D5D002 /* HardSkillsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkillsService.swift; sourceTree = "<group>"; };
+		9E7325FA29F82EF400D5D002 /* HardSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkill.swift; sourceTree = "<group>"; };
+		9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepViewModel.swift; sourceTree = "<group>"; };
+		9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProffesionsService.swift; sourceTree = "<group>"; };
+		9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proffession.swift; sourceTree = "<group>"; };
+		9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectService.swift; sourceTree = "<group>"; };
+		9E8B71B529F9ABA400BA4CD0 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		9E8B71B729F9ABF900BA4CD0 /* SoftSkillsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftSkillsService.swift; sourceTree = "<group>"; };
+		9E8B71B929F9AC0800BA4CD0 /* SoftSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftSkill.swift; sourceTree = "<group>"; };
 		9EDD03AF29E4085B00076E0B /* Jumpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jumpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EDD03B229E4085B00076E0B /* JumpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpeakApp.swift; sourceTree = "<group>"; };
 		9EDD03B629E4085C00076E0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +160,9 @@
 		9E7325D729F6D50E00D5D002 /* StepsUser */ = {
 			isa = PBXGroup;
 			children = (
+				9E7325F929F82EDD00D5D002 /* Model */,
+				9E7325FC29F85FBF00D5D002 /* ViewModel */,
+				9E7325F029F8229400D5D002 /* View */,
 				9E7325DB29F6D53500D5D002 /* Common */,
 			);
 			path = StepsUser;
@@ -148,6 +175,34 @@
 				9E7325E029F6DDA800D5D002 /* LayoutTags.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9E7325F029F8229400D5D002 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E7325F129F822AE00D5D002 /* SkillsStepView.swift */,
+				9E7325F529F829AD00D5D002 /* FirstStepMainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E7325F929F82EDD00D5D002 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E7325FA29F82EF400D5D002 /* HardSkill.swift */,
+				9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */,
+				9E8B71B529F9ABA400BA4CD0 /* Subject.swift */,
+				9E8B71B929F9AC0800BA4CD0 /* SoftSkill.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E7325FC29F85FBF00D5D002 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9EDD03A629E4085A00076E0B = {
@@ -231,6 +286,10 @@
 			children = (
 				9EDD03CC29E40B7D00076E0B /* SessionService.swift */,
 				9EDD03FC29E4411700076E0B /* AuthService.swift */,
+				9E7325F729F82BBE00D5D002 /* HardSkillsService.swift */,
+				9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */,
+				9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */,
+				9E8B71B729F9ABF900BA4CD0 /* SoftSkillsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -285,6 +344,7 @@
 				9EF5BCD129EC86E700742B53 /* CircleEmojiView.swift */,
 				9EF5BCD729ED49A800742B53 /* ErrorView.swift */,
 				9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */,
+				9E7325F329F8291900D5D002 /* SearchBarView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -481,30 +541,42 @@
 				9EDD03FB29E440B900076E0B /* LoginCredentials.swift in Sources */,
 				9E7325DF29F6D56300D5D002 /* InfoView.swift in Sources */,
 				9EF5BCDA29ED4CAE00742B53 /* PasswordStatusView.swift in Sources */,
+				9E7325FE29F85FDA00D5D002 /* FirstStepViewModel.swift in Sources */,
 				9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */,
 				9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */,
 				9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */,
 				9EDD03D229E40BC500076E0B /* FirebaseCollection.swift in Sources */,
 				9EDD03CD29E40B7D00076E0B /* SessionService.swift in Sources */,
 				9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */,
+				9E8B71B429F9AB8300BA4CD0 /* SubjectService.swift in Sources */,
 				9EDD03F329E4251400076E0B /* BackBarButton.swift in Sources */,
+				9E8B71B629F9ABA400BA4CD0 /* Subject.swift in Sources */,
 				9EF5BCD829ED49A800742B53 /* ErrorView.swift in Sources */,
+				9E8B71B229F9AB1200BA4CD0 /* Proffession.swift in Sources */,
 				9EDD03D429E40BE300076E0B /* User.swift in Sources */,
 				9EDD03EC29E4192900076E0B /* AccentButton.swift in Sources */,
 				9EDD03FD29E4411700076E0B /* AuthService.swift in Sources */,
 				9EDD03DC29E40E8F00076E0B /* XCAssets+Generated.swift in Sources */,
+				9E7325F229F822AE00D5D002 /* SkillsStepView.swift in Sources */,
 				9EDD03E529E40FEC00076E0B /* View+Extension.swift in Sources */,
+				9E8B71BA29F9AC0800BA4CD0 /* SoftSkill.swift in Sources */,
 				9E7325E129F6DDA800D5D002 /* LayoutTags.swift in Sources */,
 				9EF5BCD629EC944600742B53 /* CodeFieldsView.swift in Sources */,
 				9EF5BCD429EC8C5A00742B53 /* RegistrationStepView.swift in Sources */,
 				9EF5BCEB29EDE46800742B53 /* TextField+Extensions.swift in Sources */,
 				9EDD03F129E424B200076E0B /* Image+Extensions.swift in Sources */,
+				9E7325F629F829AD00D5D002 /* FirstStepMainView.swift in Sources */,
 				9E5886EB29EED1240010CE62 /* DefaultState.swift in Sources */,
 				9EDD03C729E40ACD00076E0B /* ApplicationAssembly.swift in Sources */,
+				9E8B71B029F9AAE100BA4CD0 /* ProffesionsService.swift in Sources */,
 				9EDD03D029E40B9E00076E0B /* SessionState.swift in Sources */,
 				9EDD03F929E438BD00076E0B /* LoginViewModel.swift in Sources */,
 				9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */,
+				9E7325F829F82BBE00D5D002 /* HardSkillsService.swift in Sources */,
 				9EDD03FF29E4413800076E0B /* FirebaseCustomError.swift in Sources */,
+				9E7325F429F8291900D5D002 /* SearchBarView.swift in Sources */,
+				9E7325FB29F82EF400D5D002 /* HardSkill.swift in Sources */,
+				9E8B71B829F9ABF900BA4CD0 /* SoftSkillsService.swift in Sources */,
 				9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */,
 				9EDD03F729E432BF00076E0B /* UIApplication+Extenstions.swift in Sources */,
 				9EF5BCEE29EDE59E00742B53 /* RegistrationViewModel.swift in Sources */,

@@ -14,8 +14,8 @@ final class ApplicationAssemby {
 
     private static var assmebler: Assembler = {
         let assembler = Assembler()
-        assembler.apply(assemblies: modulesAssembly)
         assembler.apply(assemblies: otherAssembly)
+        assembler.apply(assemblies: modulesAssembly)
         
         return assembler
     }()

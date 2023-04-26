@@ -31,7 +31,7 @@ struct WasteFutureApp: App {
                     Text("This is main view")
                 }
             case .loggedOut:
-                StartView()
+                FirstStepMainView()
             case .loading:
                 VStack {
                     Text("Здесь будет загрузка")
