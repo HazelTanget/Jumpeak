@@ -58,7 +58,7 @@ final class FirebaseAuthServiceImpl: FirebaseAuthService {
                             promise(.failure(error))
                         } else {
                             if let id = res?.user.uid {
-                                
+                                promise(.success(()))
 //                                let values = [User.CodingKeys.email.rawValue: user.email, User.CodingKeys.coins.rawValue: 0, User.CodingKeys.login.rawValue: user.login]
 //
 //                                Firestore.firestore().collection(FirebaseCollection.users.rawValue)

@@ -28,6 +28,9 @@ class ViewModelAssembly: Assembly {
         container.register(FirstStepViewModel.self) { r in
             let viewModel = FirstStepViewModel()
             viewModel.hardSkillsService = r.resolve(HardSkillsService.self)
+            viewModel.softSkillsService = r.resolve(SoftSkillsService.self)
+            viewModel.professionsService = r.resolve(ProfessionsService.self)
+            viewModel.subjectService = r.resolve(SubjectService.self)
 
             return viewModel
         }

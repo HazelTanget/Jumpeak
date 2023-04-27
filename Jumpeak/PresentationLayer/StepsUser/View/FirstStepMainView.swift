@@ -16,20 +16,29 @@ struct FirstStepMainView: View {
     var body: some View {
         TabView(selection: $selection) {
             firstStep
+            
+            secondStep
+            
+            thirdStep
+            
+            fourthStep
         }
         .tabViewStyle(.page)
         .background(Asset.Colors.background.swiftUIColor)
+        .onAppear {
+            viewModel.fetchSubjects()
+            viewModel.fetchProffessions()
+            viewModel.fetchHardSkills()
+            viewModel.fetchSoftSkills()
+        }
     }
     
     var firstStep: some View {
         SkillsStepView(title: Strings.choseYourJob, descriptionTitle: Strings.choseYourJob) {
             SearchBarView(title: Strings.enterNameArea, text: $searchText)
             
-            LayoutTags(tag: $viewModel.hardSkills)
+            LayoutTags(tag: $viewModel.subject)
                 .padding(.top, 16)
-                .onAppear {
-                    viewModel.fetchHardSkills()
-                }
             
         } action: {
             
@@ -41,11 +50,8 @@ struct FirstStepMainView: View {
         SkillsStepView(title: Strings.choseYourJob, descriptionTitle: Strings.choseYourJob) {
             SearchBarView(title: Strings.enterNameArea, text: $searchText)
             
-            LayoutTags(tag: $viewModel.hardSkills)
+            LayoutTags(tag: $viewModel.proffessions)
                 .padding(.top, 16)
-                .onAppear {
-                    viewModel.fetchHardSkills()
-                }
             
         } action: {
             
@@ -59,30 +65,24 @@ struct FirstStepMainView: View {
             
             LayoutTags(tag: $viewModel.hardSkills)
                 .padding(.top, 16)
-                .onAppear {
-                    viewModel.fetchHardSkills()
-                }
             
         } action: {
             
         }
-        .tag(0)
+        .tag(2)
     }
     
     var fourthStep: some View {
         SkillsStepView(title: Strings.choseYourJob, descriptionTitle: Strings.choseYourJob) {
             SearchBarView(title: Strings.enterNameArea, text: $searchText)
             
-            LayoutTags(tag: $viewModel.hardSkills)
+            LayoutTags(tag: $viewModel.softSkills)
                 .padding(.top, 16)
-                .onAppear {
-                    viewModel.fetchHardSkills()
-                }
             
         } action: {
             
         }
-        .tag(0)
+        .tag(3)
     }
 }
 

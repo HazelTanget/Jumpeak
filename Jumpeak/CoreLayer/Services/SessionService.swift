@@ -36,7 +36,7 @@ private extension SessionService {
                     return
                 }
                 
-                self?.state = .loggedIn
+//                self?.state = .loggedIn
 //                self.handleRefresh(userId: user?.uid)
             })
     }

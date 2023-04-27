@@ -17,26 +17,26 @@ class ServiceAssembly: Assembly {
         container.register(SessionService.self) { r in
             SessionService()
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
         
         container.register(HardSkillsService.self) { r in
             HardSkillsServiceImpl()
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
         
         container.register(ProfessionsService.self) { r in
             ProfessionsServiceImpl()
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
         
         container.register(SubjectService.self) { r in
             SubjectServiceImpl()
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
         
         container.register(SoftSkillsService.self) { r in
             SoftSkillsServiceImpl()
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
     }
 }

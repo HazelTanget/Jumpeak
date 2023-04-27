@@ -40,6 +40,9 @@ struct RegistrationMainView: View {
                 }
             }
         }
+        .navigationDestination(isPresented: $viewModel.isRegisterComplete, destination: {
+            FirstStepMainView()
+        })
         .ignoresSafeArea(.keyboard)
         .preferredColorScheme(.light)
         .onTapGesture {

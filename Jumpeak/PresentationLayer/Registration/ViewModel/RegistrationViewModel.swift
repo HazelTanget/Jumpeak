@@ -18,6 +18,7 @@ class RegistrationViewModel: ObservableObject {
     //MARK: Public Properties
     // for view
     @Published var selection = 0
+    @Published var isRegisterComplete = false
     // enter email
     @Published var email: String = ""
     @Published var password: String = ""
@@ -71,6 +72,7 @@ class RegistrationViewModel: ObservableObject {
                 }
             } receiveValue: { value in
                 self.state = .successful
+                self.isRegisterComplete = true
             }
             .store(in: &subscriptions)
         
