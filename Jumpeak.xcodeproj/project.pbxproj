@@ -18,6 +18,7 @@
 		9E7325F829F82BBE00D5D002 /* HardSkillsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325F729F82BBE00D5D002 /* HardSkillsService.swift */; };
 		9E7325FB29F82EF400D5D002 /* HardSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325FA29F82EF400D5D002 /* HardSkill.swift */; };
 		9E7325FE29F85FDA00D5D002 /* FirstStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */; };
+		9E7B1DC12A0843E500BA0241 /* SelectedDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7B1DC02A0843E500BA0241 /* SelectedDataUser.swift */; };
 		9E8B71B029F9AAE100BA4CD0 /* ProffesionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */; };
 		9E8B71B229F9AB1200BA4CD0 /* Proffession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */; };
 		9E8B71B429F9AB8300BA4CD0 /* SubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */; };
@@ -75,6 +76,7 @@
 		9E7325F729F82BBE00D5D002 /* HardSkillsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkillsService.swift; sourceTree = "<group>"; };
 		9E7325FA29F82EF400D5D002 /* HardSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkill.swift; sourceTree = "<group>"; };
 		9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepViewModel.swift; sourceTree = "<group>"; };
+		9E7B1DC02A0843E500BA0241 /* SelectedDataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDataUser.swift; sourceTree = "<group>"; };
 		9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProffesionsService.swift; sourceTree = "<group>"; };
 		9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proffession.swift; sourceTree = "<group>"; };
 		9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectService.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */,
 				9E8B71B529F9ABA400BA4CD0 /* Subject.swift */,
 				9E8B71B929F9AC0800BA4CD0 /* SoftSkill.swift */,
+				9E7B1DC02A0843E500BA0241 /* SelectedDataUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				9EDD03C729E40ACD00076E0B /* ApplicationAssembly.swift in Sources */,
 				9E8B71B029F9AAE100BA4CD0 /* ProffesionsService.swift in Sources */,
 				9EDD03D029E40B9E00076E0B /* SessionState.swift in Sources */,
+				9E7B1DC12A0843E500BA0241 /* SelectedDataUser.swift in Sources */,
 				9EDD03F929E438BD00076E0B /* LoginViewModel.swift in Sources */,
 				9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */,
 				9E7325F829F82BBE00D5D002 /* HardSkillsService.swift in Sources */,

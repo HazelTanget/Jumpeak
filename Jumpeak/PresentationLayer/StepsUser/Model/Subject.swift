@@ -7,8 +7,9 @@
 
 import FirebaseFirestoreSwift
 
-struct Subject: Codable {
+struct Subject: Codable, Equatable {
     @DocumentID var id: String?
     var name: String
+    var professionsId: [String]
 }
 

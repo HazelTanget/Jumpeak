@@ -10,5 +10,6 @@ import FirebaseFirestoreSwift
 struct Profession: Codable {
     @DocumentID var id: String?
     var name: String
+    var hardSkillsId: [String]
 }
 

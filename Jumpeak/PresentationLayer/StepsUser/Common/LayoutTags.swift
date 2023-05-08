@@ -13,34 +13,34 @@ struct LayoutTags: View {
     var body: some View {
         VStack {
             TagLayout(spacing: 8) {
-                ForEach(0..<tag.count) { index in
-                    if index == tag.count - 1 {
-                        Button {
-                            
-                        } label: {
-                            Text(tag[index].name)
+                ForEach($tag, id: \.id) { $tag in
+//                    if index == tag.count - 1 {
+//                        Button {
+//
+//                        } label: {
+//                            Text(tag[index].name)
+//                                .mFont()
+//                                .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
+//                        }
+//                        .padding(.vertical, 12)
+//                        .padding(.horizontal, 16)
+//                        .background(Asset.Colors.inputColor.swiftUIColor)
+//                        .cornerRadius(8)
+//
+//                    } else {
+                        Toggle(isOn: $tag.isSelected) {
+                            Text(tag.name)
                                 .mFont()
-                                .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
-                        }
-                        .padding(.vertical, 12)
-                        .padding(.horizontal, 16)
-                        .background(Asset.Colors.inputColor.swiftUIColor)
-                        .cornerRadius(8)
-                        
-                    } else {
-                        Toggle(isOn: $tag[index].isSelected) {
-                            Text(tag[index].name)
-                                .mFont()
-                                .foregroundColor(tag[index].isSelected ? Asset.Colors.thirdFontColor.swiftUIColor : Asset.Colors.mainFontColor.swiftUIColor)
+                                .foregroundColor(tag.isSelected ? Asset.Colors.thirdFontColor.swiftUIColor : Asset.Colors.mainFontColor.swiftUIColor)
                                 .padding(.vertical, 12)
                                 .padding(.horizontal, 16)
                             
                         }
                         .toggleStyle(.button)
                         .tint(Asset.Colors.accentColor.swiftUIColor)
-                        .background(tag[index].isSelected ? Asset.Colors.accentColor.swiftUIColor : Asset.Colors.inputColor.swiftUIColor)
+                        .background(tag.isSelected ? Asset.Colors.accentColor.swiftUIColor : Asset.Colors.inputColor.swiftUIColor)
                         .cornerRadius(8)
-                    }
+//                    }
                     
                 }
                 

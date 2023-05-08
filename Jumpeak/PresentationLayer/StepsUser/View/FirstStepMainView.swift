@@ -9,28 +9,33 @@ import SwiftUI
 
 struct FirstStepMainView: View {
     @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(FirstStepViewModel.self)!
-    
-    @State var selection = 0
+
     @State var searchText = ""
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $viewModel.selection) {
             firstStep
+                .onAppear {
+                    viewModel.fetchSubjects()
+                }
             
             secondStep
+                .onAppear {
+                    viewModel.fetchProffessions()
+                }
             
             thirdStep
+                .onAppear {
+                    viewModel.fetchHardSkills()
+                }
             
             fourthStep
+                .onAppear {
+                    viewModel.fetchSoftSkills()
+                }
         }
         .tabViewStyle(.page)
         .background(Asset.Colors.background.swiftUIColor)
-        .onAppear {
-            viewModel.fetchSubjects()
-            viewModel.fetchProffessions()
-            viewModel.fetchHardSkills()
-            viewModel.fetchSoftSkills()
-        }
     }
     
     var firstStep: some View {
@@ -41,7 +46,9 @@ struct FirstStepMainView: View {
                 .padding(.top, 16)
             
         } action: {
-            
+            withAnimation {
+                viewModel.nextFirstButtonTapped()
+            }
         }
         .tag(0)
     }
@@ -54,7 +61,9 @@ struct FirstStepMainView: View {
                 .padding(.top, 16)
             
         } action: {
-            
+            withAnimation {
+                viewModel.secondButtonTapped()
+            }
         }
         .tag(1)
     }
@@ -67,7 +76,9 @@ struct FirstStepMainView: View {
                 .padding(.top, 16)
             
         } action: {
-            
+            withAnimation {
+                viewModel.thirdButtonTapped()
+            }
         }
         .tag(2)
     }
@@ -80,7 +91,9 @@ struct FirstStepMainView: View {
                 .padding(.top, 16)
             
         } action: {
-            
+            withAnimation {
+                viewModel.fourthButtonTapped()
+            }
         }
         .tag(3)
     }
