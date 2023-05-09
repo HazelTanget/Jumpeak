@@ -23,6 +23,8 @@
 "weak" = "Weak";
 "strong" = "Strong";
 "passwordDontMatch" = "Passwords do not match";
+"notYet" = "Пока нет";
+"yesIHave" = "Да, есть!";
 
 
 //stepsViews
@@ -33,8 +35,11 @@
 "choseYourJob" = "Choose which field you want to work in?";
 "choseOneOrMore" = "Choose an field. One or more";
 "enterNameArea" = "Enter name field";
-
-
+"doYouHaveExp" = "Может у тебя есть опыт работы или стажировки на этой или похожей профессии?";
+"noProblemWithExp" = "Нет ничего страшного, если у тебя ещё нет реального опыта работы";
+"donwloadPhoto" = "Загрузи свою фотографию. Так работодателям будет легче с тобой познакомиться";
+"itDefinetlyAction" = "Этот шаг можно выполнить попозже, но он обязательный";
+"skip" = "Пропустить";
 
 //errors
 "userDoesntExsist" = "Похоже, этой почты нет в нашей базе";

@@ -12,4 +12,5 @@ struct SelectedFirstDataUser {
     var selectedSubject: [Subject] = []
     var selectedSoftSkills: [SoftSkill] = []
     var selectedHardSkills: [HardSkill] = []
+    var haveExp: Bool = false
 }

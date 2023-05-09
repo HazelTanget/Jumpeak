@@ -31,6 +31,10 @@ public enum Strings {
   public static let createResume = Strings.tr("Localizable", "createResume", fallback: "First you need to create\nyour resume card, which will\nbe seen by employers")
   /// The final step is to create a strong password
   public static let createStrongPass = Strings.tr("Localizable", "createStrongPass", fallback: "The final step is to create a strong password")
+  /// Загрузи свою фотографию. Так работодателям будет легче с тобой познакомиться
+  public static let donwloadPhoto = Strings.tr("Localizable", "donwloadPhoto", fallback: "Загрузи свою фотографию. Так работодателям будет легче с тобой познакомиться")
+  /// Может у тебя есть опыт работы или стажировки на этой или похожей профессии?
+  public static let doYouHaveExp = Strings.tr("Localizable", "doYouHaveExp", fallback: "Может у тебя есть опыт работы или стажировки на этой или похожей профессии?")
   /// Have you used the app yet?
   public static let doYouUseApp = Strings.tr("Localizable", "doYouUseApp", fallback: "Have you used the app yet?")
   /// Email
@@ -50,14 +54,22 @@ public enum Strings {
   public static let helloText = Strings.tr("Localizable", "helloText", fallback: "Hi!\nThis is Jumpeak - the place where meet students and employers")
   /// Imagine password
   public static let imaginePassword = Strings.tr("Localizable", "imaginePassword", fallback: "Imagine password")
+  /// Этот шаг можно выполнить попозже, но он обязательный
+  public static let itDefinetlyAction = Strings.tr("Localizable", "itDefinetlyAction", fallback: "Этот шаг можно выполнить попозже, но он обязательный")
   /// Let's start!
   public static let letsStart = Strings.tr("Localizable", "letsStart", fallback: "Let's start!")
   /// Next
   public static let next = Strings.tr("Localizable", "next", fallback: "Next")
+  /// Нет ничего страшного, если у тебя ещё нет реального опыта работы
+  public static let noProblemWithExp = Strings.tr("Localizable", "noProblemWithExp", fallback: "Нет ничего страшного, если у тебя ещё нет реального опыта работы")
+  /// Пока нет
+  public static let notYet = Strings.tr("Localizable", "notYet", fallback: "Пока нет")
   /// Password
   public static let password = Strings.tr("Localizable", "password", fallback: "Password")
   /// Passwords do not match
   public static let passwordDontMatch = Strings.tr("Localizable", "passwordDontMatch", fallback: "Passwords do not match")
+  /// Пропустить
+  public static let skip = Strings.tr("Localizable", "skip", fallback: "Пропустить")
   /// Strong
   public static let strong = Strings.tr("Localizable", "strong", fallback: "Strong")
   /// Похоже, этой почты нет в нашей базе
@@ -66,6 +78,8 @@ public enum Strings {
   public static let `weak` = Strings.tr("Localizable", "weak", fallback: "Weak")
   /// Welcome to the Jumpeak
   public static let welcomeToJumpeak = Strings.tr("Localizable", "welcomeToJumpeak", fallback: "Welcome to the Jumpeak")
+  /// Да, есть!
+  public static let yesIHave = Strings.tr("Localizable", "yesIHave", fallback: "Да, есть!")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

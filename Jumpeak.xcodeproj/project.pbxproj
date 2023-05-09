@@ -19,6 +19,7 @@
 		9E7325FB29F82EF400D5D002 /* HardSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325FA29F82EF400D5D002 /* HardSkill.swift */; };
 		9E7325FE29F85FDA00D5D002 /* FirstStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */; };
 		9E7B1DC12A0843E500BA0241 /* SelectedDataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7B1DC02A0843E500BA0241 /* SelectedDataUser.swift */; };
+		9E7B1DC32A0925B100BA0241 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7B1DC22A0925B100BA0241 /* ImagePicker.swift */; };
 		9E8B71B029F9AAE100BA4CD0 /* ProffesionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */; };
 		9E8B71B229F9AB1200BA4CD0 /* Proffession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */; };
 		9E8B71B429F9AB8300BA4CD0 /* SubjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */; };
@@ -77,6 +78,7 @@
 		9E7325FA29F82EF400D5D002 /* HardSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardSkill.swift; sourceTree = "<group>"; };
 		9E7325FD29F85FDA00D5D002 /* FirstStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepViewModel.swift; sourceTree = "<group>"; };
 		9E7B1DC02A0843E500BA0241 /* SelectedDataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedDataUser.swift; sourceTree = "<group>"; };
+		9E7B1DC22A0925B100BA0241 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		9E8B71AF29F9AAE100BA4CD0 /* ProffesionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProffesionsService.swift; sourceTree = "<group>"; };
 		9E8B71B129F9AB1200BA4CD0 /* Proffession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proffession.swift; sourceTree = "<group>"; };
 		9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectService.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				9EF5BCD729ED49A800742B53 /* ErrorView.swift */,
 				9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */,
 				9E7325F329F8291900D5D002 /* SearchBarView.swift */,
+				9E7B1DC22A0925B100BA0241 /* ImagePicker.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				9EF5BCEE29EDE59E00742B53 /* RegistrationViewModel.swift in Sources */,
 				9EDD03D729E40CCB00076E0B /* StartView.swift in Sources */,
 				9EDD03EF29E41C5F00076E0B /* LoginView.swift in Sources */,
+				9E7B1DC32A0925B100BA0241 /* ImagePicker.swift in Sources */,
 				9EDD03E929E411CB00076E0B /* Strings+Generated.swift in Sources */,
 				9EDD03F529E426CB00076E0B /* CustomTextField.swift in Sources */,
 			);
@@ -728,11 +732,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R597ZW5RJ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "WE WANT U PHOTO XDDD";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -745,6 +751,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = HazelTanget.Jumpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -757,11 +764,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R597ZW5RJ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "WE WANT U PHOTO XDDD";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -774,6 +783,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = HazelTanget.Jumpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

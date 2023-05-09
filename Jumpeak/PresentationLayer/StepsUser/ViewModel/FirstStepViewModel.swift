@@ -5,6 +5,8 @@
 //  Created by Денис Большачков on 25.04.2023.
 //
 
+import SwiftUI
+import FirebaseStorage
 import Foundation
 import Combine
 
@@ -21,6 +23,11 @@ class FirstStepViewModel: ObservableObject {
     @Published var selectedSkills: [HardSkill] = []
     
     @Published var selection = 0
+    @Published var shouldPresentActionScheet = false
+    @Published var shouldPresentCamera = false
+    @Published var shouldPresentImagePicker = false
+    
+    @Published var selectedImage: UIImage?
     
     //Selected data
     var selectedData = SelectedFirstDataUser()
@@ -213,6 +220,53 @@ class FirstStepViewModel: ObservableObject {
         }
         
         selection += 1
+    }
+    
+    func fiftButtonTapped(haveExp: Bool) {
+        selectedData.haveExp = haveExp
+        
+        selection += 1
+    }
+    
+    func sixthButtonTapped() {
+        uploadPhoto()
+        
+        selection += 1
+    }
+    
+    func uploadPhoto() {
+        guard let selectedImage = selectedImage else { return }
+
+        let storageRef = Storage.storage().reference()
+        
+        let imageData = selectedImage.jpegData(compressionQuality: 0.8)
+        
+        guard let imageData = imageData else { return }
+        
+        let fileRef = storageRef.child("images/\(UUID().uuidString).jpg")
+        
+        let uploadTask = fileRef.putData(imageData, metadata: nil) { metadata, error in
+            guard let error = error else {
+                // TODO: Save to user ref
+                
+                return
+            }
+        }
+    }
+
+    func filterCollection(_ collection: FirebaseCollection) {
+        switch collection {
+        case .hardSkills:
+            hardSkills = searchHardSkills.isEmpty ? allHardSkills.compactMap { Tag(id: $0.id ?? UUID().uuidString, name: $0.name) } : hardSkills.filter { $0.name.contains(searchHardSkills) }
+            self.objectWillChange.send()
+        case .professions:
+            proffessions = searchProffessions.isEmpty ? allProffessions.compactMap { Tag(id: $0.id ?? UUID().uuidString, name: $0.name) } : proffessions.filter { $0.name.contains(searchProffessions) }
+        case .subject:
+            subject = searchSubjects.isEmpty ? allSubject.compactMap { Tag(id: $0.id ?? UUID().uuidString, name: $0.name) } : subject.filter { $0.name.contains(searchSubjects) }
+        case .softSkills:
+            softSkills = searchSoftSkills.isEmpty ? allSoftSkills.compactMap { Tag(id: $0.id ?? UUID().uuidString, name: $0.name) } : softSkills.filter { $0.name.contains(searchSoftSkills) }
+        default: break
+        }
     }
 }
 

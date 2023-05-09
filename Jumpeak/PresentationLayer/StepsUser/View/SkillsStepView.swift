@@ -13,13 +13,32 @@ struct SkillsStepView<T: View>: View {
     var descriptionContent: String
     var stepContent: T
     var action: () -> ()
+    var showAddingButton: Bool
+    var firstButtonTitle: String
+    var secondButtonTitle: String
+    var firstButtonAction: () -> ()
+    var secondButtonAction: () -> ()
 
-    init(title: String, descriptionTitle: String, descriptionContent: String = "", @ViewBuilder stepContent: () -> T, action: @escaping () -> ()) {
+    init(title: String,
+         descriptionTitle: String,
+         descriptionContent: String = "",
+         @ViewBuilder stepContent: () -> T,
+         action: @escaping () -> () = {},
+         showAddingButton: Bool = false,
+         firstButtonTitle: String = "",
+         secondButtonTitle: String = "",
+         firstButtonAction: @escaping () -> () = {},
+         secondButtonAction: @escaping () -> () = {}) {
         self.title = title
         self.descriptionTitle = descriptionTitle
         self.descriptionContent = descriptionContent
         self.stepContent = stepContent()
         self.action = action
+        self.showAddingButton = showAddingButton
+        self.firstButtonAction = firstButtonAction
+        self.secondButtonAction = secondButtonAction
+        self.firstButtonTitle = firstButtonTitle
+        self.secondButtonTitle = secondButtonTitle
     }
     
     var body: some View {
@@ -38,10 +57,23 @@ struct SkillsStepView<T: View>: View {
             
             Spacer()
             
-            AccentButton(text: Strings.next) {
-                action()
+            if !showAddingButton {
+                AccentButton(text: Strings.next) {
+                    action()
+                }
+                .padding(.bottom, 22)
+            } else {
+                HStack {
+                    AccentButton(text: firstButtonTitle, foregroundColor: Asset.Colors.accentColor.swiftUIColor, backgroundColor: Asset.Colors.inputColor.swiftUIColor) {
+                        firstButtonAction()
+                    }
+                    
+                    AccentButton(text: secondButtonTitle) {
+                        secondButtonAction()
+                    }
+                }
+                .padding(.bottom, 22)
             }
-            .padding(.bottom, 22)
         }
         .background(Asset.Colors.background.swiftUIColor)
         .onTapGesture {
