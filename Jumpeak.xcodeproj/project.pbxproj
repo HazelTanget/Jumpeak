@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ED2BDDA8B6D69DB4FC19882 /* Pods_Jumpeak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */; };
+		9E493E492A22417D00668C90 /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E493E482A22417D00668C90 /* ExperienceView.swift */; };
 		9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886E729EECE640010CE62 /* UnregistredUsers.swift */; };
 		9E5886EB29EED1240010CE62 /* DefaultState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5886EA29EED1240010CE62 /* DefaultState.swift */; };
 		9E7325DF29F6D56300D5D002 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7325DE29F6D56300D5D002 /* InfoView.swift */; };
@@ -35,7 +36,7 @@
 		9EDD03D029E40B9E00076E0B /* SessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03CF29E40B9E00076E0B /* SessionState.swift */; };
 		9EDD03D229E40BC500076E0B /* FirebaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03D129E40BC500076E0B /* FirebaseCollection.swift */; };
 		9EDD03D429E40BE300076E0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03D329E40BE300076E0B /* User.swift */; };
-		9EDD03D729E40CCB00076E0B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03D629E40CCB00076E0B /* StartView.swift */; };
+		9EDD03D729E40CCB00076E0B /* CommonInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03D629E40CCB00076E0B /* CommonInfoView.swift */; };
 		9EDD03DA29E40E6800076E0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03D929E40E6700076E0B /* GoogleService-Info.plist */; };
 		9EDD03DC29E40E8F00076E0B /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03DB29E40E8F00076E0B /* XCAssets+Generated.swift */; };
 		9EDD03DF29E40F0A00076E0B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD03E129E40F0A00076E0B /* Localizable.strings */; };
@@ -67,6 +68,7 @@
 		58BBB7BCFD507D70010F53BD /* Pods-Jumpeak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpeak.debug.xcconfig"; path = "Target Support Files/Pods-Jumpeak/Pods-Jumpeak.debug.xcconfig"; sourceTree = "<group>"; };
 		7F73D3A10375EF09B9DDCED0 /* Pods-Jumpeak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpeak.release.xcconfig"; path = "Target Support Files/Pods-Jumpeak/Pods-Jumpeak.release.xcconfig"; sourceTree = "<group>"; };
 		884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E493E482A22417D00668C90 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
 		9E5886E729EECE640010CE62 /* UnregistredUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregistredUsers.swift; sourceTree = "<group>"; };
 		9E5886EA29EED1240010CE62 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
 		9E7325DE29F6D56300D5D002 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 		9EDD03CF29E40B9E00076E0B /* SessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionState.swift; sourceTree = "<group>"; };
 		9EDD03D129E40BC500076E0B /* FirebaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollection.swift; sourceTree = "<group>"; };
 		9EDD03D329E40BE300076E0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		9EDD03D629E40CCB00076E0B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		9EDD03D629E40CCB00076E0B /* CommonInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonInfoView.swift; sourceTree = "<group>"; };
 		9EDD03D929E40E6700076E0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EDD03DB29E40E8F00076E0B /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		9EDD03E029E40F0A00076E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				9E7325F129F822AE00D5D002 /* SkillsStepView.swift */,
 				9E7325F529F829AD00D5D002 /* FirstStepMainView.swift */,
+				9E493E482A22417D00668C90 /* ExperienceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,7 +318,7 @@
 		9EDD03D529E40C6B00076E0B /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				9EDD03D629E40CCB00076E0B /* StartView.swift */,
+				9EDD03D629E40CCB00076E0B /* CommonInfoView.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				9E8B71B029F9AAE100BA4CD0 /* ProffesionsService.swift in Sources */,
 				9EDD03D029E40B9E00076E0B /* SessionState.swift in Sources */,
 				9E7B1DC12A0843E500BA0241 /* SelectedDataUser.swift in Sources */,
+				9E493E492A22417D00668C90 /* ExperienceView.swift in Sources */,
 				9EDD03F929E438BD00076E0B /* LoginViewModel.swift in Sources */,
 				9EDD03B329E4085B00076E0B /* JumpeakApp.swift in Sources */,
 				9E7325F829F82BBE00D5D002 /* HardSkillsService.swift in Sources */,
@@ -587,7 +591,7 @@
 				9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */,
 				9EDD03F729E432BF00076E0B /* UIApplication+Extenstions.swift in Sources */,
 				9EF5BCEE29EDE59E00742B53 /* RegistrationViewModel.swift in Sources */,
-				9EDD03D729E40CCB00076E0B /* StartView.swift in Sources */,
+				9EDD03D729E40CCB00076E0B /* CommonInfoView.swift in Sources */,
 				9EDD03EF29E41C5F00076E0B /* LoginView.swift in Sources */,
 				9E7B1DC32A0925B100BA0241 /* ImagePicker.swift in Sources */,
 				9EDD03E929E411CB00076E0B /* Strings+Generated.swift in Sources */,

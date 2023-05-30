@@ -37,7 +37,7 @@ struct RegistrationStepView<T: View>: View {
                 }
             }
             
-            Text(Strings.enterEmailWithPassCode)
+            Text(descriptionTitle)
                 .lFont(weight: .medium)
                 .multilineTextAlignment(.center)
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.5))

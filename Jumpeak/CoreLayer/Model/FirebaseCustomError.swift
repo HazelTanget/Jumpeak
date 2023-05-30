@@ -16,6 +16,7 @@ struct FirebaseCustomErrorO: Error, Identifiable {
 
 enum FirebaseCustomError: Error {
     case userDoesntExits
+    case userWithEmailAlreadyRegistred
     case passwordsDoesntMatch
 }
 
@@ -27,6 +28,8 @@ extension FirebaseCustomError {
                 return FirebaseCustomErrorO(emoji: "😔", title: Strings.userDoesntExsist)
             case .passwordsDoesntMatch:
                 return FirebaseCustomErrorO(emoji: "😔", title: Strings.passwordDontMatch)
+            case .userWithEmailAlreadyRegistred:
+                return FirebaseCustomErrorO(emoji: "😔", title: Strings.brokenOnSteps)
             }
         }
         set {

@@ -12,7 +12,7 @@ import FirebaseAuth
 protocol FirebaseAuthService {
     func login(with credentials: LoginCredentials) -> AnyPublisher<Void, Error>
     func checkUserExist(email: String) -> AnyPublisher<UnregistredUsers, FirebaseCustomError>
-    func register(email: String, password: String) -> AnyPublisher<Void, Error>
+    func register(oldId: String, email: String, password: String) -> AnyPublisher<Void, Error>
 }
 
 final class FirebaseAuthServiceImpl: FirebaseAuthService {
@@ -37,6 +37,11 @@ final class FirebaseAuthServiceImpl: FirebaseAuthService {
                                 return
                             }
 
+                            guard !user.isRegistred else {
+                                promise(.failure(FirebaseCustomError.userWithEmailAlreadyRegistred))
+                                return
+                            }
+
                             promise(.success(user))
 
                             return
@@ -49,7 +54,7 @@ final class FirebaseAuthServiceImpl: FirebaseAuthService {
         .eraseToAnyPublisher()
     }
     
-    func register(email: String, password: String) -> AnyPublisher<Void, Error> {
+    func register(oldId: String, email: String, password: String) -> AnyPublisher<Void, Error> {
         Deferred {
             Future { [weak self] promise in
                 self?.auth
@@ -59,17 +64,10 @@ final class FirebaseAuthServiceImpl: FirebaseAuthService {
                         } else {
                             if let id = res?.user.uid {
                                 promise(.success(()))
-//                                let values = [User.CodingKeys.email.rawValue: user.email, User.CodingKeys.coins.rawValue: 0, User.CodingKeys.login.rawValue: user.login]
-//
-//                                Firestore.firestore().collection(FirebaseCollection.users.rawValue)
-//                                    .document(id).setData(values) { [weak self] error in
-//                                        if let error = error {
-//                                            promise(.failure(error))
-//                                        } else {
-//                                            self?.auth.currentUser?.sendEmailVerification()
-//                                            promise(.success(()))
-//                                        }
-//                                    }
+                                let values = [UnregistredUsers.CodingKeys.isRegistred.rawValue: true]
+
+                                Firestore.firestore().collection(FirebaseCollection.unregistedUsers.rawValue)
+                                    .document(oldId).updateData(values)
                             }
                         }
                     }

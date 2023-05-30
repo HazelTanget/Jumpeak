@@ -14,6 +14,6 @@ struct UnregistredUsers: Codable {
     var password: String
     
     enum CodingKeys: String, CodingKey {
-        case email, isRegistred, password
+        case id, email, isRegistred, password
     }
 }

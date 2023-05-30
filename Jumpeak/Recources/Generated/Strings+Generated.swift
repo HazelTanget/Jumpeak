@@ -72,8 +72,12 @@ public enum Strings {
   public static let skip = Strings.tr("Localizable", "skip", fallback: "Пропустить")
   /// Strong
   public static let strong = Strings.tr("Localizable", "strong", fallback: "Strong")
+  /// Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами
+  public static let tellMoreAboutIt = Strings.tr("Localizable", "tellMoreAboutIt", fallback: "Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами")
   /// Похоже, этой почты нет в нашей базе
   public static let userDoesntExsist = Strings.tr("Localizable", "userDoesntExsist", fallback: "Похоже, этой почты нет в нашей базе")
+  /// Вы уже зарегестрированны в нашей системе.
+  public static let userWithEmailAlreadyExists = Strings.tr("Localizable", "userWithEmailAlreadyExists", fallback: "Вы уже зарегестрированны в нашей системе.")
   /// Weak
   public static let `weak` = Strings.tr("Localizable", "weak", fallback: "Weak")
   /// Welcome to the Jumpeak

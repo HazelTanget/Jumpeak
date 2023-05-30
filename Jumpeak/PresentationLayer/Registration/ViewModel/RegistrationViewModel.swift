@@ -63,7 +63,7 @@ class RegistrationViewModel: ObservableObject {
     }
     
     func registerUser() {
-        service.register(email: user?.email ?? "", password: password)
+        service.register(oldId: user?.id ?? "", email: user?.email ?? "", password: password)
             .sink { res in
                 switch res {
                 case let .failure(error):

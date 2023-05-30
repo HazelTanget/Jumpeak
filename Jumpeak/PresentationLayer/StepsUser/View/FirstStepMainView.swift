@@ -50,6 +50,7 @@ struct FirstStepMainView: View {
             
             sixthStep
         }
+        .tabViewStyle(.page(indexDisplayMode: .never))
         .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
                         SUImagePickerView(sourceType: viewModel.shouldPresentCamera ? .camera : .photoLibrary, image: $viewModel.selectedImage, isPresented: $viewModel.shouldPresentImagePicker)
         }.actionSheet(isPresented: $viewModel.shouldPresentActionScheet) { () -> ActionSheet in

@@ -22,6 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct WasteFutureApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var sessionService: SessionService = ApplicationAssemby.defaultContainer.resolve(SessionService.self)!
+    @State private var selection: Int?
 
     var body: some Scene {
         WindowGroup {
@@ -31,7 +32,28 @@ struct WasteFutureApp: App {
                     Text("This is main view")
                 }
             case .loggedOut:
-                FirstStepMainView()
+                CommonInfoView(text: Strings.helloText, content: {
+                    HStack {
+                        NavigationLink (destination: LoginView().navigationBarBackButtonHidden(true), tag: 1, selection: $selection, label: {
+                            AccentButton(text: Strings.enter,
+                                         foregroundColor: Asset.Colors.thirdFontColor.swiftUIColor,
+                                         backgroundColor: Asset.Colors.background.swiftUIColor.opacity(0.2)) {
+                                selection = 1
+                            }
+                        })
+
+                        NavigationLink (destination: RegistrationMainView().navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
+                            AccentButton(text: Strings.createAccount,
+                                         foregroundColor: Asset.Colors.mainFontColor.swiftUIColor,
+                                         backgroundColor: Asset.Colors.background.swiftUIColor) {
+                                selection = 2
+                            }
+                        })
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 51)
+                })
+
             case .loading:
                 VStack {
                     Text("Здесь будет загрузка")
