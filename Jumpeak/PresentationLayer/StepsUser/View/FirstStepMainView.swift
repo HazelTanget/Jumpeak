@@ -13,56 +13,63 @@ struct FirstStepMainView: View {
     @State var searchText = ""
     
     var body: some View {
-        TabView(selection: $viewModel.selection) {
-            firstStep
-                .onChange(of: viewModel.searchSubjects, perform: { newValue in
-                    viewModel.filterCollection(.subject)
-                })
-                .onAppear {
-                    viewModel.fetchSubjects()
+        NavigationStack (path: $viewModel.navigationPath) {
+            TabView(selection: $viewModel.selection) {
+                firstStep
+                    .onChange(of: viewModel.searchSubjects, perform: { newValue in
+                        viewModel.filterCollection(.subject)
+                    })
+                    .onAppear {
+                        viewModel.fetchSubjects()
+                    }
+                
+                secondStep
+                    .onChange(of: viewModel.searchProffessions, perform: { newValue in
+                        viewModel.filterCollection(.professions)
+                    })
+                    .onAppear {
+                        viewModel.fetchProffessions()
+                    }
+                
+                thirdStep
+                    .onChange(of: viewModel.searchHardSkills, perform: { newValue in
+                        viewModel.filterCollection(.hardSkills)
+                    })
+                    .onAppear {
+                        viewModel.fetchHardSkills()
+                    }
+                
+                fourthStep
+                    .onChange(of: viewModel.searchSoftSkills, perform: { newValue in
+                        viewModel.filterCollection(.softSkills)
+                    })
+                    .onAppear {
+                        viewModel.fetchSoftSkills()
+                    }
+                
+                fifthStep
+                
+                sixthStep
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
+                SUImagePickerView(sourceType: viewModel.shouldPresentCamera ? .camera : .photoLibrary, image: $viewModel.selectedImage, isPresented: $viewModel.shouldPresentImagePicker)
+            }.actionSheet(isPresented: $viewModel.shouldPresentActionScheet) { () -> ActionSheet in
+                ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
+                    viewModel.shouldPresentImagePicker = true
+                    viewModel.shouldPresentCamera = true
+                }), ActionSheet.Button.default(Text("Photo Library"), action: {
+                    viewModel.shouldPresentImagePicker = true
+                    viewModel.shouldPresentCamera = false
+                }), ActionSheet.Button.cancel()])
+            }
+            .tabViewStyle(.page)
+            .navigationDestination(for: String.self, destination: { view in
+                if view == "ExperienceView" {
+                    ExperienceView()
                 }
-            
-            secondStep
-                .onChange(of: viewModel.searchProffessions, perform: { newValue in
-                    viewModel.filterCollection(.professions)
-                })
-                .onAppear {
-                    viewModel.fetchProffessions()
-                }
-            
-            thirdStep
-                .onChange(of: viewModel.searchHardSkills, perform: { newValue in
-                    viewModel.filterCollection(.hardSkills)
-                })
-                .onAppear {
-                    viewModel.fetchHardSkills()
-                }
-            
-            fourthStep
-                .onChange(of: viewModel.searchSoftSkills, perform: { newValue in
-                    viewModel.filterCollection(.softSkills)
-                })
-                .onAppear {
-                    viewModel.fetchSoftSkills()
-                }
-            
-            fifthStep
-            
-            sixthStep
+            })
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
-                        SUImagePickerView(sourceType: viewModel.shouldPresentCamera ? .camera : .photoLibrary, image: $viewModel.selectedImage, isPresented: $viewModel.shouldPresentImagePicker)
-        }.actionSheet(isPresented: $viewModel.shouldPresentActionScheet) { () -> ActionSheet in
-                    ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
-                        viewModel.shouldPresentImagePicker = true
-                        viewModel.shouldPresentCamera = true
-                    }), ActionSheet.Button.default(Text("Photo Library"), action: {
-                        viewModel.shouldPresentImagePicker = true
-                        viewModel.shouldPresentCamera = false
-                    }), ActionSheet.Button.cancel()])
-                }
-        .tabViewStyle(.page)
         .background(Asset.Colors.background.swiftUIColor)
     }
     

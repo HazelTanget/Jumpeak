@@ -28,9 +28,7 @@ struct WasteFutureApp: App {
         WindowGroup {
             switch sessionService.state {
             case .loggedIn:
-                VStack {
-                    Text("This is main view")
-                }
+                MainView()
             case .loggedOut:
                 CommonInfoView(text: Strings.helloText, content: {
                     HStack {

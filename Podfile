@@ -14,5 +14,6 @@ target 'Jumpeak' do
   pod 'FirebaseFirestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Kingfisher', '~> 7.0'
+  pod "SwiftUICardStack"
 
 end

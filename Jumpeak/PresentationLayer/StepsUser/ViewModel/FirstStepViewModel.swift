@@ -41,6 +41,8 @@ class FirstStepViewModel: ObservableObject {
     @Published var state = DefaultState.na
     
     @Published var hasErrors = false
+
+    @Published var navigationPath = NavigationPath()
     
     var hardSkillsService: HardSkillsService!
     var professionsService: ProfessionsService!
@@ -225,6 +227,10 @@ class FirstStepViewModel: ObservableObject {
     func fiftButtonTapped(haveExp: Bool) {
         selectedData.haveExp = haveExp
         
+        if (haveExp) {
+            goToPortfolioView()
+        }
+        
         selection += 1
     }
     
@@ -234,6 +240,10 @@ class FirstStepViewModel: ObservableObject {
         selection += 1
     }
     
+    func goToPortfolioView() {
+        navigationPath.append("ExperienceView")
+    }
+
     func uploadPhoto() {
         guard let selectedImage = selectedImage else { return }
 
