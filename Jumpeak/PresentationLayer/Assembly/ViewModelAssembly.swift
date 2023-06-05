@@ -23,7 +23,7 @@ class ViewModelAssembly: Assembly {
             
             return viewModel
         }
-        .inObjectScope(.transient)
+        .inObjectScope(.container)
 
         container.register(FirstStepViewModel.self) { r in
             let viewModel = FirstStepViewModel()
@@ -34,6 +34,13 @@ class ViewModelAssembly: Assembly {
 
             return viewModel
         }
-        .inObjectScope(.transient)
+        .inObjectScope(.container)
+        
+        container.register(ExperienceViewModel.self) { r in
+            let viewModel = ExperienceViewModel()
+
+            return viewModel
+        }
+        .inObjectScope(.container)
     }
 }

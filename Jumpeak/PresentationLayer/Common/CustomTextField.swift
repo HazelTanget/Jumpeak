@@ -10,16 +10,21 @@ import SwiftUI
 struct CustomTextField: View {
     var placeholder: String
     var isSecure: Bool = true
+    var isDateField = false
+    @Binding var date: Date
     @Binding var fieldState: TextFieldState
     @Binding var text: String
     @FocusState private var isActive: Bool
     @State private var showPassword = false
     
-    init(placeholder: String, fieldState: Binding<TextFieldState> = .constant(.na), text: Binding<String>, isSecure: Bool = false) {
+    init(placeholder: String, fieldState: Binding<TextFieldState> = .constant(.na), isDateField: Bool = false, text: Binding<String> = .constant(""), isSecure: Bool = false,
+         date: Binding<Date> = .constant(Date())) {
         self.isSecure = isSecure
         self.placeholder = placeholder
+        self.isDateField = isDateField
         _fieldState = fieldState
         _text = text
+        _date = date
     }
     
     var body: some View {
@@ -60,6 +65,11 @@ struct CustomTextField: View {
                             .onTapGesture {
                                 showPassword.toggle()
                             }
+                    }
+                    
+                    if(isDateField) {
+                        DatePicker("", selection: $date, displayedComponents: [.date])
+                            .blendMode(.destinationOver)
                     }
                 }
                 .overlay {

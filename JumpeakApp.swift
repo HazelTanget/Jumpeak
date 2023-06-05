@@ -51,7 +51,6 @@ struct WasteFutureApp: App {
                     .padding(.horizontal, 8)
                     .padding(.bottom, 51)
                 })
-
             case .loading:
                 VStack {
                     Text("Здесь будет загрузка")
