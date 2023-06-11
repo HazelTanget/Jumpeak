@@ -15,46 +15,47 @@ struct ExperienceView: View {
     @State private var startDateText = ""
     @State private var endDateText = ""
     
+    @Environment(\.dismiss) private var dismiss
+    
     private let formatter = DateFormatter()
 
     var body: some View {
-        NavigationStack (path: $viewModel.navigationPath) {
-            VStack(spacing: 16) {
-                Text(Strings.tellMoreAboutIt)
-                    .lFont(weight: .medium)
-                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top, 40)
-                    .onAppear {
-                        formatter.dateFormat = "dd.MM.yyyy"
-                    }
-                
-                textFields
-                
-                dates
-                
-                toggle
-                
-                
-                Spacer()
-                
-                buttons
-            }
-            .padding(.horizontal, 16)
-            .navigationDestination(for: String.self) { view in
-                if view == Views.experience.rawValue {
-                    ExperienceView()
-                        .navigationBarBackButtonHidden(true)
+        VStack(spacing: 16) {
+            Text(Strings.tellMoreAboutIt)
+                .lFont(weight: .medium)
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 40)
+                .onAppear {
+                    formatter.dateFormat = "dd.MM.yyyy"
                 }
-            }
-            .background(
-                Asset.Colors.background.swiftUIColor
-            )
-            .onTapGesture {
-                UIApplication.shared.endEditing()
-            }
-            .ignoresSafeArea(.keyboard)   
+            
+            textFields
+            
+            dates
+            
+            toggle
+            
+            
+            Spacer()
+            
+            buttons
         }
+        .padding(.horizontal, 16)
+        .navigationDestination(for: String.self) { view in
+            if view == Views.experience.rawValue {
+                ExperienceView()
+                    .navigationBarBackButtonHidden(true)
+            }
+        }
+        .background(
+            Asset.Colors.background.swiftUIColor
+        )
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
+        .ignoresSafeArea(.keyboard)
+        
     }
     
     var textFields: some View {
@@ -116,6 +117,7 @@ struct ExperienceView: View {
             
             AccentButton(text: "Далее", isEnable: $viewModel.isEnableButtonNextAndAddExp) {
                 viewModel.nextButtonTapped()
+                dismiss()
             }
         }
     }

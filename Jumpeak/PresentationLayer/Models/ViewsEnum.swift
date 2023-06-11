@@ -9,4 +9,5 @@ import Foundation
 
 enum Views: String {
     case experience = "ExperienceView"
+    case secondStep = "SecondStep"
 }

@@ -70,9 +70,10 @@ class RegistrationViewModel: ObservableObject {
                     break
                 default: break
                 }
-            } receiveValue: { value in
-                self.state = .successful
-                self.isRegisterComplete = true
+            } receiveValue: { [weak self] value in
+                self?.state = .successful
+                self?.isRegisterComplete = true
+                self?.configureFirstStepView(userId: self?.user?.id)
             }
             .store(in: &subscriptions)
         
@@ -89,5 +90,10 @@ class RegistrationViewModel: ObservableObject {
         } else {
             codeError.append(.passwordsDoesntMatch)
         }
+    }
+
+    func configureFirstStepView(userId: String?) {
+        let firstStepViewModel = ApplicationAssemby.defaultContainer.resolve(FirstStepViewModel.self)
+        firstStepViewModel?.selectedData.userId = userId
     }
 }

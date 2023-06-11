@@ -42,6 +42,7 @@ struct RegistrationMainView: View {
         }
         .navigationDestination(isPresented: $viewModel.isRegisterComplete, destination: {
             FirstStepMainView()
+                .navigationBarBackButtonHidden(true)
         })
         .ignoresSafeArea(.keyboard)
         .preferredColorScheme(.light)

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseStorage
+import FirebaseFirestore
 import Foundation
 import Combine
 
@@ -26,6 +27,8 @@ class FirstStepViewModel: ObservableObject {
     @Published var shouldPresentActionScheet = false
     @Published var shouldPresentCamera = false
     @Published var shouldPresentImagePicker = false
+    
+    @Published var shouldShowExperienceView = false
     
     @Published var selectedImage: UIImage?
     
@@ -225,8 +228,6 @@ class FirstStepViewModel: ObservableObject {
     }
     
     func fiftButtonTapped(haveExp: Bool) {
-        selectedData.haveExp = haveExp
-        
         if (haveExp) {
             goToPortfolioView()
         }
@@ -236,12 +237,13 @@ class FirstStepViewModel: ObservableObject {
     
     func sixthButtonTapped() {
         uploadPhoto()
+        uploadData()
         
-        selection += 1
+        navigationPath.append(Views.secondStep)
     }
     
     func goToPortfolioView() {
-        navigationPath.append("ExperienceView")
+        shouldShowExperienceView = true
     }
 
     func uploadPhoto() {
@@ -262,6 +264,12 @@ class FirstStepViewModel: ObservableObject {
                 return
             }
         }
+    }
+    
+    func uploadData() {
+        try? Firestore.firestore()
+            .collection(FirebaseCollection.userBaseInfo.rawValue)
+            .addDocument(from: selectedData)
     }
 
     func filterCollection(_ collection: FirebaseCollection) {

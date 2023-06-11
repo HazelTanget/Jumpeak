@@ -17,10 +17,16 @@ public enum Strings {
   public static let brokenOnSteps = Strings.tr("Localizable", "brokenOnSteps", fallback: "We’ve broken it down into\nsteps, you can do some of them a little bit\nlater, but you have to do\nall of them")
   /// Can't get in?
   public static let cantGetIn = Strings.tr("Localizable", "cantGetIn", fallback: "Can't get in?")
+  /// See what else you need to fill out to make your card visible to employers:
+  public static let checkWhatNeedToBoss = Strings.tr("Localizable", "checkWhatNeedToBoss", fallback: "See what else you need to fill out to make your card visible to employers:")
   /// Choose an field. One or more
   public static let choseOneOrMore = Strings.tr("Localizable", "choseOneOrMore", fallback: "Choose an field. One or more")
   /// Choose which field you want to work in?
   public static let choseYourJob = Strings.tr("Localizable", "choseYourJob", fallback: "Choose which field you want to work in?")
+  /// Made %@ out of %@ steps
+  public static func completedSteps(_ p1: Any, _ p2: Any) -> String {
+    return Strings.tr("Localizable", "completedSteps", String(describing: p1), String(describing: p2), fallback: "Made %@ out of %@ steps")
+  }
   /// Confirm account
   public static let confirmAccount = Strings.tr("Localizable", "confirmAccount", fallback: "Confirm account")
   /// Create account
@@ -47,6 +53,8 @@ public enum Strings {
   public static let enterEmailWithPassCode = Strings.tr("Localizable", "enterEmailWithPassCode", fallback: "Enter your confirmation code in your mail")
   /// Enter name field
   public static let enterNameArea = Strings.tr("Localizable", "enterNameArea", fallback: "Enter name field")
+  /// First step. Base info
+  public static let firstStepBaseInfo = Strings.tr("Localizable", "firstStepBaseInfo", fallback: "First step. Base info")
   /// Localizable.strings
   ///   Jumpeak
   /// 
@@ -64,12 +72,16 @@ public enum Strings {
   public static let noProblemWithExp = Strings.tr("Localizable", "noProblemWithExp", fallback: "Нет ничего страшного, если у тебя ещё нет реального опыта работы")
   /// Пока нет
   public static let notYet = Strings.tr("Localizable", "notYet", fallback: "Пока нет")
+  /// Open
+  public static let `open` = Strings.tr("Localizable", "open", fallback: "Open")
   /// Password
   public static let password = Strings.tr("Localizable", "password", fallback: "Password")
   /// Passwords do not match
   public static let passwordDontMatch = Strings.tr("Localizable", "passwordDontMatch", fallback: "Passwords do not match")
   /// Пропустить
   public static let skip = Strings.tr("Localizable", "skip", fallback: "Пропустить")
+  /// Steps menu
+  public static let stepMenuTitle = Strings.tr("Localizable", "stepMenuTitle", fallback: "Steps menu")
   /// Strong
   public static let strong = Strings.tr("Localizable", "strong", fallback: "Strong")
   /// Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами

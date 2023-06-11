@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct SelectedFirstDataUser {
+struct SelectedFirstDataUser: Codable {
+    var userId: String?
     var selectedProffessions: [Profession] = []
     var selectedSubject: [Subject] = []
     var selectedSoftSkills: [SoftSkill] = []
     var selectedHardSkills: [HardSkill] = []
-    var haveExp: Bool = false
+    var experiences: [ExperienceUser] = []
 }

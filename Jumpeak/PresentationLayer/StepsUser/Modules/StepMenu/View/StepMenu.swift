@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct StepMenu: View {
     
@@ -13,12 +14,12 @@ struct StepMenu: View {
     var body: some View {
         VStack {
             userInfo
-            
-            
-            Text("Посмотрите, что ещё нужно заполнить, чтобы ваша карточка была видна работодателям:")
+
+            Text(Strings.checkWhatNeedToBoss)
                 .mFont()
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.4))
                 .padding(.top, 80)
+                .padding(.horizontal, 16)
             
             resumeInfo
                 .padding(.top, 24)
@@ -26,26 +27,30 @@ struct StepMenu: View {
             Spacer()
         }
         .background(Asset.Colors.background.swiftUIColor)
-        
-        
+        .navigationTitle(Strings.enter)
+        .toolbar {
+            ToolbarItem (placement: .navigationBarLeading){
+                BackBarButton()
+            }
+        }
     }
     
     var userInfo: some View {
         VStack {
-                Image("bg")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 88, height: 88)
-                    .clipShape(Circle())
-                    
-                Text("Кирилл Кирилленко")
-                    .mFont()
-                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
-                    .padding(.top, 8)
-                
-                Text("Product designer")
-                    .sFont()
-                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.4))
+            Image("bg")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 88, height: 88)
+                .clipShape(Circle())
+            
+            Text("Кирилл Кирилленко")
+                .mFont()
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                .padding(.top, 8)
+            
+            Text("Product designer")
+                .sFont()
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.4))
         }
     }
     
@@ -61,7 +66,7 @@ struct StepMenu: View {
             }
         }
     }
-
+    
     @ViewBuilder
     private func buildCompletedAddedInfoCard(resumeType: InfoUserResume) -> some View {
         VStack(alignment: .leading) {
@@ -77,7 +82,7 @@ struct StepMenu: View {
                 .padding(.leading, 16)
             
             VStack (alignment: .leading) {
-                Text("Сделанно 5 из 6 шагов")
+                Text(Strings.completedSteps("5", "6"))
                     .foregroundColor(Asset.Colors.warningColor.swiftUIColor)
                     .sFont(weight: .medium)
                 
@@ -96,14 +101,14 @@ struct StepMenu: View {
                 Button {
                     
                 } label: {
-                    Text("Открыть >")
+                    Text(Strings.open + " >")
                         .sFont(weight: .medium)
                         .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                     
                 }
                 .padding(.top, 24)
                 .padding(.bottom, 16)
-
+                
             }
             .frame(maxWidth: 200)
             .padding(.horizontal, 16)

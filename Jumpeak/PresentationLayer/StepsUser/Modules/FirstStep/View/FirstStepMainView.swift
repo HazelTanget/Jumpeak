@@ -64,11 +64,21 @@ struct FirstStepMainView: View {
                 }), ActionSheet.Button.cancel()])
             }
             .tabViewStyle(.page)
+            .fullScreenCover(isPresented: $viewModel.shouldShowExperienceView) {
+                ExperienceView()
+            }
             .navigationDestination(for: String.self, destination: { view in
-                if view == "ExperienceView" {
-                    ExperienceView()
+                if view == Views.secondStep.rawValue {
+//                    SecondStep()
+//                        .navigationBarBackButtonHidden(true)
                 }
             })
+        }
+        .navigationTitle(Strings.firstStepBaseInfo)
+        .toolbar {
+            ToolbarItem (placement: .navigationBarLeading){
+                BackBarButton()
+            }
         }
         .background(Asset.Colors.background.swiftUIColor)
     }
@@ -82,6 +92,7 @@ struct FirstStepMainView: View {
             
         } action: {
             withAnimation {
+                
                 viewModel.nextFirstButtonTapped()
             }
         }

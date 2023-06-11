@@ -10,6 +10,8 @@ import SwiftUI
 import Firebase
 
 class ExperienceViewModel: ObservableObject {
+    var sessionService: SessionService!
+    
     @Published var editingExp: ExperienceUser = ExperienceUser.newExp
     @Published var experiences = [ExperienceUser]()
     @Published var navigationPath = NavigationPath()
@@ -39,15 +41,7 @@ class ExperienceViewModel: ObservableObject {
     }
     
     private func uploadData() {
-        experiences.forEach { exp in
-            do {
-                try Firestore.firestore()
-                    .collection(FirebaseCollection.experience.rawValue)
-                    .document(exp.id ?? UUID().uuidString)
-                    .setData(from: exp)
-            } catch {
-                
-            }
-        }
+        var firstStepVM = ApplicationAssemby.defaultContainer.resolve(FirstStepViewModel.self)
+        firstStepVM?.selectedData.experiences = experiences
     }
 }
