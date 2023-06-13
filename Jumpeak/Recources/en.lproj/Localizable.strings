@@ -29,6 +29,7 @@
 
 //stepsViews
 "firstStepBaseInfo" = "First step. Base info";
+"secondStepPorfolio" = "Second step. Portfolio";
 "welcomeToJumpeak" = "Welcome to the Jumpeak";
 "createResume" = "First you need to create\nyour resume card, which will\nbe seen by employers";
 "brokenOnSteps" = "We’ve broken it down into\nsteps, you can do some of them a little bit\nlater, but you have to do\nall of them";
@@ -54,4 +55,7 @@
 "stepMenuTitle" = "Steps menu";
 "checkWhatNeedToBoss" = "See what else you need to fill out to make your card visible to employers:";
 "completedSteps" = "Made %@ out of %@ steps";
+
+// second step
+"createNewProject" = "Create new project";
 

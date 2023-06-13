@@ -42,5 +42,12 @@ class ViewModelAssembly: Assembly {
             return viewModel
         }
         .inObjectScope(.container)
+        
+        container.register(SecondStepViewModel.self) { r in
+            let viewModel = SecondStepViewModel()
+
+            return viewModel
+        }
+        .inObjectScope(.container)
     }
 }

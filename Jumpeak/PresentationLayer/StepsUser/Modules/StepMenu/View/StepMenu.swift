@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct StepMenu: View {
-    
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
@@ -26,12 +26,17 @@ struct StepMenu: View {
             
             Spacer()
         }
-        .background(Asset.Colors.background.swiftUIColor)
         .navigationTitle(Strings.enter)
         .toolbar {
             ToolbarItem (placement: .navigationBarLeading){
                 BackBarButton()
             }
+        }
+        .background(
+            Asset.Colors.background.swiftUIColor
+        )
+        .onTapGesture {
+            dismiss()
         }
     }
     

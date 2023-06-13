@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SkillsStepView<T: View>: View {
-    var title: String
-    var descriptionTitle: String
+    var title: String?
+    var descriptionTitle: String?
     var descriptionContent: String
     var stepContent: T
     var action: () -> ()
@@ -19,8 +19,8 @@ struct SkillsStepView<T: View>: View {
     var firstButtonAction: () -> ()
     var secondButtonAction: () -> ()
 
-    init(title: String,
-         descriptionTitle: String,
+    init(title: String? = nil,
+         descriptionTitle: String? = nil,
          descriptionContent: String = "",
          @ViewBuilder stepContent: () -> T,
          action: @escaping () -> () = {},
@@ -43,15 +43,19 @@ struct SkillsStepView<T: View>: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(title)
-                .lFont()
-                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
-                .padding(.top, 40)
+            if title != nil {
+                Text(title ?? "")
+                    .lFont()
+                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                    .padding(.top, 40)
+            }
             
-            Text(descriptionTitle)
-                .mFont()
-                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.5))
-                .padding(.top, 8)
+            if descriptionTitle != nil {
+                Text(descriptionTitle ?? "")
+                    .mFont()
+                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.5))
+                    .padding(.top, 8)
+            }
             
             stepContent
             

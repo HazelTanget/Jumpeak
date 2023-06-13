@@ -55,6 +55,8 @@
 		9EDD03FF29E4413800076E0B /* FirebaseCustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */; };
 		9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040229E4440700076E0B /* ServiceAssembly.swift */; };
 		9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */; };
+		9EE394F22A366B5400777E19 /* SecondStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE394F12A366B5400777E19 /* SecondStepView.swift */; };
+		9EE394F42A366B8E00777E19 /* SecondStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE394F32A366B8E00777E19 /* SecondStepViewModel.swift */; };
 		9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */; };
 		9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD129EC86E700742B53 /* CircleEmojiView.swift */; };
 		9EF5BCD429EC8C5A00742B53 /* RegistrationStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD329EC8C5A00742B53 /* RegistrationStepView.swift */; };
@@ -125,6 +127,8 @@
 		9EDD03FE29E4413800076E0B /* FirebaseCustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCustomError.swift; sourceTree = "<group>"; };
 		9EDD040229E4440700076E0B /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
+		9EE394F12A366B5400777E19 /* SecondStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepView.swift; sourceTree = "<group>"; };
+		9EE394F32A366B8E00777E19 /* SecondStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepViewModel.swift; sourceTree = "<group>"; };
 		9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationMainView.swift; sourceTree = "<group>"; };
 		9EF5BCD129EC86E700742B53 /* CircleEmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleEmojiView.swift; sourceTree = "<group>"; };
 		9EF5BCD329EC8C5A00742B53 /* RegistrationStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStepView.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 		9EA86D082A2E897900049AAF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9EE394F02A36692100777E19 /* SecondStep */,
 				9EA86D0A2A2E898B00049AAF /* Experience */,
 				9EA86D092A2E898100049AAF /* FirstStep */,
 				9EA86D072A2E896C00049AAF /* StepMenu */,
@@ -470,6 +475,15 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		9EE394F02A36692100777E19 /* SecondStep */ = {
+			isa = PBXGroup;
+			children = (
+				9EE394F12A366B5400777E19 /* SecondStepView.swift */,
+				9EE394F32A366B8E00777E19 /* SecondStepViewModel.swift */,
+			);
+			path = SecondStep;
+			sourceTree = "<group>";
+		};
 		9EF5BCCD29EC85E500742B53 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,10 +665,12 @@
 				9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */,
 				9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */,
 				9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */,
+				9EE394F42A366B8E00777E19 /* SecondStepViewModel.swift in Sources */,
 				9EDD03D229E40BC500076E0B /* FirebaseCollection.swift in Sources */,
 				9EDD03CD29E40B7D00076E0B /* SessionService.swift in Sources */,
 				9EDD040329E4440700076E0B /* ServiceAssembly.swift in Sources */,
 				9E8B71B429F9AB8300BA4CD0 /* SubjectService.swift in Sources */,
+				9EE394F22A366B5400777E19 /* SecondStepView.swift in Sources */,
 				9EDD03F329E4251400076E0B /* BackBarButton.swift in Sources */,
 				9E8B71B629F9ABA400BA4CD0 /* Subject.swift in Sources */,
 				9EFFC7272A25EB1D003B8F3E /* MainView.swift in Sources */,

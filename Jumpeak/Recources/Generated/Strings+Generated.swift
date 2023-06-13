@@ -31,6 +31,8 @@ public enum Strings {
   public static let confirmAccount = Strings.tr("Localizable", "confirmAccount", fallback: "Confirm account")
   /// Create account
   public static let createAccount = Strings.tr("Localizable", "createAccount", fallback: "Create account")
+  /// Create new project
+  public static let createNewProject = Strings.tr("Localizable", "createNewProject", fallback: "Create new project")
   /// First you need to create
   /// your resume card, which will
   /// be seen by employers
@@ -78,6 +80,8 @@ public enum Strings {
   public static let password = Strings.tr("Localizable", "password", fallback: "Password")
   /// Passwords do not match
   public static let passwordDontMatch = Strings.tr("Localizable", "passwordDontMatch", fallback: "Passwords do not match")
+  /// Second step. Portfolio
+  public static let secondStepPorfolio = Strings.tr("Localizable", "secondStepPorfolio", fallback: "Second step. Portfolio")
   /// Пропустить
   public static let skip = Strings.tr("Localizable", "skip", fallback: "Пропустить")
   /// Steps menu

@@ -10,7 +10,7 @@ import SwiftUI
 struct FirstStepMainView: View {
     @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(FirstStepViewModel.self)!
 
-    @State var searchText = ""
+    @State private var selection: Int?
     
     var body: some View {
         NavigationStack (path: $viewModel.navigationPath) {
@@ -69,8 +69,27 @@ struct FirstStepMainView: View {
             }
             .navigationDestination(for: String.self, destination: { view in
                 if view == Views.secondStep.rawValue {
-//                    SecondStep()
-//                        .navigationBarBackButtonHidden(true)
+                    CommonInfoView(text: "Первый шаг сделан, теперь покажем твои работы ", descriptionText: "К проектам можно добавить фотографии или фрагменты кода. А ещё можно добавить ссылку на проект на других площадках") {
+                        HStack {
+                            NavigationLink (destination: LoginView().navigationBarBackButtonHidden(true), tag: 1, selection: $selection, label: {
+                                AccentButton(text: "Перейти в меню создания резюме",
+                                             foregroundColor: Asset.Colors.thirdFontColor.swiftUIColor,
+                                             backgroundColor: Asset.Colors.background.swiftUIColor.opacity(0.2)) {
+                                    selection = 1
+                                }
+                            })
+
+                            NavigationLink (destination: RegistrationMainView().navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
+                                AccentButton(text: "Загрузить работы!",
+                                             foregroundColor: Asset.Colors.mainFontColor.swiftUIColor,
+                                             backgroundColor: Asset.Colors.background.swiftUIColor) {
+                                    selection = 2
+                                }
+                            })
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.bottom, 51)
+                    }
                 }
             })
         }

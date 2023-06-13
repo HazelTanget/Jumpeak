@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CommonInfoView<T: View>: View {
     var text: String
+    var descriptionText: String
     var content: T
     
-    init(text: String, @ViewBuilder content: () -> T) {
+    init(text: String, descriptionText: String,@ViewBuilder content: () -> T) {
         self.text = text
+        self.descriptionText = descriptionText
         self.content = content()
     }
     
@@ -23,7 +25,7 @@ struct CommonInfoView<T: View>: View {
                     .foregroundColor(Asset.Colors.thirdFontColor.swiftUIColor.opacity(0.65))
                     .xlFont(weight: .semibold)
                 
-                Text(Strings.doYouUseApp)
+                Text(descriptionText)
                     .foregroundColor(Asset.Colors.thirdFontColor.swiftUIColor)
                     .xlFont(weight: .semibold)
                     .padding(.top, 24)
