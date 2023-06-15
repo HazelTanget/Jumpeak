@@ -38,5 +38,10 @@ class ServiceAssembly: Assembly {
             SoftSkillsServiceImpl()
         }
         .inObjectScope(.transient)
+        
+        container.register(ProjectService.self) { r in
+            ProjectServiceImpl()
+        }
+        .inObjectScope(.transient)
     }
 }
