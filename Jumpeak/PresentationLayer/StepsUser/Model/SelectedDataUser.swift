@@ -14,4 +14,5 @@ struct SelectedFirstDataUser: Codable {
     var selectedSoftSkills: [SoftSkill] = []
     var selectedHardSkills: [HardSkill] = []
     var experiences: [ExperienceUser] = []
+    var photoPath: String? 
 }

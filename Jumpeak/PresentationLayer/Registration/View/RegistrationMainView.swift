@@ -113,7 +113,7 @@ struct RegistrationMainView: View {
         RegistrationStepView(emojiSymb: "🔒", descriptionTitle: Strings.createStrongPass, selection: $viewModel.selection) {
             VStack (alignment: .trailing) {
                 PasswordStatusView(text: $viewModel.password)
-                CustomTextField(placeholder: Strings.password, text: $viewModel.password)
+                CustomTextField(placeholder: Strings.password, text: $viewModel.password, isSecure: true)
             }
                 .frame(maxWidth: .infinity)
                 .padding(.top, 32)

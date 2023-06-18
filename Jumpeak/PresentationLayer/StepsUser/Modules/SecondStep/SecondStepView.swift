@@ -7,58 +7,54 @@
 
 import SwiftUI
 
-//TODO: https://stackoverflow.com/questions/2514859/regular-expression-for-git-repository
-
 struct SecondStepView: View {
     @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)!
     
     var body: some View {
-        NavigationStack (path: $viewModel.navigationPath) {
-            uploadView
-        }
-        .navigationDestination(for: Views.self, destination: { view in
-            if view == .projectList {
-                
-            }
-        })
-        .alert("Git hub link", isPresented: $viewModel.shouldPresentGitHubSheet, actions: {
-            TextField("Link", text: $viewModel.gitHubLink)
-            
-            Button("Enter", action: {
-                viewModel.saveLink()
+        uploadView
+            .navigationDestination(isPresented: $viewModel.shouldShowProjectList, destination: {
+                ProjectsView()
+                    .navigationBarBackButtonHidden(true)
             })
-            Button("Cancel", role: .cancel, action: {})
-        }, message: {
-            Text("Please enter git hub link portfolio.")
-        })
-        .alert(isPresented: $viewModel.hasErrors) {
-            Alert(title: Text("Ошибка"),
-                  message: Text("Укажите корректную ссылку"))
-        }
-        .navigationTitle(Strings.secondStepPorfolio)
-        .toolbar {
-            ToolbarItem (placement: .navigationBarLeading){
-                BackBarButton()
+            .alert("Git hub link", isPresented: $viewModel.shouldPresentGitHubSheet, actions: {
+                TextField("Link", text: $viewModel.gitHubLink)
+                
+                Button("Enter", action: {
+                    viewModel.saveLink()
+                })
+                Button("Cancel", role: .cancel, action: {})
+            }, message: {
+                Text("Please enter git hub link portfolio.")
+            })
+            .alert(isPresented: $viewModel.hasErrors) {
+                Alert(title: Text("Ошибка"),
+                      message: Text("Укажите корректную ссылку"))
             }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    viewModel.shouldShowMenu.toggle()
-                } label: {
-                    Image(systemName: "list.dash")
-                        .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+            .navigationTitle(Strings.secondStepPorfolio)
+            .toolbar {
+                ToolbarItem (placement: .navigationBarLeading){
+                    BackBarButton()
                 }
-
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.uploadProject()
+                    } label: {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                    }
+                    
+                }
             }
-        }
-        .fullScreenCover(isPresented: $viewModel.shouldShowMenu) {
-            StepMenu()
-        }
-        .background(Asset.Colors.background.swiftUIColor)
+            .fullScreenCover(isPresented: $viewModel.shouldShowMenu) {
+                StepMenu()
+            }
+            .background(Asset.Colors.background.swiftUIColor)
+            .preferredColorScheme(.light)
     }
 
     var uploadView: some View {
-        SkillsStepView {
+        VStack {
             if viewModel.editProject.gitHubLink?.isEmpty ?? true == false {
                 Button {
                     viewModel.didTapLinkButton()
@@ -73,12 +69,15 @@ struct SecondStepView: View {
                             .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
                     }
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
             
             TextField("Название проекта", text: $viewModel.editProject.projectTitle.toUnwrapped(defaultValue: ""))
                 .xlFont(weight: .semibold)
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
             
             TextField("Описание проекта", text: $viewModel.editProject.projectDescription.toUnwrapped(defaultValue: ""))
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Button {
@@ -92,38 +91,13 @@ struct SecondStepView: View {
                     }
                 }
                 
-            
-        } action: {
-            viewModel.didTapNextButton()
+            Spacer()
         }
-    }
-    
-    var projectList: some View {
-        NavigationStack(path: $viewModel.prjListNavigationPath) {
-            SkillsStepView(stepContent: {
-                
-                
-            }, showAddingButton: true) {
-                
-            } secondButtonAction: {
-                
-            }
+        .background(Asset.Colors.background.swiftUIColor)
+        .onTapGesture {
+            UIApplication.shared.endEditing()
         }
-        .toolbar {
-            ToolbarItem (placement: .navigationBarLeading){
-                BackBarButton()
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    viewModel.shouldShowMenu.toggle()
-                } label: {
-                    Image(systemName: "list.dash")
-                        .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
-                }
-
-            }
-        }
+        .padding(.horizontal, 16)
     }
 }
 

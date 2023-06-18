@@ -44,8 +44,7 @@ class FirstStepViewModel: ObservableObject {
     @Published var state = DefaultState.na
     
     @Published var hasErrors = false
-
-    @Published var navigationPath = NavigationPath()
+    @Published var isCompleteFirstStep = false
     
     var hardSkillsService: HardSkillsService!
     var professionsService: ProfessionsService!
@@ -239,7 +238,9 @@ class FirstStepViewModel: ObservableObject {
         uploadPhoto()
         uploadData()
         
-        navigationPath.append(Views.secondStep)
+        isCompleteFirstStep = true
+        let secondStepViewModel = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)
+        secondStepViewModel?.userId = selectedData.userId 
     }
     
     func goToPortfolioView() {
@@ -255,11 +256,13 @@ class FirstStepViewModel: ObservableObject {
         
         guard let imageData = imageData else { return }
         
-        let fileRef = storageRef.child("images/\(UUID().uuidString).jpg")
+        let filePath = "images/\(UUID().uuidString).jpg"
+        let fileRef = storageRef.child(filePath)
+        selectedData.photoPath = filePath
         
         let uploadTask = fileRef.putData(imageData, metadata: nil) { metadata, error in
             guard let error = error else {
-                // TODO: Save to user ref
+                
                 
                 return
             }

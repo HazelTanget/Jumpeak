@@ -10,15 +10,17 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 protocol ProjectService {
-    func getProjects() -> AnyPublisher<[Project], Error>
+    func getProjects(userId: String) -> AnyPublisher<[Project], Error>
+    func uploadProject(project: Project) -> AnyPublisher<Void, Error> 
 }
 
 final class ProjectServiceImpl: ProjectService {
-    func getProjects() -> AnyPublisher<[Project], Error> {
+    func getProjects(userId: String) -> AnyPublisher<[Project], Error> {
         Deferred {
             Future { promise in
                 Firestore.firestore()
                     .collection(FirebaseCollection.projects.rawValue)
+                    .whereField("userId", isEqualTo: userId)
                     .getDocuments { snapshot, error in
                         guard let documents = snapshot?.documents else {
                             print("Error fetching documents: \(error!)")

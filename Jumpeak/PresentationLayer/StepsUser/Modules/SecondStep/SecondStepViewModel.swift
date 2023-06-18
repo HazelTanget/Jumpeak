@@ -17,6 +17,9 @@ class SecondStepViewModel: ObservableObject {
     
     @Published var shouldShowMenu = false
     @Published var hasErrors: Bool = false
+    @Published var shouldShowProjectList: Bool = false
+    
+    @Published var userId: String?
     
     @Published var editProject = Project()
     
@@ -25,6 +28,8 @@ class SecondStepViewModel: ObservableObject {
     @Published var shouldPresentGitHubSheet = false
     
     var projectService: ProjectService!
+
+    @Published var projects = [Project]()
     
     
     //MARK: Private Properties
@@ -45,7 +50,7 @@ class SecondStepViewModel: ObservableObject {
     }
     
     func didTapNextButton() {
-        navigationPath.append(Views.projectList)
+        shouldShowProjectList = true
     }
 
     func checkGitHubLink() -> Bool {
@@ -55,15 +60,32 @@ class SecondStepViewModel: ObservableObject {
     }
     
     func getProjects() {
-        projectService.getProjects()
+        guard let userId = self.userId else { return }
+        
+        projectService.getProjects(userId: userId)
             .sink { [weak self] res in
                 switch res {
                 case .failure(_):
                     self?.hasErrors = true
                 default: break
                 }
-            } receiveValue: { softSkills in
-                
+            } receiveValue: { projects in
+                self.projects = projects
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func uploadProject() {
+        editProject.userId = userId
+        projectService.uploadProject(project: editProject)
+            .sink { [weak self] res in
+                switch res {
+                case .failure(_):
+                    self?.hasErrors = true
+                default: break
+                }
+            } receiveValue: { skill in
+                self.shouldShowProjectList = true
             }
             .store(in: &subscriptions)
     }

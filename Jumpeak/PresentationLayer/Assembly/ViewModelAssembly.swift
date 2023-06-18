@@ -15,7 +15,7 @@ class ViewModelAssembly: Assembly {
             
             return viewModel
         }
-        .inObjectScope(.transient)
+        .inObjectScope(.container)
 
         container.register(RegistrationViewModel.self) { r in
             let viewModel = RegistrationViewModel()
@@ -45,6 +45,7 @@ class ViewModelAssembly: Assembly {
         
         container.register(SecondStepViewModel.self) { r in
             let viewModel = SecondStepViewModel()
+            viewModel.projectService = r.resolve(ProjectService.self)
 
             return viewModel
         }
