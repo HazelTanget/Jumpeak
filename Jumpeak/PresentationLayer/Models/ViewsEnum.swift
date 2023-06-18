@@ -11,4 +11,5 @@ enum Views: String {
     case experience = "ExperienceView"
     case secondStep = "SecondStep"
     case projectList = "ProjectList"
+    case previewVideoView = "PreviewVideoView"
 }

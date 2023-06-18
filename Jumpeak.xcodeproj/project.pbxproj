@@ -57,6 +57,7 @@
 		9EDD040529E4442B00076E0B /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */; };
 		9EE36C282A3BAD2100F85BB1 /* ProjectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE36C272A3BAD2100F85BB1 /* ProjectsService.swift */; };
 		9EE36C2A2A3BADEA00F85BB1 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE36C292A3BADEA00F85BB1 /* Project.swift */; };
+		9EE36C2D2A3BB1B400F85BB1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE36C2C2A3BB1B400F85BB1 /* CameraView.swift */; };
 		9EE394F22A366B5400777E19 /* SecondStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE394F12A366B5400777E19 /* SecondStepView.swift */; };
 		9EE394F42A366B8E00777E19 /* SecondStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE394F32A366B8E00777E19 /* SecondStepViewModel.swift */; };
 		9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */; };
@@ -131,6 +132,7 @@
 		9EDD040429E4442B00076E0B /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		9EE36C272A3BAD2100F85BB1 /* ProjectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsService.swift; sourceTree = "<group>"; };
 		9EE36C292A3BADEA00F85BB1 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		9EE36C2C2A3BB1B400F85BB1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		9EE394F12A366B5400777E19 /* SecondStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepView.swift; sourceTree = "<group>"; };
 		9EE394F32A366B8E00777E19 /* SecondStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepViewModel.swift; sourceTree = "<group>"; };
 		9EF5BCCF29EC863000742B53 /* RegistrationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationMainView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		9EA86D082A2E897900049AAF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9EE36C2B2A3BB19B00F85BB1 /* ThirdStep */,
 				9EE394F02A36692100777E19 /* SecondStep */,
 				9EA86D0A2A2E898B00049AAF /* Experience */,
 				9EA86D092A2E898100049AAF /* FirstStep */,
@@ -481,6 +484,14 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		9EE36C2B2A3BB19B00F85BB1 /* ThirdStep */ = {
+			isa = PBXGroup;
+			children = (
+				9EE36C2C2A3BB1B400F85BB1 /* CameraView.swift */,
+			);
+			path = ThirdStep;
+			sourceTree = "<group>";
+		};
 		9EE394F02A36692100777E19 /* SecondStep */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +681,7 @@
 				9EFC44532A2B899E0042586D /* ExperienceViewModel.swift in Sources */,
 				9EF5BCD229EC86E700742B53 /* CircleEmojiView.swift in Sources */,
 				9E5886E829EECE640010CE62 /* UnregistredUsers.swift in Sources */,
+				9EE36C2D2A3BB1B400F85BB1 /* CameraView.swift in Sources */,
 				9EF5BCD029EC863000742B53 /* RegistrationMainView.swift in Sources */,
 				9EE394F42A366B8E00777E19 /* SecondStepViewModel.swift in Sources */,
 				9EDD03D229E40BC500076E0B /* FirebaseCollection.swift in Sources */,
@@ -870,7 +882,8 @@
 				DEVELOPMENT_TEAM = R597ZW5RJ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "WE WANT U PHOTO XDDD";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want your micro";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -902,7 +915,8 @@
 				DEVELOPMENT_TEAM = R597ZW5RJ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "WE WANT U PHOTO XDDD";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "I want your micro";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
