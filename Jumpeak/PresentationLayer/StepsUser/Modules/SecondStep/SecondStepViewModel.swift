@@ -18,6 +18,7 @@ class SecondStepViewModel: ObservableObject {
     @Published var shouldShowMenu = false
     @Published var hasErrors: Bool = false
     @Published var shouldShowProjectList: Bool = false
+    @Published var shouldShowThirdStep: Bool = false
     
     @Published var userId: String?
     

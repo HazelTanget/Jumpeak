@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProjectsView: View {
     @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)!
+    @State private var selection: Int?
     
     var body: some View {
         SkillsStepView(stepContent: {
@@ -20,7 +21,23 @@ struct ProjectsView: View {
         }, showAddingButton: true, firstButtonTitle: "", secondButtonTitle: "", firstButtonAction: {
             
         },secondButtonAction: {
-            
+            viewModel.shouldShowThirdStep = true
+        })
+        .navigationDestination(isPresented: $viewModel.shouldShowThirdStep, destination: {
+            CommonInfoView(text: "Портфолио создано, остался всего один шаг!", descriptionText: "Запиши небольшое видео и кратко расскажи о себе: чем ты увлекаешься, почему выбрал эту профессию и какой-нибудь забавный факт о себе") {
+                HStack {
+                    NavigationLink (destination: CameraView(userId: viewModel.userId ?? "").navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
+                        AccentButton(text: "Записать видео-резюме!",
+                                     foregroundColor: Asset.Colors.mainFontColor.swiftUIColor,
+                                     backgroundColor: Asset.Colors.background.swiftUIColor) {
+                            selection = 2
+                        }
+                    })
+                }
+                .padding(.horizontal, 8)
+                .padding(.bottom, 51)
+            }
+            .navigationBarBackButtonHidden(true)
         })
         .onAppear {
             viewModel.getProjects()

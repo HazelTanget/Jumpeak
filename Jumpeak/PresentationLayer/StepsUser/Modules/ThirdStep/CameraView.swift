@@ -9,6 +9,7 @@ import SwiftUI
 import AVKit
 import AVFoundation
 import FirebaseStorage
+import FirebaseFirestore
 
 struct CameraView: View {
     @State private var completionAmount = 0.0
@@ -16,29 +17,30 @@ struct CameraView: View {
     
     private var secondsCount: Double = 10
     
+    var userId: String
+    
     @StateObject var cameraViewModel = CameraModel()
     @State var tickedTime: Double = 1
     @State var shouldShowDetailView = false
     
+    init(userId: String) {
+        self.userId = userId
+    }
+    
     var body: some View {
-        NavigationView {
             ZStack (alignment: .bottom){
-                NavigationLink(isActive: $shouldShowDetailView) {
-                    if let url = cameraViewModel.preivewURL {
-                        FinalPreview(url: url)
-                            .environmentObject(cameraViewModel)
-                            .navigationBarBackButtonHidden(true)
-                    }
-                } label: {
-                    EmptyView()
-                }
-
-                
                 GeometryReader { proxy in
                     let size = proxy.size
                     CameraModelPreview(size: size)
                         .environmentObject(cameraViewModel)
                 }
+                .navigationDestination(isPresented: $shouldShowDetailView, destination: {
+                    if let url = cameraViewModel.preivewURL {
+                        FinalPreview(url: url)
+                            .environmentObject(cameraViewModel)
+                            .navigationBarBackButtonHidden(true)
+                    }
+                })
                 .onAppear {
                     cameraViewModel.checkPermissions()
                     timer.upstream.connect().cancel()
@@ -61,8 +63,7 @@ struct CameraView: View {
             }
             .ignoresSafeArea()
             .background(.black)
-           
-        }
+
     }
     
     var buttonVideoView: some View {
@@ -101,12 +102,6 @@ struct CameraView: View {
     }
     
 
-}
-
-struct CameraView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraView()
-    }
 }
 
 struct FinalPreview: View {
@@ -150,6 +145,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
     @Published var showAlert = false
     @Published var output = AVCaptureMovieFileOutput()
     @Published var preview: AVCaptureVideoPreviewLayer!
+    var baseInfoId: String?
     
     //MARK: Video Recorder Properties
     @Published var isRecording = false
@@ -252,6 +248,11 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
 
             print(error)
         }
+
+        Firestore.firestore()
+            .collection(FirebaseCollection.userBaseInfo.rawValue)
+            .document(baseInfoId ?? "")
+            .updateData(["videoPath": "Videos/\(name)"])
 
         let storageRef = Storage.storage().reference().child("Videos").child(name)
         if let uploadData = data as Data? {
