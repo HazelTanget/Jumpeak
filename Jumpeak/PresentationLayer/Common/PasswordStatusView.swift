@@ -17,7 +17,7 @@ struct PasswordStatusView: View {
             errorInput
         case 0..<12:
             warningInput
-        case 0..<15:
+        case 0..<128:
             successInput
         default:
             Asset.Assets.errorPasswordIc.swiftUIImage

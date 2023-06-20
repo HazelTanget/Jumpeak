@@ -37,11 +37,13 @@ struct CustomTextField: View {
                                 .mFont()
                                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                                 .focused($isActive)
+                                .padding(.trailing, 36)
                         } else  {
                             SecureField(placeholder, text: $text)
                                 .mFont()
                                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                                 .focused($isActive)
+                                .padding(.trailing, 36)
                         }
                     } else {
                         HStack {
