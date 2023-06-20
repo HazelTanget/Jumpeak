@@ -63,6 +63,11 @@ class RegistrationViewModel: ObservableObject {
     }
     
     func registerUser() {
+        if password.count < 8 {
+            codeError.append(FirebaseCustomError.passwordLengthSmall)
+            return
+        }
+        
         service.register(oldId: user?.id ?? "", email: user?.email ?? "", password: password)
             .sink { res in
                 switch res {

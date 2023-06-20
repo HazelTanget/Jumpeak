@@ -49,6 +49,7 @@
 //errors
 "userWithEmailAlreadyExists" = "Вы уже зарегестрированны в нашей системе.";
 "userDoesntExsist" = "Похоже, этой почты нет в нашей базе";
+"passwordLengthSmall" = "Пароль должен содержать минимум 8 символов";
 
 //steps menu
 "stepMenuTitle" = "Меню создание резюме";

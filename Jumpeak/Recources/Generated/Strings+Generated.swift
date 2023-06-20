@@ -80,6 +80,8 @@ public enum Strings {
   public static let password = Strings.tr("Localizable", "password", fallback: "Password")
   /// Passwords do not match
   public static let passwordDontMatch = Strings.tr("Localizable", "passwordDontMatch", fallback: "Passwords do not match")
+  /// The password must contain at least 8 characters
+  public static let passwordLengthSmall = Strings.tr("Localizable", "passwordLengthSmall", fallback: "The password must contain at least 8 characters")
   /// Second step. Portfolio
   public static let secondStepPorfolio = Strings.tr("Localizable", "secondStepPorfolio", fallback: "Second step. Portfolio")
   /// Пропустить
@@ -90,10 +92,10 @@ public enum Strings {
   public static let strong = Strings.tr("Localizable", "strong", fallback: "Strong")
   /// Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами
   public static let tellMoreAboutIt = Strings.tr("Localizable", "tellMoreAboutIt", fallback: "Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами")
-  /// Похоже, этой почты нет в нашей базе
-  public static let userDoesntExsist = Strings.tr("Localizable", "userDoesntExsist", fallback: "Похоже, этой почты нет в нашей базе")
-  /// Вы уже зарегестрированны в нашей системе.
-  public static let userWithEmailAlreadyExists = Strings.tr("Localizable", "userWithEmailAlreadyExists", fallback: "Вы уже зарегестрированны в нашей системе.")
+  /// Looks like this e-mail isn’t in our database
+  public static let userDoesntExsist = Strings.tr("Localizable", "userDoesntExsist", fallback: "Looks like this e-mail isn’t in our database")
+  /// You are already registered in our system
+  public static let userWithEmailAlreadyExists = Strings.tr("Localizable", "userWithEmailAlreadyExists", fallback: "You are already registered in our system")
   /// Weak
   public static let `weak` = Strings.tr("Localizable", "weak", fallback: "Weak")
   /// Welcome to the Jumpeak

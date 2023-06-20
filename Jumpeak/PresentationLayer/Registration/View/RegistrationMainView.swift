@@ -114,6 +114,10 @@ struct RegistrationMainView: View {
             VStack (alignment: .trailing) {
                 PasswordStatusView(text: $viewModel.password)
                 CustomTextField(placeholder: Strings.password, text: $viewModel.password, isSecure: true)
+                    .onChange(of: viewModel.password, perform: { newValue in
+                        viewModel.regFieldState = .na
+                        viewModel.codeError = []
+                    })
             }
                 .frame(maxWidth: .infinity)
                 .padding(.top, 32)
