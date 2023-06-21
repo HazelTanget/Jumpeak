@@ -43,5 +43,7 @@ class ExperienceViewModel: ObservableObject {
     private func uploadData() {
         var firstStepVM = ApplicationAssemby.defaultContainer.resolve(FirstStepViewModel.self)
         firstStepVM?.selectedData.experiences = experiences
+        firstStepVM?.shouldShowExperienceView = false
+        firstStepVM?.selection += 1
     }
 }

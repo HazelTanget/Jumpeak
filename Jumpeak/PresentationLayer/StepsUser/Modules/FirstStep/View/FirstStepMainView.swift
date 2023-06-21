@@ -62,7 +62,7 @@ struct FirstStepMainView: View {
             }
             .tabViewStyle(.page)
             .fullScreenCover(isPresented: $viewModel.shouldShowExperienceView) {
-                ExperienceView()
+                ExperienceView(isPresented: $viewModel.shouldShowExperienceView)
             }
             .navigationDestination(isPresented: $viewModel.isCompleteFirstStep) {
                 CommonInfoView(text: "Первый шаг сделан, теперь покажем твои работы ", descriptionText: "К проектам можно добавить фотографии или фрагменты кода. А ещё можно добавить ссылку на проект на других площадках") {

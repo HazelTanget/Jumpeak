@@ -43,7 +43,7 @@ class ViewModelAssembly: Assembly {
 
             return viewModel
         }
-        .inObjectScope(.container)
+        .inObjectScope(.transient)
         
         container.register(SecondStepViewModel.self) { r in
             let viewModel = SecondStepViewModel()

@@ -11,11 +11,11 @@ struct ExperienceView: View {
     
     @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(ExperienceViewModel.self)!
     
+    @Binding var isPresented: Bool
+    
     //For change date text
     @State private var startDateText = ""
     @State private var endDateText = ""
-    
-    @Environment(\.dismiss) private var dismiss
     
     private let formatter = DateFormatter()
 
@@ -23,6 +23,9 @@ struct ExperienceView: View {
         VStack(spacing: 16) {
             BackBarButton()
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .onTapGesture {
+                    isPresented = false
+                }
 
             Text(Strings.tellMoreAboutIt)
                 .lFont(weight: .medium)
@@ -46,11 +49,7 @@ struct ExperienceView: View {
         }
         .padding(.horizontal, 16)
         .fullScreenCover(isPresented: $viewModel.isNeedToOpenExpView) {
-            ExperienceView()
-                .navigationBarBackButtonHidden(true)
-                .onAppear {
-                    viewModel.isNeedToOpenExpView = false
-                }
+            ExperienceView(isPresented: self.$isPresented)
         }
         .background(
             Asset.Colors.background.swiftUIColor
@@ -124,14 +123,8 @@ struct ExperienceView: View {
             
             AccentButton(text: "Далее", isEnable: $viewModel.isEnableButtonNextAndAddExp) {
                 viewModel.nextButtonTapped()
-                dismiss()
             }
         }
     }
 }
 
-struct ExperienceView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExperienceView()
-    }
-}
