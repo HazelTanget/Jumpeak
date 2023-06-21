@@ -21,6 +21,10 @@ public enum Strings {
   public static let checkWhatNeedToBoss = Strings.tr("Localizable", "checkWhatNeedToBoss", fallback: "See what else you need to fill out to make your card visible to employers:")
   /// Choose an field. One or more
   public static let choseOneOrMore = Strings.tr("Localizable", "choseOneOrMore", fallback: "Choose an field. One or more")
+  /// Choose one or more skills
+  public static let choseOneOrMoreHardSkills = Strings.tr("Localizable", "choseOneOrMoreHardSkills", fallback: "Choose one or more skills")
+  /// Choose one profession
+  public static let choseOneProffession = Strings.tr("Localizable", "choseOneProffession", fallback: "Choose one profession")
   /// Choose which field you want to work in?
   public static let choseYourJob = Strings.tr("Localizable", "choseYourJob", fallback: "Choose which field you want to work in?")
   /// Made %@ out of %@ steps
@@ -39,10 +43,10 @@ public enum Strings {
   public static let createResume = Strings.tr("Localizable", "createResume", fallback: "First you need to create\nyour resume card, which will\nbe seen by employers")
   /// The final step is to create a strong password
   public static let createStrongPass = Strings.tr("Localizable", "createStrongPass", fallback: "The final step is to create a strong password")
-  /// Загрузи свою фотографию. Так работодателям будет легче с тобой познакомиться
-  public static let donwloadPhoto = Strings.tr("Localizable", "donwloadPhoto", fallback: "Загрузи свою фотографию. Так работодателям будет легче с тобой познакомиться")
-  /// Может у тебя есть опыт работы или стажировки на этой или похожей профессии?
-  public static let doYouHaveExp = Strings.tr("Localizable", "doYouHaveExp", fallback: "Может у тебя есть опыт работы или стажировки на этой или похожей профессии?")
+  /// Upload your photo. This will make it easier for employers to meet you
+  public static let donwloadPhoto = Strings.tr("Localizable", "donwloadPhoto", fallback: "Upload your photo. This will make it easier for employers to meet you")
+  /// Do you have any experience working or interning in this or similar profession?
+  public static let doYouHaveExp = Strings.tr("Localizable", "doYouHaveExp", fallback: "Do you have any experience working or interning in this or similar profession?")
   /// Have you used the app yet?
   public static let doYouUseApp = Strings.tr("Localizable", "doYouUseApp", fallback: "Have you used the app yet?")
   /// Email
@@ -55,6 +59,8 @@ public enum Strings {
   public static let enterEmailWithPassCode = Strings.tr("Localizable", "enterEmailWithPassCode", fallback: "Enter your confirmation code in your mail")
   /// Enter name field
   public static let enterNameArea = Strings.tr("Localizable", "enterNameArea", fallback: "Enter name field")
+  /// Now indicate the name of your profession
+  public static let enterNameOfProffession = Strings.tr("Localizable", "enterNameOfProffession", fallback: "Now indicate the name of your profession")
   /// First step. Base info
   public static let firstStepBaseInfo = Strings.tr("Localizable", "firstStepBaseInfo", fallback: "First step. Base info")
   /// Localizable.strings
@@ -64,16 +70,16 @@ public enum Strings {
   public static let helloText = Strings.tr("Localizable", "helloText", fallback: "Hi!\nThis is Jumpeak - the place where meet students and employers")
   /// Imagine password
   public static let imaginePassword = Strings.tr("Localizable", "imaginePassword", fallback: "Imagine password")
-  /// Этот шаг можно выполнить попозже, но он обязательный
-  public static let itDefinetlyAction = Strings.tr("Localizable", "itDefinetlyAction", fallback: "Этот шаг можно выполнить попозже, но он обязательный")
+  /// This step can be completed later, but it is mandatory
+  public static let itDefinetlyAction = Strings.tr("Localizable", "itDefinetlyAction", fallback: "This step can be completed later, but it is mandatory")
   /// Let's start!
   public static let letsStart = Strings.tr("Localizable", "letsStart", fallback: "Let's start!")
   /// Next
   public static let next = Strings.tr("Localizable", "next", fallback: "Next")
-  /// Нет ничего страшного, если у тебя ещё нет реального опыта работы
-  public static let noProblemWithExp = Strings.tr("Localizable", "noProblemWithExp", fallback: "Нет ничего страшного, если у тебя ещё нет реального опыта работы")
-  /// Пока нет
-  public static let notYet = Strings.tr("Localizable", "notYet", fallback: "Пока нет")
+  /// It’s okay if you don’t have real experience
+  public static let noProblemWithExp = Strings.tr("Localizable", "noProblemWithExp", fallback: "It’s okay if you don’t have real experience")
+  /// Not yet
+  public static let notYet = Strings.tr("Localizable", "notYet", fallback: "Not yet")
   /// Open
   public static let `open` = Strings.tr("Localizable", "open", fallback: "Open")
   /// Password
@@ -84,14 +90,14 @@ public enum Strings {
   public static let passwordLengthSmall = Strings.tr("Localizable", "passwordLengthSmall", fallback: "The password must contain at least 8 characters")
   /// Second step. Portfolio
   public static let secondStepPorfolio = Strings.tr("Localizable", "secondStepPorfolio", fallback: "Second step. Portfolio")
-  /// Пропустить
-  public static let skip = Strings.tr("Localizable", "skip", fallback: "Пропустить")
+  /// Skip
+  public static let skip = Strings.tr("Localizable", "skip", fallback: "Skip")
   /// Steps menu
   public static let stepMenuTitle = Strings.tr("Localizable", "stepMenuTitle", fallback: "Steps menu")
   /// Strong
   public static let strong = Strings.tr("Localizable", "strong", fallback: "Strong")
-  /// Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами
-  public static let tellMoreAboutIt = Strings.tr("Localizable", "tellMoreAboutIt", fallback: "Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами")
+  /// Tell us more about it, it will give you an advantage over other students
+  public static let tellMoreAboutIt = Strings.tr("Localizable", "tellMoreAboutIt", fallback: "Tell us more about it, it will give you an advantage over other students")
   /// Looks like this e-mail isn’t in our database
   public static let userDoesntExsist = Strings.tr("Localizable", "userDoesntExsist", fallback: "Looks like this e-mail isn’t in our database")
   /// You are already registered in our system
@@ -100,8 +106,12 @@ public enum Strings {
   public static let `weak` = Strings.tr("Localizable", "weak", fallback: "Weak")
   /// Welcome to the Jumpeak
   public static let welcomeToJumpeak = Strings.tr("Localizable", "welcomeToJumpeak", fallback: "Welcome to the Jumpeak")
-  /// Да, есть!
-  public static let yesIHave = Strings.tr("Localizable", "yesIHave", fallback: "Да, есть!")
+  /// What hard skills do you have?
+  public static let whatHardSkillsDoUHave = Strings.tr("Localizable", "whatHardSkillsDoUHave", fallback: "What hard skills do you have?")
+  /// What soft skills do you have?
+  public static let whatSoftSkillsDoUHave = Strings.tr("Localizable", "whatSoftSkillsDoUHave", fallback: "What soft skills do you have?")
+  /// Yes, there is!
+  public static let yesIHave = Strings.tr("Localizable", "yesIHave", fallback: "Yes, there is!")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

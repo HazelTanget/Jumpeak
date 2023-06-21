@@ -69,6 +69,7 @@
 		9EF5BCDA29ED4CAE00742B53 /* PasswordStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */; };
 		9EF5BCEB29EDE46800742B53 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCEA29EDE46800742B53 /* TextField+Extensions.swift */; };
 		9EF5BCEE29EDE59E00742B53 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5BCED29EDE59E00742B53 /* RegistrationViewModel.swift */; };
+		9EFA38742A43983600062D1C /* ImpactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFA38732A43983600062D1C /* ImpactService.swift */; };
 		9EFC44532A2B899E0042586D /* ExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC44522A2B899E0042586D /* ExperienceViewModel.swift */; };
 		9EFC44552A2B8A150042586D /* ExperienceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC44542A2B8A150042586D /* ExperienceUser.swift */; };
 		9EFC44572A2B8B670042586D /* ViewsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFC44562A2B8B670042586D /* ViewsEnum.swift */; };
@@ -82,6 +83,7 @@
 		58BBB7BCFD507D70010F53BD /* Pods-Jumpeak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpeak.debug.xcconfig"; path = "Target Support Files/Pods-Jumpeak/Pods-Jumpeak.debug.xcconfig"; sourceTree = "<group>"; };
 		7F73D3A10375EF09B9DDCED0 /* Pods-Jumpeak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jumpeak.release.xcconfig"; path = "Target Support Files/Pods-Jumpeak/Pods-Jumpeak.release.xcconfig"; sourceTree = "<group>"; };
 		884A4C8B067B5F2977DF36F9 /* Pods_Jumpeak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jumpeak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E45A9032A42308300406CB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9E493E482A22417D00668C90 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
 		9E5886E729EECE640010CE62 /* UnregistredUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregistredUsers.swift; sourceTree = "<group>"; };
 		9E5886EA29EED1240010CE62 /* DefaultState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultState.swift; sourceTree = "<group>"; };
@@ -116,7 +118,6 @@
 		9EDD03D629E40CCB00076E0B /* CommonInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonInfoView.swift; sourceTree = "<group>"; };
 		9EDD03D929E40E6700076E0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EDD03DB29E40E8F00076E0B /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
-		9EDD03E029E40F0A00076E0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EDD03E229E40F3000076E0B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9EDD03E429E40FEC00076E0B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		9EDD03E829E411CB00076E0B /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		9EF5BCD929ED4CAE00742B53 /* PasswordStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatusView.swift; sourceTree = "<group>"; };
 		9EF5BCEA29EDE46800742B53 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		9EF5BCED29EDE59E00742B53 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		9EFA38732A43983600062D1C /* ImpactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactService.swift; sourceTree = "<group>"; };
 		9EFC44522A2B899E0042586D /* ExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewModel.swift; sourceTree = "<group>"; };
 		9EFC44542A2B8A150042586D /* ExperienceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceUser.swift; sourceTree = "<group>"; };
 		9EFC44562A2B8B670042586D /* ViewsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsEnum.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				9E8B71B329F9AB8300BA4CD0 /* SubjectService.swift */,
 				9E8B71B729F9ABF900BA4CD0 /* SoftSkillsService.swift */,
 				9EE36C272A3BAD2100F85BB1 /* ProjectsService.swift */,
+				9EFA38732A43983600062D1C /* ImpactService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				9E7325F229F822AE00D5D002 /* SkillsStepView.swift in Sources */,
 				9EDD03E529E40FEC00076E0B /* View+Extension.swift in Sources */,
 				9E8B71BA29F9AC0800BA4CD0 /* SoftSkill.swift in Sources */,
+				9EFA38742A43983600062D1C /* ImpactService.swift in Sources */,
 				9E7325E129F6DDA800D5D002 /* LayoutTags.swift in Sources */,
 				9EF5BCD629EC944600742B53 /* CodeFieldsView.swift in Sources */,
 				9EFC44572A2B8B670042586D /* ViewsEnum.swift in Sources */,
@@ -749,8 +753,8 @@
 		9EDD03E129E40F0A00076E0B /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9EDD03E029E40F0A00076E0B /* en */,
 				9EDD03E229E40F3000076E0B /* ru */,
+				9E45A9032A42308300406CB6 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

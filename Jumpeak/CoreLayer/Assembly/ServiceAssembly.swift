@@ -43,5 +43,10 @@ class ServiceAssembly: Assembly {
             ProjectServiceImpl()
         }
         .inObjectScope(.transient)
+        
+        container.register(ImpactService.self) { r in
+            ImpactServiceImpl()
+        }
+        .inObjectScope(.container)
     }
 }

@@ -50,6 +50,7 @@ class FirstStepViewModel: ObservableObject {
     var professionsService: ProfessionsService!
     var softSkillsService: SoftSkillsService!
     var subjectService: SubjectService!
+    var impactService: ImpactService!
     
     
     //MARK: Private Properties
@@ -161,8 +162,11 @@ class FirstStepViewModel: ObservableObject {
         
         if selectedData.selectedSubject.count == 0 {
             hasErrors = true
+            return
         }
         
+        impactService.callLightImpact()
+        self.fetchProffessions()
         selection += 1
     }
     
@@ -181,8 +185,11 @@ class FirstStepViewModel: ObservableObject {
         
         if selectedData.selectedProffessions.count == 0 {
             hasErrors = true
+            return
         }
         
+        impactService.callLightImpact()
+        self.fetchHardSkills()
         selection += 1
     }
     
@@ -201,8 +208,11 @@ class FirstStepViewModel: ObservableObject {
         
         if selectedData.selectedProffessions.count == 0 {
             hasErrors = true
+            return
         }
         
+        self.fetchSoftSkills()
+        impactService.callLightImpact()
         selection += 1
     }
     
@@ -221,16 +231,21 @@ class FirstStepViewModel: ObservableObject {
         
         if selectedData.selectedProffessions.count == 0 {
             hasErrors = true
+            return
         }
-        
+
+        impactService.callLightImpact()
         selection += 1
     }
     
     func fiftButtonTapped(haveExp: Bool) {
         if (haveExp) {
+            impactService.callLightImpact()
             goToPortfolioView()
+            return
         }
         
+        impactService.callLightImpact()
         selection += 1
     }
     
@@ -239,6 +254,7 @@ class FirstStepViewModel: ObservableObject {
         uploadData()
         
         isCompleteFirstStep = true
+        impactService.callLightImpact()
         let secondStepViewModel = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)
         secondStepViewModel?.userId = selectedData.userId 
     }

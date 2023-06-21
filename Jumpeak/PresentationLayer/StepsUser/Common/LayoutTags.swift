@@ -9,6 +9,12 @@ import SwiftUI
 
 struct LayoutTags: View {
     @Binding var tag: [Tag]
+    var isProffessionView: Bool
+    
+    init(tag: Binding<[Tag]>, isProffessionView: Bool = false) {
+        self._tag = tag
+        self.isProffessionView = isProffessionView
+    }
     
     var body: some View {
         VStack {

@@ -23,8 +23,8 @@
 "weak" = "Weak";
 "strong" = "Strong";
 "passwordDontMatch" = "Passwords do not match";
-"notYet" = "Пока нет";
-"yesIHave" = "Да, есть!";
+"notYet" = "Not yet";
+"yesIHave" = "Yes, there is!";
 "open" = "Open";
 
 //stepsViews
@@ -37,14 +37,19 @@
 "choseYourJob" = "Choose which field you want to work in?";
 "choseOneOrMore" = "Choose an field. One or more";
 "enterNameArea" = "Enter name field";
-"doYouHaveExp" = "Может у тебя есть опыт работы или стажировки на этой или похожей профессии?";
-"noProblemWithExp" = "Нет ничего страшного, если у тебя ещё нет реального опыта работы";
-"donwloadPhoto" = "Загрузи свою фотографию. Так работодателям будет легче с тобой познакомиться";
-"itDefinetlyAction" = "Этот шаг можно выполнить попозже, но он обязательный";
-"skip" = "Пропустить";
+"doYouHaveExp" = "Do you have any experience working or interning in this or similar profession?";
+"noProblemWithExp" = "It’s okay if you don’t have real experience";
+"donwloadPhoto" = "Upload your photo. This will make it easier for employers to meet you";
+"itDefinetlyAction" = "This step can be completed later, but it is mandatory";
+"skip" = "Skip";
+"enterNameOfProffession" = "Now indicate the name of your profession";
+"choseOneProffession" = "Choose one profession";
+"whatHardSkillsDoUHave" = "What hard skills do you have?";
+"choseOneOrMoreHardSkills" = "Choose one or more skills";
+"whatSoftSkillsDoUHave" = "What soft skills do you have?";
 
 //exp View
-"tellMoreAboutIt" = "Расскажи об этом подробнее, это даст тебе преимущество перед другими студентами";
+"tellMoreAboutIt" = "Tell us more about it, it will give you an advantage over other students";
 
 //errors
 "userWithEmailAlreadyExists" = "You are already registered in our system";

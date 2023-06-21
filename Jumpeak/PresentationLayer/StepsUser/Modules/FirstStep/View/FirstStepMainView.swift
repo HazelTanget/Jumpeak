@@ -13,7 +13,6 @@ struct FirstStepMainView: View {
     @State private var selection: Int?
     
     var body: some View {
-        
             TabView(selection: $viewModel.selection) {
                 firstStep
                     .onChange(of: viewModel.searchSubjects, perform: { newValue in
@@ -27,25 +26,16 @@ struct FirstStepMainView: View {
                     .onChange(of: viewModel.searchProffessions, perform: { newValue in
                         viewModel.filterCollection(.professions)
                     })
-                    .onAppear {
-                        viewModel.fetchProffessions()
-                    }
                 
                 thirdStep
                     .onChange(of: viewModel.searchHardSkills, perform: { newValue in
                         viewModel.filterCollection(.hardSkills)
                     })
-                    .onAppear {
-                        viewModel.fetchHardSkills()
-                    }
                 
                 fourthStep
                     .onChange(of: viewModel.searchSoftSkills, perform: { newValue in
                         viewModel.filterCollection(.softSkills)
                     })
-                    .onAppear {
-                        viewModel.fetchSoftSkills()
-                    }
                 
                 fifthStep
                 
@@ -54,7 +44,9 @@ struct FirstStepMainView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .sheet(isPresented: $viewModel.shouldPresentImagePicker) {
                 SUImagePickerView(sourceType: viewModel.shouldPresentCamera ? .camera : .photoLibrary, image: $viewModel.selectedImage, isPresented: $viewModel.shouldPresentImagePicker)
-            }.actionSheet(isPresented: $viewModel.shouldPresentActionScheet) { () -> ActionSheet in
+                    .ignoresSafeArea()
+            }
+            .actionSheet(isPresented: $viewModel.shouldPresentActionScheet) { () -> ActionSheet in
                 ActionSheet(title: Text("Choose mode"), message: Text("Please choose your preferred mode to set your profile image"), buttons: [ActionSheet.Button.default(Text("Camera"), action: {
                     viewModel.shouldPresentImagePicker = true
                     viewModel.shouldPresentCamera = true
@@ -62,6 +54,11 @@ struct FirstStepMainView: View {
                     viewModel.shouldPresentImagePicker = true
                     viewModel.shouldPresentCamera = false
                 }), ActionSheet.Button.cancel()])
+            }
+            .alert(isPresented: $viewModel.hasErrors) {
+                return Alert(title: Text("Ошибка"),
+                             message: Text("Выберите хотя бы один элемент"))
+                
             }
             .tabViewStyle(.page)
             .fullScreenCover(isPresented: $viewModel.shouldShowExperienceView) {
@@ -118,7 +115,7 @@ struct FirstStepMainView: View {
     }
     
     var secondStep: some View {
-        SkillsStepView(title: Strings.choseYourJob, descriptionTitle: Strings.choseYourJob) {
+        SkillsStepView(title: Strings.enterNameOfProffession, descriptionTitle: Strings.choseOneProffession) {
             SearchBarView(title: Strings.enterNameArea, text: $viewModel.searchProffessions)
             
             LayoutTags(tag: $viewModel.proffessions)
@@ -133,7 +130,7 @@ struct FirstStepMainView: View {
     }
     
     var thirdStep: some View {
-        SkillsStepView(title: Strings.choseYourJob, descriptionTitle: Strings.choseYourJob) {
+        SkillsStepView(title: Strings.whatHardSkillsDoUHave, descriptionTitle: Strings.choseOneOrMoreHardSkills) {
             SearchBarView(title: Strings.enterNameArea, text: $viewModel.searchHardSkills)
             
             LayoutTags(tag: $viewModel.hardSkills)
@@ -148,7 +145,7 @@ struct FirstStepMainView: View {
     }
     
     var fourthStep: some View {
-        SkillsStepView(title: Strings.choseYourJob, descriptionTitle: Strings.choseYourJob) {
+        SkillsStepView(title: Strings.whatSoftSkillsDoUHave, descriptionTitle: Strings.choseOneOrMoreHardSkills) {
             SearchBarView(title: Strings.enterNameArea, text: $viewModel.searchSoftSkills)
             
             LayoutTags(tag: $viewModel.softSkills)
@@ -182,18 +179,19 @@ struct FirstStepMainView: View {
     }
     
     var sixthStep: some View {
-        SkillsStepView(title: Strings.doYouHaveExp,
-                       descriptionTitle: Strings.noProblemWithExp,
+        SkillsStepView(title: Strings.donwloadPhoto,
+                       descriptionTitle: "",
                        stepContent: {
             
             if let uiImage = viewModel.selectedImage,
                 let photo = Image(uiImage: uiImage) {
                 photo
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 168, height: 168)
                     .clipShape(Circle())
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .onTapGesture { viewModel.shouldPresentActionScheet = true }
                 
             } else {
                 CircleEmojiView(emoji: "📸")
@@ -203,14 +201,10 @@ struct FirstStepMainView: View {
                 
             
             
-        },
-                       showAddingButton: true,
-                       firstButtonTitle: Strings.notYet,
-                       secondButtonTitle: Strings.yesIHave,
-                       firstButtonAction: {
-            viewModel.sixthButtonTapped()
-        }, secondButtonAction: {
-            viewModel.sixthButtonTapped()
+        }, action: {
+            withAnimation {
+                viewModel.sixthButtonTapped()
+            }
         })
         .tag(5)
     }

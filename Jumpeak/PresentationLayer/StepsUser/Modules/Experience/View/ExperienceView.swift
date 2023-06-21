@@ -21,6 +21,9 @@ struct ExperienceView: View {
 
     var body: some View {
         VStack(spacing: 16) {
+            BackBarButton()
+                .frame(maxWidth: .infinity, alignment: .leading)
+
             Text(Strings.tellMoreAboutIt)
                 .lFont(weight: .medium)
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
@@ -42,11 +45,12 @@ struct ExperienceView: View {
             buttons
         }
         .padding(.horizontal, 16)
-        .navigationDestination(for: String.self) { view in
-            if view == Views.experience.rawValue {
-                ExperienceView()
-                    .navigationBarBackButtonHidden(true)
-            }
+        .fullScreenCover(isPresented: $viewModel.isNeedToOpenExpView) {
+            ExperienceView()
+                .navigationBarBackButtonHidden(true)
+                .onAppear {
+                    viewModel.isNeedToOpenExpView = false
+                }
         }
         .background(
             Asset.Colors.background.swiftUIColor
@@ -74,10 +78,12 @@ struct ExperienceView: View {
                 .onChange(of: viewModel.editingExp.startDate) { newValue in
                     viewModel.startDateText = formatter.string(from: newValue)
                 }
-            CustomTextField(placeholder: "Дата окончания", isDateField: true, text: $viewModel.endDateText, date: $viewModel.editingExp.endDate)
-                .onChange(of: viewModel.editingExp.endDate) { newValue in
-                    viewModel.endDateText = formatter.string(from: newValue)
-                }
+            if viewModel.editingExp.isStillWorking == false {
+                CustomTextField(placeholder: "Дата окончания", isDateField: true, text: $viewModel.endDateText, date: $viewModel.editingExp.endDate)
+                    .onChange(of: viewModel.editingExp.endDate) { newValue in
+                        viewModel.endDateText = formatter.string(from: newValue)
+                    }
+            }
         }
     }
     
@@ -98,6 +104,7 @@ struct ExperienceView: View {
             .onTapGesture {
                 withAnimation(.spring()) {
                     viewModel.editingExp.isStillWorking.toggle()
+                    viewModel.editingExp.endDate = Date()
                 }
             }
          

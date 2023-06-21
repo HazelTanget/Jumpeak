@@ -31,6 +31,7 @@ class ViewModelAssembly: Assembly {
             viewModel.softSkillsService = r.resolve(SoftSkillsService.self)
             viewModel.professionsService = r.resolve(ProfessionsService.self)
             viewModel.subjectService = r.resolve(SubjectService.self)
+            viewModel.impactService = r.resolve(ImpactService.self)
 
             return viewModel
         }
