@@ -16,37 +16,37 @@ struct LayoutTags: View {
         self.isProffessionView = isProffessionView
     }
     
+    var hasSelectedTag: Bool {
+        var countOfSelected = 0
+        tag.forEach { tag in
+            if tag.isSelected {
+                countOfSelected += 1
+            }
+        }
+        return isProffessionView && countOfSelected > 1
+    }
+    
     var body: some View {
         VStack {
             TagLayout(spacing: 8) {
                 ForEach($tag, id: \.id) { $tag in
-//                    if index == tag.count - 1 {
-//                        Button {
-//
-//                        } label: {
-//                            Text(tag[index].name)
-//                                .mFont()
-//                                .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
-//                        }
-//                        .padding(.vertical, 12)
-//                        .padding(.horizontal, 16)
-//                        .background(Asset.Colors.inputColor.swiftUIColor)
-//                        .cornerRadius(8)
-//
-//                    } else {
-                        Toggle(isOn: $tag.isSelected) {
-                            Text(tag.name)
-                                .mFont()
-                                .foregroundColor(tag.isSelected ? Asset.Colors.thirdFontColor.swiftUIColor : Asset.Colors.mainFontColor.swiftUIColor)
-                                .padding(.vertical, 12)
-                                .padding(.horizontal, 16)
-                            
+                    Toggle(isOn: $tag.isSelected) {
+                        Text(tag.name)
+                            .mFont()
+                            .foregroundColor(tag.isSelected ? Asset.Colors.thirdFontColor.swiftUIColor : Asset.Colors.mainFontColor.swiftUIColor)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 16)
+                        
+                    }
+                    .onChange(of: tag.isSelected) { newValue in
+                        if hasSelectedTag {
+                            tag.isSelected = !newValue
                         }
-                        .toggleStyle(.button)
-                        .tint(Asset.Colors.accentColor.swiftUIColor)
-                        .background(tag.isSelected ? Asset.Colors.accentColor.swiftUIColor : Asset.Colors.inputColor.swiftUIColor)
-                        .cornerRadius(8)
-//                    }
+                    }
+                    .toggleStyle(.button)
+                    .tint(Asset.Colors.accentColor.swiftUIColor)
+                    .background(tag.isSelected ? Asset.Colors.accentColor.swiftUIColor : Asset.Colors.inputColor.swiftUIColor)
+                    .cornerRadius(8)
                     
                 }
                 
@@ -77,7 +77,7 @@ struct TagLayout: Layout {
             if (origin.x + viewSize.width + spacing) > maxWidth {
                 origin.y += viewSize.height + spacing
                 origin.x = bounds.origin.x
-
+                
                 view.place(at: origin, proposal: proposal)
                 origin.x += viewSize.width + spacing
             } else {

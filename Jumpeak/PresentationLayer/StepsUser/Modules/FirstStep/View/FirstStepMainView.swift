@@ -118,7 +118,7 @@ struct FirstStepMainView: View {
         SkillsStepView(title: Strings.enterNameOfProffession, descriptionTitle: Strings.choseOneProffession) {
             SearchBarView(title: Strings.enterNameArea, text: $viewModel.searchProffessions)
             
-            LayoutTags(tag: $viewModel.proffessions)
+            LayoutTags(tag: $viewModel.proffessions, isProffessionView: true)
                 .padding(.top, 16)
             
         } action: {
