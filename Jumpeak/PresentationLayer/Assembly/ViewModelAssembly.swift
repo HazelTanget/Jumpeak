@@ -48,6 +48,8 @@ class ViewModelAssembly: Assembly {
         container.register(SecondStepViewModel.self) { r in
             let viewModel = SecondStepViewModel()
             viewModel.projectService = r.resolve(ProjectService.self)
+            viewModel.impactService = r.resolve(ImpactService.self)
+            
 
             return viewModel
         }

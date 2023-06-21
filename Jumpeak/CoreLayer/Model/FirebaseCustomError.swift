@@ -19,6 +19,7 @@ enum FirebaseCustomError: Error {
     case userWithEmailAlreadyRegistred
     case passwordsDoesntMatch
     case passwordLengthSmall
+    case projectNameIsNil
 }
 
 extension FirebaseCustomError {
@@ -33,6 +34,8 @@ extension FirebaseCustomError {
                 return FirebaseCustomErrorO(emoji: "😔", title: Strings.brokenOnSteps)
             case .passwordLengthSmall:
                 return FirebaseCustomErrorO(emoji: "📏", title: Strings.passwordLengthSmall)
+            case .projectNameIsNil:
+                return FirebaseCustomErrorO(emoji: "", title: Strings.projectNameMustntNil)
             }
         }
         set {

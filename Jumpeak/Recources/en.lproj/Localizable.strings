@@ -55,7 +55,11 @@
 "userWithEmailAlreadyExists" = "You are already registered in our system";
 "userDoesntExsist" = "Looks like this e-mail isn’t in our database";
 "passwordLengthSmall" = "The password must contain at least 8 characters";
-
+"error" = "Error";
+"input" = "Enter";
+"cancel" = "Cancel";
+"link" = "Link";
+"projectNameMustntNil" = "Project name must not be empty";
 
 //steps menu
 "stepMenuTitle" = "Steps menu";
@@ -64,4 +68,13 @@
 
 // second step
 "createNewProject" = "Create new project";
+"nameProject" = "Project name";
+"descriptionProject" = "Project description";
+"gitHubLink" = "Project on GitHub";
+"enterGitHubLink" = "Please enter git hub link portfolio";
+"enterCorrectLink" = "Specify the correct site link";
 
+//third step
+"youveCreatedPortfolio" = "Portfolio created, only one step left!";
+"recordVideoDescription" = "Write down a little video and briefly tell about yourself: what do you like, why did you choose this profession and some fun fact about yourself";
+"recordVideoResume" = "Record video resume!";

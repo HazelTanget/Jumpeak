@@ -18,16 +18,15 @@ struct ProjectsView: View {
             }
             
             Spacer()
-        }, showAddingButton: true, firstButtonTitle: "", secondButtonTitle: "", firstButtonAction: {
-            
-        },secondButtonAction: {
+        }, action: {
             viewModel.shouldShowThirdStep = true
+            viewModel.impactService.callLightImpact()
         })
         .navigationDestination(isPresented: $viewModel.shouldShowThirdStep, destination: {
-            CommonInfoView(text: "Портфолио создано, остался всего один шаг!", descriptionText: "Запиши небольшое видео и кратко расскажи о себе: чем ты увлекаешься, почему выбрал эту профессию и какой-нибудь забавный факт о себе") {
+            CommonInfoView(text: Strings.youveCreatedPortfolio, descriptionText: Strings.recordVideoDescription) {
                 HStack {
                     NavigationLink (destination: CameraView(userId: viewModel.userId ?? "").navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
-                        AccentButton(text: "Записать видео-резюме!",
+                        AccentButton(text: Strings.recordVideoResume,
                                      foregroundColor: Asset.Colors.mainFontColor.swiftUIColor,
                                      backgroundColor: Asset.Colors.background.swiftUIColor) {
                             selection = 2
@@ -50,13 +49,16 @@ struct ProjectsView: View {
 
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-//                    viewModel.shouldShowProjectList = true
+                    viewModel.shouldShowMenu = true
                 } label: {
-                    Image(systemName: "checkmark")
+                    Image(systemName: "list.dash")
                         .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                 }
 
             }
+        }
+        .fullScreenCover(isPresented: $viewModel.shouldShowMenu) {
+            StepMenu()
         }
         .background(Asset.Colors.background.swiftUIColor)
         .preferredColorScheme(.light)
@@ -67,15 +69,15 @@ struct ProjectsView: View {
     @ViewBuilder
     private func buildOneProjectItem(project: Project) -> some View {
         HStack {
-            VStack (alignment: .leading) {
+            VStack (alignment: .leading, spacing: 0) {
                 Text(project.projectTitle ?? "")
                     .mFont(weight: .medium)
                     .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                 
-                HStack {
+                HStack (spacing: 0) {
                     if project.gitHubLink != nil {
                         Button {
-                            
+                            viewModel.didTapLinkButton(url: project.gitHubLink)
                         } label: {
                             HStack {
                              Image(systemName: "link")
@@ -83,7 +85,7 @@ struct ProjectsView: View {
                                     .frame(width: 14, height: 14)
                                     .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
 
-                                Text("Проект на GitHub")
+                                Text(Strings.gitHubLink)
                                     .sFont(weight: .medium)
                                     .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
                             }
@@ -94,13 +96,13 @@ struct ProjectsView: View {
                             .fill(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.5))
                             .frame(width: 4, height: 4)
                             .padding(.leading, 14)
-                            .padding(.trailing, 14)
                             
                     }
                     
                     Text("iOS разработчик")
                         .sFont(weight: .medium)
                         .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                        .padding(.leading, project.gitHubLink == nil ? 0 : 14)
                 }
             }
             

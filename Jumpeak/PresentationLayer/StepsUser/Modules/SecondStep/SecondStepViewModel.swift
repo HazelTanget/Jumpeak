@@ -29,8 +29,10 @@ class SecondStepViewModel: ObservableObject {
     @Published var shouldPresentGitHubSheet = false
     
     var projectService: ProjectService!
+    var impactService: ImpactService!
 
     @Published var projects = [Project]()
+    @Published var state: RegistrationState = .na
     
     
     //MARK: Private Properties
@@ -45,11 +47,11 @@ class SecondStepViewModel: ObservableObject {
         editProject.gitHubLink = gitHubLink
     }
     
-    func didTapLinkButton() {
-        guard let url = URL(string: editProject.gitHubLink ?? "") else { return }
+    func didTapLinkButton(url: String? = nil) {
+        guard let url = URL(string: url ?? editProject.gitHubLink ?? "") else { return }
         UIApplication.shared.open(url)
     }
-    
+
     func didTapNextButton() {
         shouldShowProjectList = true
     }
@@ -77,6 +79,12 @@ class SecondStepViewModel: ObservableObject {
     }
     
     func uploadProject() {
+        if editProject.projectTitle?.isEmpty ?? true {
+            state = .failed(error: FirebaseCustomError.projectNameIsNil)
+            hasErrors = true
+            return
+        }
+
         editProject.userId = userId
         projectService.uploadProject(project: editProject)
             .sink { [weak self] res in

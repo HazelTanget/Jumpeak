@@ -55,6 +55,11 @@
 "userWithEmailAlreadyExists" = "Вы уже зарегестрированны в нашей системе.";
 "userDoesntExsist" = "Похоже, этой почты нет в нашей базе";
 "passwordLengthSmall" = "Пароль должен содержать минимум 8 символов";
+"error" = "Ошибка";
+"input" = "Ввести";
+"cancel" = "Отмена";
+"link" = "Ссылка";
+"projectNameMustntNil" = "Название проекта не должно быть пустым";
 
 //steps menu
 "stepMenuTitle" = "Меню создание резюме";
@@ -63,3 +68,14 @@
 
 // second step
 "createNewProject" = "Создать новый проект";
+"nameProject" = "Название проекта";
+"descriptionProject" = "Описание проекта";
+"gitHubLink" = "Проекта на GitHub";
+"enterGitHubLink" = "Пожалуйста, введите ссылку проекта на GitHub";
+"enterCorrectLink" = "Укажите корректную ссылку";
+
+//third step
+"youveCreatedPortfolio" = "Портфолио создано, остался всего один шаг!";
+"recordVideoDescription" = "Запиши небольшое видео и кратко расскажи о себе: чем ты увлекаешься, почему выбрал эту профессию и какой-нибудь забавный факт о себе";
+"recordVideoResume" = "Записать видео-резюме!";
+

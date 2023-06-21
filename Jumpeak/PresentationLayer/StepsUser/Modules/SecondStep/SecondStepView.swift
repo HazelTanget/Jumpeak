@@ -16,19 +16,28 @@ struct SecondStepView: View {
                 ProjectsView()
                     .navigationBarBackButtonHidden(true)
             })
-            .alert("Git hub link", isPresented: $viewModel.shouldPresentGitHubSheet, actions: {
-                TextField("Link", text: $viewModel.gitHubLink)
+            .alert(Strings.gitHubLink, isPresented: $viewModel.shouldPresentGitHubSheet, actions: {
+                TextField(Strings.link, text: $viewModel.gitHubLink)
                 
-                Button("Enter", action: {
+                Button(Strings.input, action: {
                     viewModel.saveLink()
                 })
-                Button("Cancel", role: .cancel, action: {})
+                Button(Strings.cancel, role: .cancel, action: {})
             }, message: {
-                Text("Please enter git hub link portfolio.")
+                Text(Strings.enterGitHubLink)
             })
             .alert(isPresented: $viewModel.hasErrors) {
-                Alert(title: Text("Ошибка"),
-                      message: Text("Укажите корректную ссылку"))
+                if case .failed(let error) = viewModel.state {
+                    return Alert(title: Text(Strings.error),
+                                 message: Text(error.errorO.title))
+                } else {
+                    return Alert(title: Text(Strings.error),
+                          message: Text(Strings.whatSoftSkillsDoUHave))
+                }
+            }
+            .onChange(of: viewModel.editProject.projectTitle) { newValue in
+                viewModel.hasErrors = false
+                viewModel.state = .na
             }
             .navigationTitle(Strings.secondStepPorfolio)
             .toolbar {
@@ -64,7 +73,7 @@ struct SecondStepView: View {
                             .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
                             .frame(width: 16, height: 16)
 
-                        Text("Проект на GitHub")
+                        Text(Strings.gitHubLink)
                             .sFont(weight: .medium)
                             .foregroundColor(Asset.Colors.accentColor.swiftUIColor)
                     }
@@ -72,11 +81,12 @@ struct SecondStepView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             
-            TextField("Название проекта", text: $viewModel.editProject.projectTitle.toUnwrapped(defaultValue: ""))
+            TextField(Strings.nameProject, text: $viewModel.editProject.projectTitle.toUnwrapped(defaultValue: ""), axis: .vertical)
                 .xlFont(weight: .semibold)
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                .lineLimit(2)
             
-            TextField("Описание проекта", text: $viewModel.editProject.projectDescription.toUnwrapped(defaultValue: ""))
+            TextField(Strings.descriptionProject, text: $viewModel.editProject.projectDescription.toUnwrapped(defaultValue: ""), axis: .vertical)
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -104,14 +114,5 @@ struct SecondStepView: View {
 struct SecondStepView_Previews: PreviewProvider {
     static var previews: some View {
         SecondStepView()
-    }
-}
-
-
-struct AddGitHubSheet: View {
-    var body: some View {
-        VStack {
-            
-        }
     }
 }

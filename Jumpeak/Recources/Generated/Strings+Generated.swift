@@ -15,6 +15,8 @@ public enum Strings {
   /// later, but you have to do
   /// all of them
   public static let brokenOnSteps = Strings.tr("Localizable", "brokenOnSteps", fallback: "We’ve broken it down into\nsteps, you can do some of them a little bit\nlater, but you have to do\nall of them")
+  /// Cancel
+  public static let cancel = Strings.tr("Localizable", "cancel", fallback: "Cancel")
   /// Can't get in?
   public static let cantGetIn = Strings.tr("Localizable", "cantGetIn", fallback: "Can't get in?")
   /// See what else you need to fill out to make your card visible to employers:
@@ -43,6 +45,8 @@ public enum Strings {
   public static let createResume = Strings.tr("Localizable", "createResume", fallback: "First you need to create\nyour resume card, which will\nbe seen by employers")
   /// The final step is to create a strong password
   public static let createStrongPass = Strings.tr("Localizable", "createStrongPass", fallback: "The final step is to create a strong password")
+  /// Project description
+  public static let descriptionProject = Strings.tr("Localizable", "descriptionProject", fallback: "Project description")
   /// Upload your photo. This will make it easier for employers to meet you
   public static let donwloadPhoto = Strings.tr("Localizable", "donwloadPhoto", fallback: "Upload your photo. This will make it easier for employers to meet you")
   /// Do you have any experience working or interning in this or similar profession?
@@ -55,14 +59,22 @@ public enum Strings {
   public static let enter = Strings.tr("Localizable", "enter", fallback: "Sign in")
   /// Enter your confirmation code, we’ve sent it to you
   public static let enterCode = Strings.tr("Localizable", "enterCode", fallback: "Enter your confirmation code, we’ve sent it to you")
+  /// Specify the correct site link
+  public static let enterCorrectLink = Strings.tr("Localizable", "enterCorrectLink", fallback: "Specify the correct site link")
   /// Enter your confirmation code in your mail
   public static let enterEmailWithPassCode = Strings.tr("Localizable", "enterEmailWithPassCode", fallback: "Enter your confirmation code in your mail")
+  /// Please enter git hub link portfolio
+  public static let enterGitHubLink = Strings.tr("Localizable", "enterGitHubLink", fallback: "Please enter git hub link portfolio")
   /// Enter name field
   public static let enterNameArea = Strings.tr("Localizable", "enterNameArea", fallback: "Enter name field")
   /// Now indicate the name of your profession
   public static let enterNameOfProffession = Strings.tr("Localizable", "enterNameOfProffession", fallback: "Now indicate the name of your profession")
+  /// Error
+  public static let error = Strings.tr("Localizable", "error", fallback: "Error")
   /// First step. Base info
   public static let firstStepBaseInfo = Strings.tr("Localizable", "firstStepBaseInfo", fallback: "First step. Base info")
+  /// Project on GitHub
+  public static let gitHubLink = Strings.tr("Localizable", "gitHubLink", fallback: "Project on GitHub")
   /// Localizable.strings
   ///   Jumpeak
   /// 
@@ -70,10 +82,16 @@ public enum Strings {
   public static let helloText = Strings.tr("Localizable", "helloText", fallback: "Hi!\nThis is Jumpeak - the place where meet students and employers")
   /// Imagine password
   public static let imaginePassword = Strings.tr("Localizable", "imaginePassword", fallback: "Imagine password")
+  /// Enter
+  public static let input = Strings.tr("Localizable", "input", fallback: "Enter")
   /// This step can be completed later, but it is mandatory
   public static let itDefinetlyAction = Strings.tr("Localizable", "itDefinetlyAction", fallback: "This step can be completed later, but it is mandatory")
   /// Let's start!
   public static let letsStart = Strings.tr("Localizable", "letsStart", fallback: "Let's start!")
+  /// Link
+  public static let link = Strings.tr("Localizable", "link", fallback: "Link")
+  /// Project name
+  public static let nameProject = Strings.tr("Localizable", "nameProject", fallback: "Project name")
   /// Next
   public static let next = Strings.tr("Localizable", "next", fallback: "Next")
   /// It’s okay if you don’t have real experience
@@ -88,6 +106,12 @@ public enum Strings {
   public static let passwordDontMatch = Strings.tr("Localizable", "passwordDontMatch", fallback: "Passwords do not match")
   /// The password must contain at least 8 characters
   public static let passwordLengthSmall = Strings.tr("Localizable", "passwordLengthSmall", fallback: "The password must contain at least 8 characters")
+  /// Project name must not be empty
+  public static let projectNameMustntNil = Strings.tr("Localizable", "projectNameMustntNil", fallback: "Project name must not be empty")
+  /// Write down a little video and briefly tell about yourself: what do you like, why did you choose this profession and some fun fact about yourself
+  public static let recordVideoDescription = Strings.tr("Localizable", "recordVideoDescription", fallback: "Write down a little video and briefly tell about yourself: what do you like, why did you choose this profession and some fun fact about yourself")
+  /// Record video resume!
+  public static let recordVideoResume = Strings.tr("Localizable", "recordVideoResume", fallback: "Record video resume!")
   /// Second step. Portfolio
   public static let secondStepPorfolio = Strings.tr("Localizable", "secondStepPorfolio", fallback: "Second step. Portfolio")
   /// Skip
@@ -112,6 +136,8 @@ public enum Strings {
   public static let whatSoftSkillsDoUHave = Strings.tr("Localizable", "whatSoftSkillsDoUHave", fallback: "What soft skills do you have?")
   /// Yes, there is!
   public static let yesIHave = Strings.tr("Localizable", "yesIHave", fallback: "Yes, there is!")
+  /// Portfolio created, only one step left!
+  public static let youveCreatedPortfolio = Strings.tr("Localizable", "youveCreatedPortfolio", fallback: "Portfolio created, only one step left!")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
