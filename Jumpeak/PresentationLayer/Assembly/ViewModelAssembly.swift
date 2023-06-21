@@ -20,6 +20,7 @@ class ViewModelAssembly: Assembly {
         container.register(RegistrationViewModel.self) { r in
             let viewModel = RegistrationViewModel()
             viewModel.service = r.resolve(FirebaseAuthService.self)
+            viewModel.impactService = r.resolve(ImpactService.self)
             
             return viewModel
         }

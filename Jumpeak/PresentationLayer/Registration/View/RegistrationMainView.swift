@@ -74,7 +74,7 @@ struct RegistrationMainView: View {
         .onChange(of: viewModel.userExists, perform: { newValue in
             if newValue {
                 withAnimation {
-                    viewModel.selection += 1
+                    viewModel.changeStep()
                 }
             }
         })
@@ -96,7 +96,9 @@ struct RegistrationMainView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         } action: {
             if viewModel.passwordValid {
-                viewModel.selection += 1
+                withAnimation {
+                    viewModel.changeStep()
+                }
             }
         }
         .onReceive(viewModel.$codeFields) { (value) in
@@ -132,6 +134,7 @@ struct RegistrationMainView: View {
             
         } action: {
             viewModel.registerUser()
+            viewModel.impactService.callLightImpact()
         }
         .tag(2)
     }

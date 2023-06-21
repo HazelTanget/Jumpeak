@@ -38,6 +38,7 @@ class RegistrationViewModel: ObservableObject {
 
     //MARK: DI
     var service: FirebaseAuthService!
+    var impactService: ImpactService!
 
     //MARK: Private Properties
     private var subscriptions = Set<AnyCancellable>()
@@ -100,5 +101,10 @@ class RegistrationViewModel: ObservableObject {
     func configureFirstStepView(userId: String?) {
         let firstStepViewModel = ApplicationAssemby.defaultContainer.resolve(FirstStepViewModel.self)
         firstStepViewModel?.selectedData.userId = userId
+    }
+    
+    func changeStep() {
+        selection += 1
+        impactService.callLightImpact()
     }
 }
