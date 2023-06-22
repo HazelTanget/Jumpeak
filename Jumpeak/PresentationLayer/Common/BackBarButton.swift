@@ -10,12 +10,18 @@ import SwiftUI
 struct BackBarButton: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    var isVariantColor: Bool
+    
+    init(isVariantColor: Bool = false) {
+        self.isVariantColor = isVariantColor
+    }
+    
     var body: some View {
         Button(action: {
             presentationMode.wrappedValue.dismiss()
         }, label: {
             Image(systemName: "chevron.left")
-                .foregroundColor(Asset.Colors.backBarButtonColor.swiftUIColor)
+                .foregroundColor(isVariantColor ? Asset.Colors.background.swiftUIColor : Asset.Colors.backBarButtonColor.swiftUIColor)
                 .font(.system(size: 14, weight: .medium))
         })
     }

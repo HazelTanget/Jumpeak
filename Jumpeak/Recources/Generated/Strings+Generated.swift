@@ -112,6 +112,8 @@ public enum Strings {
   public static let recordVideoDescription = Strings.tr("Localizable", "recordVideoDescription", fallback: "Write down a little video and briefly tell about yourself: what do you like, why did you choose this profession and some fun fact about yourself")
   /// Record video resume!
   public static let recordVideoResume = Strings.tr("Localizable", "recordVideoResume", fallback: "Record video resume!")
+  /// seconds
+  public static let seconds = Strings.tr("Localizable", "seconds", fallback: "seconds")
   /// Second step. Portfolio
   public static let secondStepPorfolio = Strings.tr("Localizable", "secondStepPorfolio", fallback: "Second step. Portfolio")
   /// Skip

@@ -13,8 +13,12 @@ struct ProjectsView: View {
     
     var body: some View {
         SkillsStepView(stepContent: {
-            ForEach(viewModel.projects, id: \.id) { project in
-                buildOneProjectItem(project: project)
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(viewModel.projects, id: \.id) { project in
+                        buildOneProjectItem(project: project)
+                    }
+                }
             }
             
             Spacer()

@@ -17,6 +17,8 @@ struct CameraView: View {
     
     private var secondsCount: Double = 10
     
+    @State private var tickedReverseTime = 10
+    
     var userId: String
     
     @StateObject var cameraViewModel = CameraModel()
@@ -28,42 +30,52 @@ struct CameraView: View {
     }
     
     var body: some View {
-            ZStack (alignment: .bottom){
-                GeometryReader { proxy in
-                    let size = proxy.size
-                    CameraModelPreview(size: size)
-                        .environmentObject(cameraViewModel)
-                }
-                .navigationDestination(isPresented: $shouldShowDetailView, destination: {
-                    if let url = cameraViewModel.preivewURL {
-                        FinalPreview(url: url)
-                            .environmentObject(cameraViewModel)
-                            .navigationBarBackButtonHidden(true)
-                    }
-                })
-                .onAppear {
-                    cameraViewModel.checkPermissions()
-                    timer.upstream.connect().cancel()
-                }
-                .onReceive(timer) { newValue in
-                    tickedTime += 1
-                    
-                    guard tickedTime == secondsCount + 1 else {
-                        return
-                    }
-                    
-                    timer.upstream.connect().cancel()
-                    cameraViewModel.stopRecording()
-                    shouldShowDetailView = true
-                }
-                
-                buttonVideoView
-                    .padding(.bottom, 64)
-                
+        ZStack (alignment: .bottom){
+            GeometryReader { proxy in
+                let size = proxy.size
+                CameraModelPreview(size: size)
+                    .environmentObject(cameraViewModel)
             }
-            .ignoresSafeArea()
-            .background(.black)
-
+            .navigationDestination(isPresented: $shouldShowDetailView, destination: {
+                if let url = cameraViewModel.preivewURL {
+                    FinalPreview(url: url)
+                        .environmentObject(cameraViewModel)
+                        .navigationBarBackButtonHidden(true)
+                }
+            })
+            .toolbar {
+                ToolbarItem (placement: .navigationBarLeading){
+                    BackBarButton(isVariantColor: true)
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    timerLabel
+                }
+            }
+            .onAppear {
+                cameraViewModel.checkPermissions()
+                timer.upstream.connect().cancel()
+            }
+            .onReceive(timer) { newValue in
+                tickedTime += 1
+                tickedReverseTime -= 1
+                
+                guard tickedTime == secondsCount + 1 else {
+                    return
+                }
+                
+                timer.upstream.connect().cancel()
+                cameraViewModel.stopRecording()
+                shouldShowDetailView = true
+            }
+            
+            buttonVideoView
+                .padding(.bottom, 64)
+            
+        }
+        .ignoresSafeArea()
+        .background(.black)
+        
     }
     
     var buttonVideoView: some View {
@@ -92,7 +104,7 @@ struct CameraView: View {
                     guard tickedTime == 1 else {
                         return
                     }
-
+                    
                     timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                     cameraViewModel.startRecording()
                     
@@ -101,12 +113,31 @@ struct CameraView: View {
         
     }
     
-
+    var timerLabel: some View {
+        ZStack {
+            Text("\(tickedReverseTime) \(Strings.seconds)")
+                .padding(8)
+        }
+        .background(Asset.Colors.background.swiftUIColor)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+    
+    
 }
 
 struct FinalPreview: View {
     @EnvironmentObject var viewModel: CameraModel
     var url: URL
+    @State private var showPlayerControls = false
+    
+    init(url: URL) {
+        self.url = url
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Asset.Colors.background]
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Asset.Colors.background]
+    }
+    
     var body: some View {
         GeometryReader { proxy in
             let size = proxy.size
@@ -114,28 +145,76 @@ struct FinalPreview: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: size.width, height: size.height, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .overlay {
+                    Rectangle()
+                        .fill(.black.opacity(0.4))
+                        .opacity(showPlayerControls ? 1 : 0)
+                }
         }
         .padding(.vertical, 24)
         .padding(.horizontal, 16)
         .toolbar {
             ToolbarItem (placement: .navigationBarLeading){
-                BackBarButton()
+                BackBarButton(isVariantColor: true)
             }
         }
         .navigationTitle("Видео-резюме")
         .overlay {
-            Button {
-                viewModel.uploadTOFireBaseVideo(url: url) { success in
-                    print("dfjskf")
-                } failure: { error in
+            VStack {
+                Text("Вот что получилось")
+                    .lFont(weight: .medium)
+                    .foregroundColor(Asset.Colors.background.swiftUIColor.opacity(0.65))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 16)
+                    .padding(.top, 24)
+                
+                
+                Spacer()
+                
+                
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text("Ваня Аверьянов")
+                            .xlFont(weight: .semibold)
+                            .foregroundColor(Asset.Colors.background.swiftUIColor)
+                        
+                        Text("Product designer")
+                            .mFont(weight: .semibold)
+                            .foregroundColor(Asset.Colors.background.swiftUIColor)
+                    }
+                    .padding(.bottom, 24)
+                    .padding(.leading, 24)
                     
+                    Spacer()
+                    
+                    Button {
+                        viewModel.uploadTOFireBaseVideo(url: url) { success in
+                            print("dfjskf")
+                        } failure: { error in
+                            
+                        }
+                        
+                    } label: {
+                        
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                            .frame(width: 24, height: 24)
+                            .padding(8)
+                            .background(Asset.Colors.background.swiftUIColor)
+                            .clipShape(Circle())
+                            
+                    }
+                    .padding(.trailing, 24)
+                    .padding(.bottom, 24)
                 }
-
-            } label: {
-                Text("upload data")
+                
             }
-
+            .padding(.vertical, 24)
+            .padding(.horizontal, 16)
         }
+        .preferredColorScheme(.dark)
+        .background(.black)
     }
 }
 
@@ -152,7 +231,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
     @Published var recorderUrls: [URL] = []
     @Published var preivewURL: URL?
     
-
+    
     func checkPermissions() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
@@ -217,52 +296,52 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
     }
     
     func uploadTOFireBaseVideo(url: URL,
-                                      success : @escaping (String) -> Void,
-                                      failure : @escaping (Error) -> Void) {
-
+                               success : @escaping (String) -> Void,
+                               failure : @escaping (Error) -> Void) {
+        
         let name = "\(Int(Date().timeIntervalSince1970)).mp4"
         let path = NSTemporaryDirectory() + name
-
+        
         let dispatchgroup = DispatchGroup()
-
+        
         dispatchgroup.enter()
-
+        
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let outputurl = documentsURL.appendingPathComponent(name)
         var ur = outputurl
         self.convertVideo(toMPEG4FormatForVideo: url as URL, outputURL: outputurl) { (session) in
-
+            
             ur = session.outputURL!
             dispatchgroup.leave()
-
+            
         }
         dispatchgroup.wait()
-
+        
         let data = NSData(contentsOf: ur as URL)
-
+        
         do {
-
+            
             try data?.write(to: URL(fileURLWithPath: path), options: .atomic)
-
+            
         } catch {
-
+            
             print(error)
         }
-
+        
         Firestore.firestore()
             .collection(FirebaseCollection.userBaseInfo.rawValue)
             .document(baseInfoId ?? "")
             .updateData(["videoPath": "Videos/\(name)"])
-
+        
         let storageRef = Storage.storage().reference().child("Videos").child(name)
         if let uploadData = data as Data? {
             storageRef.putData(uploadData, metadata: nil
-                , completion: { (metadata, error) in
-                    if let error = error {
-                        failure(error)
-                    }else{
-                        success("success")
-                    }
+                               , completion: { (metadata, error) in
+                if let error = error {
+                    failure(error)
+                }else{
+                    success("success")
+                }
             })
         }
     }
@@ -270,7 +349,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
     func convertVideo(toMPEG4FormatForVideo inputURL: URL, outputURL: URL, handler: @escaping (AVAssetExportSession) -> Void) {
         try? FileManager.default.removeItem(at: outputURL as URL)
         let asset = AVURLAsset(url: inputURL as URL, options: nil)
-
+        
         let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality)!
         exportSession.outputURL = outputURL
         exportSession.outputFileType = .mp4
