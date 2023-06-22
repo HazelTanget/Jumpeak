@@ -283,6 +283,11 @@ class FirstStepViewModel: ObservableObject {
                 return
             }
         }
+        
+        let addViewModel = ApplicationAssemby.defaultContainer.resolve(StepMenuViewModelImpl.self)
+        addViewModel?.configure(with: selectedData)
+        let secondVM = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)
+        secondVM?.selectedData = selectedData
     }
     
     func uploadData() {

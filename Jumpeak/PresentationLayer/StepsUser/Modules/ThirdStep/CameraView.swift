@@ -20,13 +20,18 @@ struct CameraView: View {
     @State private var tickedReverseTime = 10
     
     var userId: String
+    var userFi: String
+    var userProff: String
     
     @StateObject var cameraViewModel = CameraModel()
     @State var tickedTime: Double = 1
     @State var shouldShowDetailView = false
     
-    init(userId: String) {
+    init(userId: String, userFi: String, userProff: String) {
         self.userId = userId
+        self.userFi = userFi
+        self.userProff = userProff
+        
     }
     
     var body: some View {
@@ -38,7 +43,7 @@ struct CameraView: View {
             }
             .navigationDestination(isPresented: $shouldShowDetailView, destination: {
                 if let url = cameraViewModel.preivewURL {
-                    FinalPreview(url: url)
+                    FinalPreview(url: url, userFi: userFi, userProff: userProff)
                         .environmentObject(cameraViewModel)
                         .navigationBarBackButtonHidden(true)
                 }
@@ -128,14 +133,19 @@ struct CameraView: View {
 struct FinalPreview: View {
     @EnvironmentObject var viewModel: CameraModel
     var url: URL
+    var userFi: String
+    var userProff: String
     @State private var showPlayerControls = false
     
-    init(url: URL) {
+    init(url: URL,userFi: String, userProff: String) {
         self.url = url
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Asset.Colors.background]
         //Use this if NavigationBarTitle is with displayMode = .inline
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Asset.Colors.background]
+        self.userFi = userFi
+        self.userProff = userProff
+        
     }
     
     var body: some View {
@@ -174,11 +184,11 @@ struct FinalPreview: View {
                 
                 HStack {
                     VStack (alignment: .leading) {
-                        Text("Ваня Аверьянов")
+                        Text(userFi)
                             .xlFont(weight: .semibold)
                             .foregroundColor(Asset.Colors.background.swiftUIColor)
                         
-                        Text("Product designer")
+                        Text(userProff)
                             .mFont(weight: .semibold)
                             .foregroundColor(Asset.Colors.background.swiftUIColor)
                     }
@@ -197,7 +207,6 @@ struct FinalPreview: View {
                     } label: {
                         
                         Image(systemName: "chevron.right")
-                            .resizable()
                             .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                             .frame(width: 24, height: 24)
                             .padding(8)
@@ -224,12 +233,12 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
     @Published var showAlert = false
     @Published var output = AVCaptureMovieFileOutput()
     @Published var preview: AVCaptureVideoPreviewLayer!
-    var baseInfoId: String?
     
     //MARK: Video Recorder Properties
     @Published var isRecording = false
     @Published var recorderUrls: [URL] = []
     @Published var preivewURL: URL?
+    
     
     
     func checkPermissions() {
@@ -328,10 +337,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
             print(error)
         }
         
-        Firestore.firestore()
-            .collection(FirebaseCollection.userBaseInfo.rawValue)
-            .document(baseInfoId ?? "")
-            .updateData(["videoPath": "Videos/\(name)"])
         
         let storageRef = Storage.storage().reference().child("Videos").child(name)
         if let uploadData = data as Data? {
@@ -341,6 +346,13 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate, AV
                     failure(error)
                 }else{
                     success("success")
+                    
+                    let addViewModel = ApplicationAssemby.defaultContainer.resolve(StepMenuViewModelImpl.self)
+                    addViewModel?.hasVideo = true
+                    
+                    let service = ApplicationAssemby.defaultContainer.resolve(SessionService.self)
+                    service?.shouldShowAuthView = false
+                    service?.updateState()
                 }
             })
         }

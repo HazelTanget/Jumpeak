@@ -54,5 +54,12 @@ class ViewModelAssembly: Assembly {
             return viewModel
         }
         .inObjectScope(.container)
+        
+        container.register(StepMenuViewModelImpl.self) { r in
+            let viewModel = StepMenuViewModelImpl()
+
+            return viewModel
+        }
+        .inObjectScope(.container)
     }
 }

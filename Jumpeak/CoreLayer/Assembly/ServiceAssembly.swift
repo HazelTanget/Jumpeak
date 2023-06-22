@@ -17,7 +17,7 @@ class ServiceAssembly: Assembly {
         container.register(SessionService.self) { r in
             SessionService()
         }
-        .inObjectScope(.transient)
+        .inObjectScope(.container)
         
         container.register(HardSkillsService.self) { r in
             HardSkillsServiceImpl()

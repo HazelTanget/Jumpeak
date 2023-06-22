@@ -29,7 +29,7 @@ struct ProjectsView: View {
         .navigationDestination(isPresented: $viewModel.shouldShowThirdStep, destination: {
             CommonInfoView(text: Strings.youveCreatedPortfolio, descriptionText: Strings.recordVideoDescription) {
                 HStack {
-                    NavigationLink (destination: CameraView(userId: viewModel.userId ?? "").navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
+                    NavigationLink (destination: CameraView(userId: viewModel.userId ?? "", userFi: "\(viewModel.userData?.lastName ?? "") \(viewModel.userData?.firstName ?? "")", userProff: viewModel.selectedData.selectedProffessions.first?.name ?? "").navigationBarBackButtonHidden(true), tag: 2, selection: $selection, label: {
                         AccentButton(text: Strings.recordVideoResume,
                                      foregroundColor: Asset.Colors.mainFontColor.swiftUIColor,
                                      backgroundColor: Asset.Colors.background.swiftUIColor) {

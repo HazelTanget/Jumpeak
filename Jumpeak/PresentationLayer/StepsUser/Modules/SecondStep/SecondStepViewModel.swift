@@ -34,6 +34,9 @@ class SecondStepViewModel: ObservableObject {
     @Published var projects = [Project]()
     @Published var state: RegistrationState = .na
     
+    var selectedData = SelectedFirstDataUser()
+    var userData: UnregistredUsers?
+    
     
     //MARK: Private Properties
     private var subscriptions = Set<AnyCancellable>()

@@ -11,9 +11,14 @@ import Kingfisher
 struct StepMenu: View {
     @Environment(\.dismiss) private var dismiss
     
+    @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(StepMenuViewModelImpl.self)!
+
     var body: some View {
         VStack {
             userInfo
+                .onAppear {
+                    viewModel.getURL()
+                }
 
             Text(Strings.checkWhatNeedToBoss)
                 .mFont()
@@ -26,7 +31,7 @@ struct StepMenu: View {
             
             Spacer()
         }
-        .navigationTitle(Strings.enter)
+        .navigationTitle(Strings.stepMenuTitle)
         .toolbar {
             ToolbarItem (placement: .navigationBarLeading){
                 BackBarButton()
@@ -42,18 +47,23 @@ struct StepMenu: View {
     
     var userInfo: some View {
         VStack {
-            Image("bg")
+            KFImage(viewModel.url)
+                .placeholder({
+                    Circle()
+                        .fill(Asset.Colors.inputColor.swiftUIColor)
+                        .frame(width: 88, height: 88)
+                })
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(width: 88, height: 88)
                 .clipShape(Circle())
             
-            Text("Кирилл Кирилленко")
+            Text("\(viewModel.user?.lastName ?? "") \(viewModel.user?.firstName ?? "") \(viewModel.user?.middleName ?? "")")
                 .mFont()
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                 .padding(.top, 8)
             
-            Text("Product designer")
+            Text("\(viewModel.userData?.selectedProffessions.first?.name ?? "")")
                 .sFont()
                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.4))
         }
@@ -87,13 +97,19 @@ struct StepMenu: View {
                 .padding(.leading, 16)
             
             VStack (alignment: .leading) {
-                Text(Strings.completedSteps("5", "6"))
-                    .foregroundColor(Asset.Colors.warningColor.swiftUIColor)
+                Text(Strings.completedSteps("\(getCount(info: resumeType))", resumeType.maxCountOfStep))
+                    .foregroundColor(calculateColor(info: resumeType))
                     .sFont(weight: .medium)
                 
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(Asset.Colors.warningColor.swiftUIColor)
-                    .frame(height: 4)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(calculateColor(info: resumeType))
+                        .frame(height: 4)
+   
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Asset.Colors.background.swiftUIColor)
+                        .frame(height: 4)
+                }
                 
                 Text(resumeType.title)
                     .mFont(weight: .medium)
@@ -123,7 +139,43 @@ struct StepMenu: View {
         .cornerRadius(8)
     }
     
+    func calculateColor(info: InfoUserResume) -> Color {
+        switch info {
+        case .baseInfo:
+            switch viewModel.countOfBaseInfo {
+            case 0..<2:
+                return Asset.Colors.errorColor.swiftUIColor
+            case 0..<4:
+                return Asset.Colors.warningColor.swiftUIColor
+            case 0..<6:
+                return Asset.Colors.successColor.swiftUIColor
+            default: return Asset.Colors.successColor.swiftUIColor
+            }
+        case .portfolio:
+            switch viewModel.countOfPortfolio {
+            case 0..<1:
+                return Asset.Colors.warningColor.swiftUIColor
+            case 0..<2:
+                return Asset.Colors.successColor.swiftUIColor
+            default: return Asset.Colors.warningColor.swiftUIColor
+            }
+        case .video:
+            switch viewModel.countOfVideoInfo {
+            case 1..<2:
+                return Asset.Colors.successColor.swiftUIColor
+            default:
+                return Asset.Colors.warningColor.swiftUIColor
+            }
+        }
+    }
     
+    func getCount(info: InfoUserResume) -> Int {
+        switch info {
+        case .baseInfo: return viewModel.countOfBaseInfo
+        case .portfolio: return viewModel.countOfPortfolio
+        case .video: return viewModel.countOfVideoInfo
+        }
+    }
 }
 
 struct StepMenu_Previews: PreviewProvider {
@@ -160,6 +212,14 @@ enum InfoUserResume: CaseIterable {
         case .baseInfo: return "🖋️"
         case .portfolio: return "💼"
         case .video: return "📹"
+        }
+    }
+    
+    var maxCountOfStep: String {
+        switch self {
+        case .baseInfo: return "6"
+        case .portfolio: return "2"
+        case .video: return "1"
         }
     }
 }

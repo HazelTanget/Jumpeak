@@ -14,15 +14,22 @@ final class SessionService: ObservableObject {
     @Published var userDetails: UnregistredUsers?
     
     @Published var userID: String?
-    
+    @Published var shouldShowAuthView: Bool = true
+
     private var handler: AuthStateDidChangeListenerHandle?
 
     init() {
         setupAuthHandler()
+        checkValue()
     }
     
     func logout() {
         try? Auth.auth().signOut()
+    }
+    
+    func updateState() {
+        state = shouldShowAuthView ? .loggedOut : .loggedIn
+        UserDefaults.standard.set(shouldShowAuthView, forKey: "shouldShowAuthView")
     }
 }
 
@@ -35,9 +42,8 @@ private extension SessionService {
                     self?.state = .loggedOut
                     return
                 }
-                
-//                self?.state = .loggedIn
-//                self.handleRefresh(userId: user?.uid)
+
+                self?.state = self?.shouldShowAuthView ?? true ? .loggedOut : .loggedIn
             })
     }
     
@@ -58,5 +64,10 @@ private extension SessionService {
                     }
                 }
             })
+    }
+    
+    func checkValue() {
+        let value = UserDefaults.standard.bool(forKey: "sound")
+        shouldShowAuthView = value
     }
 }
