@@ -77,25 +77,61 @@ struct CardView: View {
             VStack {
                 Spacer()
                 
-                HStack {
-                    buildSkills(skills: vacancy?.skills ?? [])
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .padding(8)
+                buildSkills(skills: vacancy?.skills ?? [])
+                
                 
                 VStack (alignment: .leading) {
                     Text(vacancy?.title ?? "")
-                        .font(.system(size: 32))
+                        .xlFont()
+                        .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                     
                     Text(vacancy?.description ?? "")
-                        .font(.system(size: 16))
+                        .mFont()
+                        .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                         .padding(.top, 8)
+                    
+                 
+                    VStack {
+                        HStack {
+                            Text(Strings.salary.uppercased())
+                                .sFont(weight: .medium)
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.4))
+                                
+                            Spacer()
+                            Text("От 75 000 ₽")
+                                .lFont(weight: .medium)
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                        }
+                        
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Asset.Colors.inputColor.swiftUIColor)
+                            .frame(height: 1)
+                        
+                        
+                        HStack {
+                            Text(Strings.typeOfEmployment.uppercased())
+                                .sFont(weight: .medium)
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor.opacity(0.4))
+                            
+                            Spacer()
+                            Text("Работа в офисе")
+                                .lFont(weight: .medium)
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                        }
+                    }
+                    .padding(.top, 40)
+
                 }
+                .padding(.vertical, 16)
+                .padding(.horizontal, 16)
+                .background(Asset.Colors.background.swiftUIColor)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
             }
+            .padding(.horizontal, 8)
+            .padding(.bottom, 8)
             
             
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.2), Color.white.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
         )
@@ -104,24 +140,24 @@ struct CardView: View {
     
     @ViewBuilder
     private func buildSkills(skills: [HardSkill]) -> some View {
-        ForEach(skills, id: \.id) { skill in
-            HStack  {
+        HStack  {
+            ForEach(skills, id: \.id) { skill in
                 Text(skill.name)
                     .font(.system(size: 18))
                     .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                     .padding(.vertical, 16)
                     .padding(.horizontal, 8)
+                    .padding(.horizontal)
+                    .background(.white)
+                    .cornerRadius(24)
             }
-            .padding(.horizontal)
-            .background(.white)
-            .cornerRadius(24)
         }
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(vacancy: Vacancy(id: UUID(), title: "Ищем архитектора Data Platform в Яндекс Клауд", description: "Сложные задачи для сервисов с миллионами пользователей", cardImage: Image("bg"), logo: Image("logo"), skills:
+        CardView(vacancy: Vacancy(id: UUID(), title: "Ищем архитектора Data Platform в Яндекс Клауд", description: "Мы ищем человека, который будет заниматься развитием инфраструктуры вокруг популярных открытых СУБД для использования в действительно больших системах с высокой нагрузкой и доступностью", cardImage: Image("bg"), logo: Image("logo"), skills:
                                     [HardSkill(name: "SwiftUI"), HardSkill(name: "Swift")], salary: 75000))
     }
 }

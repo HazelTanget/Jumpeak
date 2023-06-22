@@ -112,6 +112,8 @@ public enum Strings {
   public static let recordVideoDescription = Strings.tr("Localizable", "recordVideoDescription", fallback: "Write down a little video and briefly tell about yourself: what do you like, why did you choose this profession and some fun fact about yourself")
   /// Record video resume!
   public static let recordVideoResume = Strings.tr("Localizable", "recordVideoResume", fallback: "Record video resume!")
+  /// Salary
+  public static let salary = Strings.tr("Localizable", "salary", fallback: "Salary")
   /// seconds
   public static let seconds = Strings.tr("Localizable", "seconds", fallback: "seconds")
   /// Second step. Portfolio
@@ -124,6 +126,8 @@ public enum Strings {
   public static let strong = Strings.tr("Localizable", "strong", fallback: "Strong")
   /// Tell us more about it, it will give you an advantage over other students
   public static let tellMoreAboutIt = Strings.tr("Localizable", "tellMoreAboutIt", fallback: "Tell us more about it, it will give you an advantage over other students")
+  /// Type of employment
+  public static let typeOfEmployment = Strings.tr("Localizable", "typeOfEmployment", fallback: "Type of employment")
   /// Looks like this e-mail isn’t in our database
   public static let userDoesntExsist = Strings.tr("Localizable", "userDoesntExsist", fallback: "Looks like this e-mail isn’t in our database")
   /// You are already registered in our system

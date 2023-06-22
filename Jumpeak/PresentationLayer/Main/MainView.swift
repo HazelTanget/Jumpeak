@@ -35,6 +35,8 @@ struct MainView: View {
                 }
             
         }
+        .background(Asset.Colors.background.swiftUIColor)
+        .preferredColorScheme(.light)
     }
     
     var main: some View {
@@ -54,6 +56,7 @@ struct MainView: View {
                 }
             )
         }
+        .background(Asset.Colors.background.swiftUIColor)
     }
     
     var messages: some View {

@@ -79,3 +79,7 @@
 "recordVideoDescription" = "Write down a little video and briefly tell about yourself: what do you like, why did you choose this profession and some fun fact about yourself";
 "recordVideoResume" = "Record video resume!";
 "seconds" = "seconds";
+
+// Card view
+"typeOfEmployment" = "Type of employment";
+"salary" = "Salary";
