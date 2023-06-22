@@ -181,14 +181,41 @@ struct MainView: View {
     
     var messages: some View {
         VStack {
+            Text("Чаты")
+                .lFont()
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
             
+            ScrollView(showsIndicators: false) {
+                VStack (spacing: 8) {
+                    ForEach(0..<6) { item in
+                        HStack {
+                            VStack (alignment: .leading) {
+                                Text("АО Бифит")
+                                    .lFont(weight: .medium)
+                                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                                
+                                Text("Работадатель заинтересованн")
+                                    .sFont(weight: .medium)
+                                    .foregroundColor(Asset.Colors.successColor.swiftUIColor.opacity(0.7))
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
+                        .background(Asset.Colors.inputColor.swiftUIColor)
+                        .padding(.horizontal, 16)
+                    }
+                }
+            }
         }
     }
     
     var profile: some View {
-        VStack {
-            
-        }
+        StepMenu()
     }
 }
 
