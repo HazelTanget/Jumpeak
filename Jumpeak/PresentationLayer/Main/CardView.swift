@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import FirebaseStorage
+import Kingfisher
 
 struct CardView: View {
     var vacancy: Vacancy?
-    
+    @State var url: URL?
     
     let columns = [
         GridItem(.flexible()),
@@ -22,6 +24,7 @@ struct CardView: View {
     var body: some View {
         VStack {
             employerView()
+                .onAppear { getImage() }
             //            if card != nil {
             //                studentView()
             //            } else {
@@ -71,7 +74,10 @@ struct CardView: View {
     @ViewBuilder
     private func employerView() -> some View {
         ZStack {
-            Image("bg")
+            KFImage(url)
+                .placeholder {
+                    Asset.Colors.inputColor.swiftUIColor
+                }
                 .resizable()
             
             VStack {
@@ -139,10 +145,10 @@ struct CardView: View {
     }
     
     @ViewBuilder
-    private func buildSkills(skills: [HardSkill]) -> some View {
+    private func buildSkills(skills: [String]) -> some View {
         HStack  {
-            ForEach(skills, id: \.id) { skill in
-                Text(skill.name)
+            ForEach(skills, id: \.self) { skill in
+                Text(skill)
                     .font(.system(size: 18))
                     .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                     .padding(.vertical, 16)
@@ -153,11 +159,15 @@ struct CardView: View {
             }
         }
     }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(vacancy: Vacancy(id: UUID(), title: "Ищем архитектора Data Platform в Яндекс Клауд", description: "Мы ищем человека, который будет заниматься развитием инфраструктуры вокруг популярных открытых СУБД для использования в действительно больших системах с высокой нагрузкой и доступностью", cardImage: Image("bg"), logo: Image("logo"), skills:
-                                    [HardSkill(name: "SwiftUI"), HardSkill(name: "Swift")], salary: 75000))
+    
+    func getImage() {
+        guard let path = vacancy?.cardImage else { return }
+        let storage = Storage.storage()
+        storage.reference().child(path).downloadURL(completion: { url, error in
+            guard let url = url else {
+                return
+            }
+            self.url = url
+        })
     }
 }

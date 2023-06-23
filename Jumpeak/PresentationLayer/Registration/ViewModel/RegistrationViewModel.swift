@@ -106,10 +106,15 @@ class RegistrationViewModel: ObservableObject {
         let secondVM = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)
         secondVM?.userData = user
         
+        
+        
         guard let user = user else { return }
         
         let addViewModel = ApplicationAssemby.defaultContainer.resolve(StepMenuViewModelImpl.self)
         addViewModel?.configure(with: user)
+        
+        let sessionService = ApplicationAssemby.defaultContainer.resolve(SessionService.self)
+        sessionService?.saveDate(userDetails: user)
     }
     
     func changeStep() {

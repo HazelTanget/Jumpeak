@@ -140,9 +140,9 @@ struct FinalPreview: View {
     init(url: URL,userFi: String, userProff: String) {
         self.url = url
         //Use this if NavigationBarTitle is with Large Font
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Asset.Colors.background]
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Asset.Colors.background]
         //Use this if NavigationBarTitle is with displayMode = .inline
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Asset.Colors.background]
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Asset.Colors.background]
         self.userFi = userFi
         self.userProff = userProff
         

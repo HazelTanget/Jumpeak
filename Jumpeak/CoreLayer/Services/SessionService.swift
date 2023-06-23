@@ -12,6 +12,7 @@ import FirebaseFirestore
 final class SessionService: ObservableObject {
     @Published var state: SessionState = .loggedOut
     @Published var userDetails: UnregistredUsers?
+    @Published var savedData: SelectedFirstDataUser?
     
     @Published var userID: String?
     @Published var shouldShowAuthView: Bool = true
@@ -24,12 +25,33 @@ final class SessionService: ObservableObject {
     }
     
     func logout() {
-        try? Auth.auth().signOut()
+        shouldShowAuthView = true
+        updateState()
     }
     
     func updateState() {
         state = shouldShowAuthView ? .loggedOut : .loggedIn
         UserDefaults.standard.set(shouldShowAuthView, forKey: "shouldShowAuthView")
+    }
+    
+    func saveDate(userDetails: UnregistredUsers) {
+        self.userDetails = userDetails
+        do {
+            let data = try JSONEncoder().encode(userDetails)
+            UserDefaults.standard.set(data, forKey: "userDetail")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
+    }
+    
+    func saveUserData(userData: SelectedFirstDataUser) {
+        self.savedData = userData
+        do {
+            let data = try JSONEncoder().encode(userData)
+            UserDefaults.standard.set(data, forKey: "userData")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
     }
 }
 
@@ -67,7 +89,27 @@ private extension SessionService {
     }
     
     func checkValue() {
-        let value = UserDefaults.standard.bool(forKey: "sound")
+        let value = UserDefaults.standard.bool(forKey: "shouldShowAuthView")
         shouldShowAuthView = value
+        
+        do {
+            if let data = UserDefaults.standard.data(forKey: "userDetail") {
+                self.userDetails = try JSONDecoder().decode(UnregistredUsers.self, from: data)
+                
+            }
+            
+            if let data = UserDefaults.standard.data(forKey: "userData") {
+                self.savedData = try JSONDecoder().decode(SelectedFirstDataUser.self, from: data)
+                
+            }
+        } catch let error {
+            print("Error decoding: \(error)")
+        }
+        
+        guard let userDetails = userDetails, let savedData = savedData else { return }
+        
+        let stepViewModel = ApplicationAssemby.defaultContainer.resolve(StepMenuViewModelImpl.self)
+        stepViewModel?.configure(with: userDetails)
+        stepViewModel?.configure(with: savedData)
     }
 }

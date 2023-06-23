@@ -7,13 +7,21 @@
 
 import SwiftUI
 import CardStack
+import FirebaseFirestoreSwift
+import FirebaseFirestore
+import FirebaseAuth
+
 
 struct MainView: View {
     @State private var selection = 0
     @State private var shouldShowProffessions = false
+    @State var write = ""
+    
+    @State var selectedChat: Chat?
+    
+    @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(MainViewViewModel.self)!
     
     var vacancy: Vacancy?
-    @State private var cards = [Vacancy(id: UUID(), title: "sdfsda", description: "sfdfds", cardImage: Image("bg"), logo: Image("bg"), skills: [HardSkill(name: "Пить пиво")], salary: 75000)]
     
     var body: some View {
         TabView(selection: $selection) {
@@ -21,6 +29,10 @@ struct MainView: View {
                 .tag(0)
                 .tabItem {
                     Label("Vancies", systemImage: "mail.stack")
+                }
+                .onAppear {
+                    viewModel.getVacancies()
+                    viewModel.getMessages()
                 }
             
             messages
@@ -57,7 +69,7 @@ struct MainView: View {
                         }
                     } label: {
                         HStack {
-                            Text("Разработчик базы данных")
+                            Text("iOS Разработчик")
                                 .lFont()
                                 .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
 
@@ -96,13 +108,12 @@ struct MainView: View {
 
             CardStack(
                 direction: LeftRight.direction, // See below for directions
-                data: cards,
+                data: viewModel.vacancies,
                 onSwipe: { card, direction in // Closure to be called when a card is swiped.
                     print("Swiped \(card) to \(direction)")
                 },
                 content: { card, direction, isOnTop in // View builder function
-                    CardView(vacancy: Vacancy(id: UUID(), title: "Ищем архитектора Data Platform в Яндекс Клауд", description: "Сложные задачи для сервисов с миллионами пользователей", cardImage: Image("bg"), logo: Image("logo"), skills:
-                                                [HardSkill(name: "SwiftUI"), HardSkill(name: "Swift")], salary: 75000))
+                    CardView(vacancy: card)
                     .padding(.horizontal, 16)
                     .padding(.bottom, 12)
                     
@@ -180,38 +191,123 @@ struct MainView: View {
     }
     
     var messages: some View {
-        VStack {
-            Text("Чаты")
-                .lFont()
-                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
-            
-            ScrollView(showsIndicators: false) {
-                VStack (spacing: 8) {
-                    ForEach(0..<6) { item in
-                        HStack {
-                            VStack (alignment: .leading) {
-                                Text("АО Бифит")
-                                    .lFont(weight: .medium)
-                                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+        NavigationStack(path: $viewModel.path) {
+            VStack {
+                Text("Чаты")
+                    .lFont()
+                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                
+                ScrollView(showsIndicators: false) {
+                    VStack (spacing: 8) {
+                        ForEach(viewModel.chat, id: \.id) { item in
+                            HStack {
+                                VStack (alignment: .leading) {
+                                    Text("Яндекс")
+                                        .lFont(weight: .medium)
+                                        .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                                    
+                                    Text("Работадатель заинтересованн")
+                                        .sFont(weight: .medium)
+                                        .foregroundColor(Asset.Colors.successColor.swiftUIColor.opacity(0.7))
+                                }
                                 
-                                Text("Работадатель заинтересованн")
-                                    .sFont(weight: .medium)
-                                    .foregroundColor(Asset.Colors.successColor.swiftUIColor.opacity(0.7))
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
                             }
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 12)
+                            .background(Asset.Colors.inputColor.swiftUIColor)
+                            .padding(.horizontal, 16)
+                            .onTapGesture {
+                                viewModel.path.append(item)
+                                selectedChat = item
+                                viewModel.observeMessages(uid: item.id ?? "")
+                            }
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 12)
-                        .background(Asset.Colors.inputColor.swiftUIColor)
-                        .padding(.horizontal, 16)
                     }
                 }
             }
+            .navigationDestination(for: Chat.self) { value in
+                buildChartDetailView()
+            }
         }
+    }
+    
+    @ViewBuilder
+    private func buildChartDetailView() -> some View {
+        let uid = Auth.auth().currentUser?.uid ?? ""
+        
+        VStack {
+            Text("Чат с работадателем")
+                .lFont()
+                .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+            
+            Spacer()
+            
+            ScrollView {
+                VStack {
+                    ForEach(viewModel.messages, id: \.id) { message in
+                        ChatRow(message: message, uid: uid)
+                            .padding(.vertical,8)
+                            .padding(.horizontal,8)
+                    }
+                }
+            }
+            
+//            VStack {
+//                ForEach(chat.Messages, id: \.id) { item in
+//                    if item.User1 == uid {
+//                        HStack {
+//                            Spacer()
+//                            Text(item.Text ?? "")
+//                                .modifier(chatModifier(myMessage: true))
+//                        }.padding(.leading,75)
+//                    } else {
+//                        HStack {
+//                            Text(item.Text ?? "")
+//                                .modifier(chatModifier(myMessage: false))
+//                            Spacer()
+//                        }.padding(.trailing,75)
+//                    }
+//                }
+//            }
+//
+            HStack {
+                TextField("message...",text: self.$write).padding(10)
+                    .background(Color(red: 233.0/255, green: 234.0/255, blue: 243.0/255))
+                .cornerRadius(25)
+                
+                Button(action: {
+                    if self.write.count > 0 {
+                        uploadMessage(chat: selectedChat ?? Chat(User1: "", User2: ""), message: Message(DateTime: Date(), IDUser: uid, Text: write))
+                        self.write = ""
+                    } else {
+                        
+                    }
+                }) {
+                    Image(systemName: "paperplane.fill").font(.system(size: 20))
+                        .foregroundColor((self.write.count > 0) ? Color.blue : Color.gray)
+                        .rotationEffect(.degrees(50))
+                    
+                }
+            }.padding()
+             .padding(.bottom)
+            
+        }
+        
+        .onTapGesture {
+            UIApplication.shared.endEditing()
+        }
+    }
+    
+    func uploadMessage(chat: Chat, message: Message) {
+        try? Firestore.firestore()
+            .collection(FirebaseCollection.chat.rawValue)
+            .document(chat.id ?? "")
+            .collection("Messages")
+            .addDocument(from: message)
     }
     
     var profile: some View {
@@ -228,12 +324,48 @@ struct MainView_Previews: PreviewProvider {
 }
 
 
-struct Vacancy: Identifiable {
-    var id: UUID
+struct Vacancy: Codable, Identifiable {
+    @DocumentID var id: String?
     var title: String
     var description: String
-    var cardImage: Image
-    var logo: Image
-    var skills: [HardSkill]
+    var cardImage: String
+    var skills: [String]
     var salary: Double
+    var companyID: String
+}
+
+struct chatModifier : ViewModifier{
+    var myMessage : Bool
+    func body(content: Content) -> some View {
+        content
+            .padding(10)
+            .background(myMessage ? Color.blue : Color.black.opacity(0.5))
+            .cornerRadius(7)
+            .foregroundColor(Color.white)
+    }
+}
+
+struct ChatRow: View {
+    
+    var message: Message
+    var uid: String
+    
+    var body: some View {
+        HStack {
+            if message.IDUser == uid {
+                HStack {
+                    Spacer()
+                    Text(message.Text ?? "")
+                        .modifier(chatModifier(myMessage: true))
+                }.padding(.leading,75)
+            } else {
+                HStack {
+                    Text(message.Text ?? "")
+                        .modifier(chatModifier(myMessage: false))
+                    Spacer()
+                }.padding(.trailing,75)
+            }
+        }
+
+    }
 }

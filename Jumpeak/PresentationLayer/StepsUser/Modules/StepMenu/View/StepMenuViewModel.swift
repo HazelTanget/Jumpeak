@@ -36,7 +36,6 @@ final class StepMenuViewModelImpl: ObservableObject {
         
         calculateBaseInfo()
         calculatePortfolio()
-        calculateVideo()
     }
     
     
@@ -78,10 +77,6 @@ final class StepMenuViewModelImpl: ObservableObject {
         }
     }
     
-    private func calculateVideo() {
-        
-    }
-
     private func calculatePortfolio() {
         guard let userData = userData else { return }
         

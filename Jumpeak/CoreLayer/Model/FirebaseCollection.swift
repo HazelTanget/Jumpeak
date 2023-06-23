@@ -16,4 +16,6 @@ enum FirebaseCollection: String {
     case experience = "ExperienceUser"
     case userBaseInfo = "UserBaseInfo"
     case projects = "Projects"
+    case vacancies = "Vacancy"
+    case chat = "Chat"
 }

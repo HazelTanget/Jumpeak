@@ -12,9 +12,25 @@ struct StepMenu: View {
     @Environment(\.dismiss) private var dismiss
     
     @ObservedObject var viewModel = ApplicationAssemby.defaultContainer.resolve(StepMenuViewModelImpl.self)!
+    var sessionService = ApplicationAssemby.defaultContainer.resolve(SessionService.self)!
 
     var body: some View {
         VStack {
+            
+            HStack {
+                Spacer()
+
+                Button {
+                    sessionService.logout()
+                } label: {
+                    Text("Exit")
+                        .foregroundColor(Asset.Colors.mainFontColor.swiftUIColor)
+                        .lFont()
+                }
+
+            }
+            .padding(.horizontal, 16)
+            
             userInfo
                 .onAppear {
                     viewModel.getURL()

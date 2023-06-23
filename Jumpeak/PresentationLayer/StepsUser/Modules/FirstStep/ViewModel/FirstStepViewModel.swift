@@ -288,6 +288,9 @@ class FirstStepViewModel: ObservableObject {
         addViewModel?.configure(with: selectedData)
         let secondVM = ApplicationAssemby.defaultContainer.resolve(SecondStepViewModel.self)
         secondVM?.selectedData = selectedData
+        
+        let sessionService = ApplicationAssemby.defaultContainer.resolve(SessionService.self)
+        sessionService?.saveUserData(userData: selectedData)
     }
     
     func uploadData() {

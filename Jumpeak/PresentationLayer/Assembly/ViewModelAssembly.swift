@@ -61,5 +61,13 @@ class ViewModelAssembly: Assembly {
             return viewModel
         }
         .inObjectScope(.container)
+        
+        container.register(MainViewViewModel.self) { r in
+            let viewModel = MainViewViewModel()
+            viewModel.sessionService = r.resolve(SessionService.self)
+
+            return viewModel
+        }
+        .inObjectScope(.container)
     }
 }
